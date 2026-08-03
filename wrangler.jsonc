@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio",
+  "compatibility_date": "2026-08-03",
+  // Sitio estático: no hay script de Worker, sólo assets servidos por Cloudflare.
+  "assets": {
+    "directory": "./out",
+    // cada ruta es una carpeta con index.html (trailingSlash en Next)
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
