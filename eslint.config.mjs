@@ -10,7 +10,15 @@ const compat = new FlatCompat({ baseDirectory: __dirname });
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    ignores: ["_source-images/**", ".next/**", "node_modules/**", "scripts/**"],
+    ignores: [
+      "_source-images/**",
+      ".next/**",
+      "out/**", // export estático: es salida del build, no código fuente
+      "public/**",
+      "next-env.d.ts", // lo genera Next en cada build
+      "node_modules/**",
+      "scripts/**",
+    ],
   },
 ];
 

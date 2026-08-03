@@ -27,7 +27,9 @@ const sansUi = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://matiascolimodio.com";
+// Dominio de publicación. Si más adelante se apunta un dominio propio,
+// se cambia acá, en `sitemap.ts` y en `robots.ts`.
+const siteUrl = "https://portfolio.matiascolimodio.workers.dev";
 const title = "Matías Colimodio — Engineering, Design & Fabrication";
 const description =
   "Portfolio de Matías Colimodio: ingeniería mecánica, diseño técnico, CAD, prototipado, impresión 3D y productos digitales.";

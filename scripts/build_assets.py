@@ -18,7 +18,7 @@ import random
 import shutil
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "_source-images", "originals")
@@ -435,6 +435,59 @@ def make_textures():
     ]
 
 
+def _font(size, bold=False):
+    """Busca una tipografia del sistema; cae a la de PIL si no hay ninguna."""
+    candidates = ["segoeuib.ttf", "arialbd.ttf"] if bold else ["segoeui.ttf", "arial.ttf"]
+    for name in candidates:
+        try:
+            return ImageFont.truetype(name, size)
+        except Exception:
+            continue
+    return ImageFont.load_default()
+
+
+def make_og_image():
+    """Imagen de Open Graph (1200x630), con el mismo clima que el sitio."""
+    w, h = 1200, 630
+    og = Image.new("RGB", (w, h), (17, 17, 15))
+
+    # degradado calido desde arriba a la izquierda
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    d = np.sqrt(((xx - w * 0.18) / (w * 0.95)) ** 2 + ((yy + h * 0.25) / (h * 1.5)) ** 2)
+    glow = np.clip(1.0 - d, 0.0, 1.0) ** 1.8
+    base = np.array([17, 17, 15], dtype=np.float32)
+    warm = np.array([58, 41, 30], dtype=np.float32)
+    og = Image.fromarray(
+        (base + (warm - base) * glow[..., None]).astype(np.uint8), mode="RGB"
+    )
+
+    # madera abajo y hojas arriba, en muy baja intensidad
+    tex_dir = os.path.join(PUB, "textures")
+    wood = Image.open(os.path.join(tex_dir, "walnut.webp")).convert("RGB").resize((w, h))
+    og = Image.blend(og, wood, 0.10)
+
+    leaves = Image.open(os.path.join(tex_dir, "leaves.webp")).convert("L").resize((w, h))
+    shadow = Image.new("RGB", (w, h), (0, 0, 0))
+    og = Image.composite(Image.blend(og, shadow, 0.55), og, leaves.point(lambda v: v // 2))
+
+    draw = ImageDraw.Draw(og)
+    draw.text((80, 150), "MATÍAS COLIMODIO", font=_font(30), fill=(203, 187, 165))
+    draw.text((80, 210), "ENGINEERING /", font=_font(78, bold=True), fill=(238, 230, 216))
+    draw.text((80, 300), "DESIGN /", font=_font(78, bold=True), fill=(238, 230, 216))
+    draw.text((80, 390), "FABRICATION", font=_font(78, bold=True), fill=(238, 230, 216))
+    draw.line([(80, 505), (150, 505)], fill=(181, 139, 93), width=3)
+    draw.text(
+        (80, 530),
+        "Solving problems. Building things that last.",
+        font=_font(26),
+        fill=(203, 187, 165),
+    )
+
+    out = os.path.join(ROOT, "src", "app", "opengraph-image.png")
+    og.save(out, format="PNG", optimize=True)
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Proceso principal
 # ---------------------------------------------------------------------------
@@ -482,6 +535,9 @@ def main():
 
     textures = make_textures()
     print("ok  texturas procedurales: %s" % ", ".join(textures))
+
+    og = make_og_image()
+    print("ok  imagen de Open Graph: %s" % os.path.relpath(og, ROOT))
 
     # copia la referencia de diseno a docs (no se publica en public/)
     os.makedirs(DOCS, exist_ok=True)
