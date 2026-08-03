@@ -181,6 +181,9 @@ nunca deja un hueco en la página.
 
 ## Publicación
 
+- **Repositorio:** <https://github.com/MATKROL77/portfolio>
+- **Sitio:** <https://portfolio.matiascolimodio.workers.dev>
+
 ```bash
 npm run deploy
 ```
@@ -191,6 +194,42 @@ Hace el build estático a `out/` y lo sube al Worker definido en
 ```bash
 npx wrangler login
 ```
+
+---
+
+## Trabajar desde otro dispositivo
+
+El proyecto vive en GitHub, así que no depende de esta computadora. Desde el
+celular, una tablet u otra máquina, con la misma cuenta:
+
+1. **Claude Code en la web o en el celular** (<https://claude.ai/code>):
+   conectá el repositorio `MATKROL77/portfolio` y pedí los cambios. Claude ya
+   encuentra el contexto del proyecto en `CLAUDE.md`.
+2. **Otra computadora:**
+
+   ```bash
+   git clone https://github.com/MATKROL77/portfolio.git
+   cd portfolio
+   npm install
+   npm run dev
+   ```
+
+Para que los cambios queden en el sitio publicado hay que hacer commit, push y
+`npm run deploy`. Si en algún momento querés que se publique solo con cada push,
+se puede conectar el repositorio directamente desde el panel de Cloudflare
+(Workers → el proyecto → Settings → Build).
+
+### Qué hace falta en cada máquina
+
+- **Node 20 o superior** para correr el sitio.
+- **Python con Pillow y numpy**, sólo si vas a regenerar imágenes
+  (`npm run assets`). Para editar textos no hace falta.
+- **Chrome**, sólo si vas a regenerar el PDF del CV o tomar capturas.
+- Para publicar: `npx wrangler login` una vez por máquina.
+
+Las imágenes originales de `_source-images/` **no** están en el repositorio (son
+pesadas y no se publican). Están sólo en esta computadora. Si vas a regenerar
+assets desde otra máquina, copiá esa carpeta antes.
 
 ---
 

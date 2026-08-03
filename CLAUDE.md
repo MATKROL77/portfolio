@@ -4,8 +4,16 @@ Portfolio y CV de **Matías Colimodio** (matiascolimodio@gmail.com).
 Next.js 15 App Router + TypeScript + Tailwind v4 + Framer Motion, exportado
 como sitio estático y publicado en Cloudflare Workers.
 
+- Repositorio: <https://github.com/MATKROL77/portfolio>
+- Sitio publicado: <https://portfolio.matiascolimodio.workers.dev>
+
 Leé también `README.md`: ahí está el detalle de comandos y de cómo agregar
 contenido.
+
+Este repositorio se puede abrir desde cualquier dispositivo. Si estás
+trabajando en una máquina recién clonada, `_source-images/` no va a estar
+(no se versiona por peso): eso sólo afecta a `npm run assets`, no a editar
+textos ni componentes.
 
 ## Reglas de este repositorio
 
