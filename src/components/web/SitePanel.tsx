@@ -6,16 +6,30 @@ import { ArrowUpRight, Expand, Layers, X } from "lucide-react";
 
 import { assets } from "@/data/assets.generated";
 import { broteDemo, messaDemo } from "@/data/backoffice-demo";
+import { demoAccess, hasCredentials } from "@/data/demo-access";
 import type { WebProduct } from "@/data/portfolio";
 import { cn } from "@/lib/cn";
 import { useT } from "@/i18n/LocaleProvider";
 import { BrowserWindow, WindowBadge } from "./BrowserWindow";
 import { BackofficeReplica } from "./BackofficeReplica";
+import { RealBackoffice } from "./RealBackoffice";
 import { LiveSite } from "./LiveSite";
 
 type Tab = "public" | "admin";
 
 const demos = { brote: broteDemo, messa: messaDemo } as const;
+
+/**
+ * Decide qué backoffice mostrar: el real con su acceso de invitado si hay
+ * credenciales cargadas, o la réplica local de demostración si no.
+ */
+function useBackoffice(product: WebProduct) {
+  const real = hasCredentials(demoAccess[product.slug]);
+  return {
+    real,
+    badgeKey: real ? ("web.accessTitle" as const) : ("web.readOnly" as const),
+  };
+}
 
 /**
  * Ficha de un producto web: la ventana del sitio público adelante y la del
@@ -37,6 +51,7 @@ export function SitePanel({ product }: { product: WebProduct }) {
   const baseId = useId();
   const cover = assets[product.cover];
   const demo = demos[product.slug];
+  const backoffice = useBackoffice(product);
 
   const publicFront = tab === "public";
 
@@ -45,7 +60,7 @@ export function SitePanel({ product }: { product: WebProduct }) {
     : { type: "spring" as const, stiffness: 210, damping: 28 };
 
   return (
-    <div className="glass-strong overflow-hidden p-5 md:p-7">
+    <div className="glass-strong overflow-hidden p-4 sm:p-5 md:p-7">
       {/* --- encabezado ------------------------------------------------- */}
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
@@ -173,10 +188,21 @@ export function SitePanel({ product }: { product: WebProduct }) {
           <BrowserWindow
             url={product.adminUrl}
             className="h-full"
-            badge={<WindowBadge tone="copper">Read-only demo</WindowBadge>}
+            badge={
+              <WindowBadge tone="copper">{t(backoffice.badgeKey)}</WindowBadge>
+            }
           >
-            <div className="h-[calc(100%-2.75rem)] overflow-y-auto">
-              <BackofficeReplica demo={demo} accent={product.accent} />
+            <div
+              className={cn(
+                "h-[calc(100%-2.75rem)]",
+                backoffice.real ? "overflow-hidden" : "overflow-y-auto",
+              )}
+            >
+              {backoffice.real ? (
+                <RealBackoffice product={product} />
+              ) : (
+                <BackofficeReplica demo={demo} accent={product.accent} />
+              )}
             </div>
           </BrowserWindow>
         </motion.div>
@@ -225,6 +251,7 @@ function ExpandedSite({
   const restoreRef = useRef<Element | null>(null);
   const cover = assets[product.cover];
   const demo = demos[product.slug];
+  const backoffice = useBackoffice(product);
 
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
@@ -332,7 +359,7 @@ function ExpandedSite({
                 {product.publicEmbeddable ? t("web.live") : t("web.capture")}
               </WindowBadge>
             ) : (
-              <WindowBadge tone="copper">{t("web.readOnly")}</WindowBadge>
+              <WindowBadge tone="copper">{t(backoffice.badgeKey)}</WindowBadge>
             )
           }
         >
@@ -345,6 +372,8 @@ function ExpandedSite({
                 embeddable={product.publicEmbeddable}
                 className="h-full"
               />
+            ) : backoffice.real ? (
+              <RealBackoffice product={product} />
             ) : (
               <BackofficeReplica demo={demo} accent={product.accent} />
             )}

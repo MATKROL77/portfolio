@@ -106,7 +106,17 @@
     width: 100%;
     max-width: var(--shell-max);
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: 1.15rem;
+  }
+
+  /* Ritmo vertical de las secciones. En celular se acorta: con el mismo aire
+     que en escritorio, llegar al final del sitio son demasiados scrolls. */
+  .section-y {
+    padding-block: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-y { padding-block: 7rem; }
   }
 
   @media (min-width: 768px) {

@@ -15,7 +15,7 @@ export function WebProducts() {
     <section
       id="web-products"
       aria-labelledby="web-products-title"
-      className="relative scroll-mt-24 py-20 md:py-28"
+      className="relative scroll-mt-24 section-y"
     >
       <div className="shell">
         <SectionHeading

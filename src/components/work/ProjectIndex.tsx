@@ -17,7 +17,7 @@ export function ProjectIndex() {
   const projects = useProjects();
 
   return (
-    <section id="index" className="relative scroll-mt-24 py-20 md:py-28">
+    <section id="index" className="section-y relative scroll-mt-24">
       <div className="shell">
         <SectionHeading
           eyebrow={t("index.eyebrow")}
@@ -25,14 +25,14 @@ export function ProjectIndex() {
           intro={t("index.intro")}
         />
 
-        <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-2 md:mt-14 md:gap-5 lg:grid-cols-3">
           {projects.map((project) => {
             const img = assets[project.heroImage];
             return (
               <RevealItem key={project.slug} className="h-full">
                 <Link
                   href={`/work/${project.slug}`}
-                  className="glass group relative flex h-full flex-col p-6 transition-all duration-500 hover:-translate-y-1 hover:border-copper/25 md:p-7"
+                  className="glass group relative flex h-full flex-col p-5 transition-all duration-500 hover:-translate-y-1 hover:border-copper/25 sm:p-6 md:p-7"
                 >
                   <div className="flex items-baseline justify-between gap-3">
                     <span className="eyebrow eyebrow-copper">

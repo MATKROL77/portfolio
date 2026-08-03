@@ -14,7 +14,7 @@ export function Process() {
     <section
       id="process"
       aria-labelledby="process-title"
-      className="relative scroll-mt-24 py-20 md:py-28"
+      className="relative scroll-mt-24 section-y"
     >
       <div className="shell">
         <SectionHeading

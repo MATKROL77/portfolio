@@ -8,33 +8,33 @@ export const contentPt: ContentBundle = {
       category: "Engenharia",
       description: "Eixo linear motorizado modelado em CAD e pranchas de desenho técnico.",
       summary:
-        "Trabalho de projeto mecânico e escritório técnico: a modelagem completa de um eixo linear acionado por fuso e motor de passo, junto com o conjunto de pranchas de desenho técnico feitas durante a faculdade. Duas faces do mesmo ofício: definir uma peça em três dimensões e saber comunicá-la em duas.",
+        "Aqui junto duas coisas que para mim andam juntas: a modelagem completa de um eixo linear acionado por fuso e motor de passo, e as pranchas de desenho técnico que fiz durante a faculdade. São as duas faces do mesmo ofício: definir uma peça em três dimensões e saber comunicá-la em duas.",
       role: "Projeto e modelagem",
       problem:
-        "Converter um movimento de rotação em deslocamento linear preciso e repetível, com uma estrutura que possa ser fabricada com perfis e componentes de prateleira.",
+        "Eu precisava converter um movimento de rotação em deslocamento linear preciso e repetível, com uma estrutura que desse para fabricar com perfis e componentes de prateleira.",
       result:
-        "Um conjunto CAD completo, com vistas de conjunto, cortes e vista explodida, pronto para orçar e fabricar.",
+        "Ficou um conjunto CAD completo, com vistas de conjunto, cortes e vista explodida, pronto para orçar e fabricar.",
       reflection:
-        "Modelar é rápido; o que leva tempo é decidir o que dá para comprar pronto e o que precisa ser fabricado. Quanto antes essa fronteira é definida, mais simples o projeto fica.",
+        "Modelar é rápido; o que me toma tempo é decidir o que compro pronto e o que fabrico. Quanto antes defino essa fronteira, mais simples fica o projeto.",
       tools: ["Fusion 360", "Solid Edge", "Desenho técnico normalizado"],
       materials: ["Alumínio perfilado", "Aço", "Fuso trapezoidal"],
       tags: ["CAD", "Desenho técnico", "Transmissão"],
       process: [
         {
-          title: "Componentes de prateleira primeiro",
-          body: "O projeto começa pelo que já existe: motor de passo NEMA, fuso com sua castanha, rolamentos e guias. Definir essas interfaces antes da estrutura evita refazer tudo depois.",
+          title: "Começo pelo que já existe",
+          body: "Primeiro fixo o que se compra pronto: motor de passo NEMA, fuso com sua castanha, rolamentos e guias. Se defino essas interfaces antes da estrutura, depois não preciso refazer tudo.",
         },
         {
           title: "Estrutura e alinhamento",
-          body: "A base é resolvida com perfil e chapas usinadas. O ponto crítico é o alinhamento entre o eixo do motor e o fuso: qualquer desalinhamento vira desgaste e perda de precisão.",
+          body: "Resolvi a base com perfil e chapas usinadas. O ponto crítico é o alinhamento entre o eixo do motor e o fuso: qualquer desalinhamento se paga em desgaste e perda de precisão.",
         },
         {
-          title: "Carro e montagem útil",
-          body: "O carro tem um padrão de furos para montar ferramentas ou sensores em cima, de modo que o eixo sirva para mais de uma aplicação.",
+          title: "Um carro que sirva para algo",
+          body: "Coloquei no carro um padrão de furos para montar ferramentas ou sensores em cima. Assim o eixo não fica preso a uma única aplicação.",
         },
         {
           title: "Documentação",
-          body: "O conjunto é traduzido em vistas, cortes e cotas seguindo norma, que é a parte que permite outra pessoa fabricar sem precisar perguntar.",
+          body: "Passei o conjunto para vistas, cortes e cotas seguindo norma. Essa é a parte que permite outra pessoa fabricar sem precisar me perguntar nada.",
         },
       ],
       specs: [
@@ -109,34 +109,34 @@ export const contentPt: ContentBundle = {
       category: "Produto",
       description: "Caixa de som com carcaça orgânica impressa e eletrônica montada sob medida.",
       summary:
-        "Um objeto próprio que começa como forma e termina como produto. A carcaça externa é uma geometria de caracol modelada e depois impressa; dentro, um alto-falante, uma bateria e sua placa ficam sobre bases impressas sob medida, com ímãs, porta de carga e interruptor. As peças são assinadas KROL, a marca com que Matías assina o que fabrica.",
+        "Um objeto meu que começa como forma e termina como produto. A carcaça externa é uma geometria de caracol que modelei e depois imprimi; dentro, resolvi a montagem de um alto-falante, uma bateria e sua placa sobre bases impressas sob medida, com ímãs, porta de carga e interruptor. As peças são assinadas KROL, a marca com que assino o que fabrico.",
       role: "Projeto próprio: design, modelagem, impressão e montagem",
       year: "2024 — presente",
       problem:
-        "Colocar eletrônica real dentro de uma forma que não foi pensada como caixa. A geometria de caracol se define por critério visual, mas o alto-falante, a bateria e o conector precisam de apoios planos e acessos concretos.",
+        "Eu queria colocar eletrônica real dentro de uma forma que não tinha pensado como caixa. A geometria do caracol defini por critério visual, mas o alto-falante, a bateria e o conector me pediam apoios planos e acessos concretos.",
       result:
-        "Um objeto com identidade própria, assinado na geometria e com a eletrônica alojada em bases desenhadas especificamente para ela.",
+        "Ficou um objeto com identidade própria, assinado na geometria, com a eletrônica alojada em bases que desenhei especificamente para ela.",
       reflection:
-        "Separar a forma externa das bases internas foi a decisão que destravou o projeto: permite iterar a eletrônica sem reimprimir a peça grande, que é a que mais consome tempo de máquina.",
+        "Separar a forma externa das bases internas foi o que destravou o projeto para mim: posso iterar a eletrônica sem reimprimir a peça grande, que é a que consome todo o meu tempo de máquina.",
       tools: ["Blender", "Fusion 360", "Impressão 3D FDM"],
       materials: ["PLA", "Ímã de neodímio", "Bateria LiPo"],
       tags: ["Produto", "Eletrônica", "Impressão 3D"],
       process: [
         {
           title: "A forma primeiro",
-          body: "O volume externo é modelado buscando uma silhueta que funcione como objeto, com uma cavidade que também serve de apoio para o celular.",
+          body: "Modelei o volume externo buscando uma silhueta que funcionasse como objeto, com uma cavidade que também servisse de apoio para o celular.",
         },
         {
           title: "Bases sob medida",
-          body: "Em vez de forçar a forma externa, são desenhadas placas internas: cada componente tem seu alojamento, suas aberturas de ventilação e seus pontos de fixação.",
+          body: "Em vez de forçar a forma externa, desenhei placas internas: cada componente tem seu alojamento, suas aberturas de ventilação e seus pontos de fixação.",
         },
         {
           title: "Acessos e fechamento",
-          body: "Porta de carga, interruptor e ímãs de neodímio ficam posicionados de modo que o objeto abra para manutenção sem parafusos à vista.",
+          body: "Posicionei a porta de carga, o interruptor e os ímãs de neodímio de modo que eu consiga abrir o objeto para manutenção sem deixar parafusos à vista.",
         },
         {
-          title: "Iteração sobre o impresso",
-          body: "Cada versão é impressa e o encaixe real é testado. As tolerâncias de FDM não se calculam de uma vez: ajustam-se testando.",
+          title: "Iterar sobre o impresso",
+          body: "Imprimi cada versão e testei o encaixe real. As tolerâncias de FDM não saem de uma conta: ajusto testando.",
         },
       ],
       specs: [
@@ -209,34 +209,34 @@ export const contentPt: ContentBundle = {
       category: "Fabricação",
       description: "Serviço próprio: peças, réplicas, maquetes e estojos sob medida.",
       summary:
-        "Negócio próprio de impressão 3D e design personalizado. Peças, placas, réplicas e maquetes para clientes de arquitetura, comércios e uso geral, cuidando de todo o processo: orçamento, projeto CAD, produção, planejamento de fabricação e comunicação com o cliente. Modelos em escala real de até 1,20 m.",
+        "Meu negócio de impressão 3D e design personalizado. Faço peças, placas, réplicas e maquetes para clientes de arquitetura, comércios e uso geral, e cuido de todo o processo: orçamento, projeto CAD, produção, planejamento de fabricação e comunicação com o cliente. Já cheguei a modelos em escala real de até 1,20 m.",
       role: "Negócio próprio",
       year: "2024 — presente",
       problem:
-        "Cada pedido chega diferente: uma réplica decorativa, um estojo sob medida, uma maquete de arquitetura. O que se repete é o problema de fundo: levar uma ideia ou um arquivo alheio a uma peça física que feche em prazo, custo e acabamento.",
+        "Cada pedido me chega diferente: uma réplica decorativa, um estojo sob medida, uma maquete de arquitetura. O que se repete é o problema de fundo: levar uma ideia ou um arquivo alheio a uma peça física que feche em prazo, custo e acabamento.",
       result:
-        "Peças entregues para arquitetura, comércios e uso geral, incluindo modelos em escala real de até 1,20 m resolvidos em partes.",
+        "Entreguei peças para arquitetura, comércios e uso geral, incluindo modelos em escala real de até 1,20 m resolvidos em partes.",
       reflection:
-        "A impressão é a parte fácil. O trabalho real está em decidir como dividir uma peça grande, onde ficarão as emendas e quanto acabamento manual ela precisa para o cliente ver um produto e não um print.",
+        "A impressão é a parte fácil. O trabalho real está em decidir como divido uma peça grande, onde ficarão as emendas e quanto acabamento manual ela precisa para o cliente ver um produto e não um print.",
       tools: ["Fusion 360", "Blender", "Impressão 3D FDM", "Pós-processamento"],
       materials: ["PLA", "Resina", "Massa e tinta"],
       tags: ["Fabricação", "Pós-processamento", "Cliente"],
       process: [
         {
           title: "Orçamento e viabilidade",
-          body: "Antes de imprimir é preciso saber se cabe na máquina, quanto material leva e em quantas partes vale dividir. Essa conta define preço e prazo.",
+          body: "Antes de imprimir preciso saber se cabe na máquina, quanto material leva e em quantas partes vale dividir. Essa conta me define o preço e o prazo.",
         },
         {
           title: "Preparação do modelo",
-          body: "Reparo de malhas, corte em peças, espessuras mínimas e orientação. A orientação decide onde ficarão as marcas de suporte e quanto lixamento será necessário depois.",
+          body: "Reparo malhas, corto a peça, reviso espessuras mínimas e escolho a orientação. A orientação me decide onde ficarão as marcas de suporte e quanto vou ter que lixar depois.",
         },
         {
           title: "Produção",
-          body: "Planejamento de lotes para aproveitar a mesa e não deixar a máquina parada, com acompanhamento de cada trabalho.",
+          body: "Planejo os lotes para aproveitar a mesa e não deixar a máquina parada, e acompanho cada trabalho.",
         },
         {
           title: "Acabamento",
-          body: "Massa, lixa e pintura quando o pedido pede. É a etapa que separa uma peça impressa de um objeto pronto.",
+          body: "Passo massa, lixo e pinto quando o pedido pede. É a etapa que separa uma peça impressa de um objeto pronto.",
         },
       ],
       specs: [
@@ -287,21 +287,21 @@ export const contentPt: ContentBundle = {
       category: "Mobiliário",
       description: "Escrivaninha em madeira e ferro, gaveteiro e letras caixa.",
       summary:
-        "Design de objetos levado até a construção. Uma escrivaninha de 2400 x 700 x 800 mm em madeira com estrutura metálica, resolvida primeiro em CAD com suas medidas e depois fabricada; um gaveteiro e um painel dividido; e a sinalização em letras caixa da BROTE, fabricada e instalada em parede, sobre concreto e ao ar livre.",
+        "Design de objetos que levei até a construção. Uma escrivaninha de 2400 x 700 x 800 mm em madeira com estrutura metálica, que resolvi primeiro em CAD com suas medidas e depois fabriquei; um gaveteiro e um painel dividido; e a sinalização em letras caixa da BROTE, que fabriquei e instalei em parede, sobre concreto e ao ar livre.",
       role: "Projeto e fabricação",
       problem:
-        "Uma escrivaninha grande precisa ser estável, passar por uma porta e poder ser montada no local. As três coisas se decidem no projeto, não na oficina. A sinalização coloca a mesma questão em outra escala: uma letra caixa precisa se sustentar, ser montada no prumo e ler bem com a luz do lugar.",
+        "Uma escrivaninha grande precisa ser estável, passar por uma porta e poder ser montada no local. As três coisas se decidem no projeto, não na oficina. A sinalização me colocou a mesma questão em outra escala: uma letra caixa precisa se sustentar, ser montada no prumo e ler bem com a luz do lugar.",
       result:
-        "A escrivaninha fabricada e em uso, uma família de peças complementares resolvidas em CAD e a sinalização da BROTE instalada.",
+        "A escrivaninha ficou fabricada e em uso, com uma família de peças complementares resolvidas em CAD, e a sinalização da BROTE instalada.",
       reflection:
-        "Ver a peça construída ao lado do render deixa clara a diferença entre o que o modelo promete e o que o material permite. Aprender a antecipar essa distância é o trabalho.",
+        "Ver a peça construída ao lado do render me deixa clara a diferença entre o que o modelo promete e o que o material permite. Antecipar essa distância é o que estou aprendendo.",
       tools: ["Fusion 360", "Blender", "Fabricação digital"],
       materials: ["Madeira", "Ferro", "Melamina"],
       tags: ["Mobiliário", "Madeira", "Sinalização"],
       process: [
         {
           title: "Medidas de uso",
-          body: "Parte-se da altura de trabalho e da largura útil, e só então se define a estrutura que as sustenta.",
+          body: "Começo pela altura de trabalho e pela largura útil, e só então defino a estrutura que as sustenta.",
         },
         {
           title: "Estrutura e união",
@@ -309,11 +309,11 @@ export const contentPt: ContentBundle = {
         },
         {
           title: "Verificação em CAD",
-          body: "O modelo cotado permite revisar encaixes e balanços antes de cortar material.",
+          body: "Com o modelo cotado reviso encaixes e balanços antes de cortar material.",
         },
         {
           title: "Fabricação e montagem",
-          body: "Corte, montagem e acabamento, ajustando no local o que o modelo não antecipa. Na sinalização, a montagem é parte do projeto: afastamento da parede, sombra e alinhamento.",
+          body: "Cortei, montei e acabei, ajustando no local o que o modelo não antecipa. Na sinalização a montagem é parte do projeto: afastamento da parede, sombra e alinhamento.",
         },
       ],
       specs: [
@@ -382,33 +382,33 @@ export const contentPt: ContentBundle = {
       category: "Visualização",
       description: "Estudos de assento, iluminação e modelagem orgânica resolvidos como imagem.",
       summary:
-        "Trabalho de visualização 3D: cenas em que o objetivo não é fabricar, e sim entender e mostrar. Estudos de uma poltrona de estrutura tubular, de uma luminária de anéis e da sala que os contém, além de modelagem orgânica de referência anatômica. Aqui iluminação, materiais e enquadramento são o trabalho, não o acompanhamento.",
+        "Visualização 3D: cenas em que não busco fabricar, e sim entender e mostrar. Estudos de uma poltrona de estrutura tubular, de uma luminária de anéis e da sala que os contém, além de modelagem orgânica de referência anatômica. Aqui a iluminação, os materiais e o enquadramento são o trabalho, não o acompanhamento.",
       role: "Modelagem e render",
       problem:
-        "Uma imagem precisa explicar um objeto antes de ele existir. O problema não é ficar bonito, e sim ser entendido: que material é, como apoia, de onde vem a luz.",
+        "Uma imagem precisa explicar um objeto antes de ele existir. Não me basta que fique bonito: tem que se entender que material é, como apoia e de onde vem a luz.",
       result:
-        "Uma série de imagens que apresentam cada objeto tanto no conjunto quanto no detalhe construtivo.",
+        "Uma série de imagens que mostram cada objeto tanto no conjunto quanto no detalhe construtivo.",
       reflection:
-        "Renderizar obriga a olhar o objeto como outra pessoa vai olhar. Muitas vezes o render revela um problema de projeto antes de ele chegar à oficina.",
+        "Renderizar me obriga a olhar o objeto como outra pessoa vai olhar. Muitas vezes o render me revela um problema de projeto antes de ele chegar à oficina.",
       tools: ["Blender", "Fusion 360", "Render"],
       materials: ["Estofado", "Aço tubular", "Madeira"],
       tags: ["Render", "Iluminação", "Modelagem"],
       process: [
         {
           title: "Modelar para a câmera",
-          body: "O nível de detalhe se decide pelo que a câmera vai ver. Modelar tudo por igual é tempo perdido.",
+          body: "Decido o nível de detalhe pelo que a câmera vai ver. Modelar tudo por igual é tempo perdido.",
         },
         {
           title: "Materiais por comportamento",
-          body: "Um estofado, um tubo cromado e uma madeira não se definem por cor, e sim por como devolvem a luz. É aí que se ganha a credibilidade da cena.",
+          body: "Não defino um estofado, um tubo cromado e uma madeira por cor, e sim por como devolvem a luz. É aí que se ganha a credibilidade da cena.",
         },
         {
           title: "Iluminação",
-          body: "Poucas fontes e bem colocadas. Nas cenas escuras, a luminária do próprio projeto é quem define o clima.",
+          body: "Poucas fontes e bem colocadas. Nas cenas escuras deixo que a luminária do próprio projeto defina o clima.",
         },
         {
           title: "Enquadramento",
-          body: "Vistas de conjunto para entender a peça e detalhes para contar como ela é resolvida.",
+          body: "Vistas de conjunto para a peça se entender, e detalhes para contar como ela é resolvida.",
         },
       ],
       specs: [
@@ -456,23 +456,23 @@ export const contentPt: ContentBundle = {
       category: "Site",
       description: "E-commerce de alimentos naturais, com loja e painel de administração.",
       summary:
-        "Colaboração no produto digital da BROTE: uma loja on-line de produtos naturais e orgânicos, com catálogo, clube de clientes, receitas e carrinho, além do backoffice com que o negócio gerencia tudo isso sem mexer em código.",
+        "Colaborei no produto digital da BROTE: uma loja on-line de produtos naturais e orgânicos, com catálogo, clube de clientes, receitas e carrinho, além do backoffice com que o negócio gerencia tudo isso sem mexer em código.",
       role: "Colaborador / design e desenvolvimento do produto digital",
       problem:
-        "Uma marca que existe em uma loja física e precisa vender on-line, com um painel que as pessoas do negócio consigam usar sem ajuda técnica.",
-      result: "Loja em produção e painel de administração em uso pelo negócio.",
+        "Uma marca que existe em uma loja física e precisava vender on-line, com um painel que as pessoas do negócio conseguissem usar sem ajuda técnica.",
+      result: "A loja ficou em produção e o painel em uso diário pelo negócio.",
       reflection:
-        "O painel é a parte que ninguém vê e a que decide se o site continua vivo. Se cadastrar um produto é incômodo, o catálogo fica velho em duas semanas.",
+        "O painel é a parte que ninguém vê e a que decide se o site continua vivo. Se cadastrar um produto é incômodo, em duas semanas o catálogo está velho.",
       tools: ["Design de UI", "Desenvolvimento web", "Cloudflare Workers"],
       tags: ["Web", "E-commerce", "Backoffice"],
       process: [
         {
           title: "Loja",
-          body: "Catálogo, combos e carrinho, pensados para leitura rápida no celular, que é onde a maioria compra.",
+          body: "Montei catálogo, combos e carrinho pensados para leitura rápida no celular, que é onde a maioria compra.",
         },
         {
           title: "Clube e receitas",
-          body: "Seções de fidelização e conteúdo, para o site ter motivo de visita além da compra pontual.",
+          body: "Somei seções de fidelização e conteúdo, para o site ter motivo de visita além da compra pontual.",
         },
         {
           title: "Backoffice",
@@ -491,27 +491,27 @@ export const contentPt: ContentBundle = {
       category: "Site",
       description: "Produto próprio para restaurantes: cardápio digital, pedido por QR e painel.",
       summary:
-        "Projeto próprio de design e desenvolvimento integral. MESSA é a cara digital de um restaurante: apresentação, cardápio, pedido na mesa pelo QR code e conta de cliente, com um acesso de equipe para operar o serviço. Todo o produto, do modelo de dados à interface, está resolvido de ponta a ponta.",
+        "Um projeto meu, de design e desenvolvimento integral. MESSA é a cara digital de um restaurante: apresentação, cardápio, pedido na mesa pelo QR code e conta de cliente, com um acesso de equipe para operar o serviço. Resolvi tudo, do modelo de dados à interface.",
       role: "Projeto próprio / design e desenvolvimento integral",
       problem:
         "Um restaurante precisa que o pedido comece antes do garçom chegar, sem obrigar o cliente a instalar nada nem criar conta só para ver o cardápio.",
-      result: "Produto próprio no ar, com site público e backoffice funcionando.",
+      result: "Ficou no ar, com o site público e o backoffice funcionando.",
       reflection:
-        "Fazer tudo obriga a decidir onde colocar a complexidade. Quase sempre é melhor que o sistema a carregue, e não a pessoa que usa às nove da noite com o salão cheio.",
+        "Fazer tudo me obrigou a decidir onde colocar a complexidade. Quase sempre é melhor que o sistema a carregue, e não a pessoa que usa às nove da noite com o salão cheio.",
       tools: ["Design UX/UI", "Desenvolvimento web", "Cloudflare Workers"],
       tags: ["Web", "Produto", "UX/UI"],
       process: [
         {
           title: "Modelo do serviço",
-          body: "Primeiro o modelo: o que é uma mesa, o que é um pedido, que estados pode ter e como passa de um para outro.",
+          body: "Comecei pelo modelo: o que é uma mesa, o que é um pedido, que estados pode ter e como passa de um para outro.",
         },
         {
           title: "Cardápio e pedido por QR",
-          body: "O cliente escaneia, vê o cardápio e pede da mesa. A interface prioriza leitura rápida sobre densidade de informação.",
+          body: "O cliente escaneia, vê o cardápio e pede da mesa. Priorizei a leitura rápida sobre a densidade de informação.",
         },
         {
           title: "Acesso da equipe",
-          body: "Um painel à parte para o salão ver e operar o serviço em andamento.",
+          body: "Fiz um painel à parte para o salão ver e operar o serviço em andamento.",
         },
       ],
       specs: [
@@ -535,14 +535,14 @@ export const contentPt: ContentBundle = {
 
   cv: {
     profile: {
-      headline: "Engenharia, design e fabricação de ideias que dá para tocar.",
+      headline: "Projeto, calculo e fabrico ideias que dá para tocar.",
       summary:
-        "Estudante de Engenharia Mecânica na UTN, Faculdade Regional General Pacheco, com formação secundária bilíngue e inglês C1. Aprende rápido, trabalha com autonomia e se adapta a diferentes ambientes, combinando tarefas técnicas, design, análise de dados, comunicação com fornecedores, coordenação e suporte de projetos.",
+        "Sou estudante de Engenharia Mecânica na UTN, Faculdade Regional General Pacheco, com ensino médio bilíngue e inglês C1. Aprendo rápido, trabalho com autonomia e me adapto bem a ambientes diferentes: combino tarefas técnicas, design, análise de dados, comunicação com fornecedores, coordenação e suporte de projetos.",
     },
     profileParagraphs: [
       "Sou estudante de Engenharia Mecânica na UTN Faculdade Regional General Pacheco, com ensino médio bilíngue e inglês C1. Trabalho na faixa onde a engenharia encontra o design: modelo em CAD, fabrico, monto e, quando o projeto pede, também levo para a tela.",
-      "Isso aparece no que há neste arquivo. Um eixo linear resolvido em CAD junto às pranchas de desenho técnico que o sustentam. Uma caixa de som própria com carcaça de caracol que termina alojando alto-falante, bateria e placa sobre bases desenhadas sob medida, assinada KROL. Uma escrivaninha de 2400 mm que existe primeiro cotada e depois construída, e a sinalização em letras caixa da BROTE montada em parede. Réplicas, maquetes e estojos saídos de um negócio próprio de impressão 3D em que cuido de orçamento, projeto, produção e cliente. E dois sites no ar, BROTE e MESSA, com seus backoffices.",
-      "O fio condutor é bem simples: me interessa a parte do problema em que é preciso decidir. O que se compra pronto e o que se fabrica, onde dividir uma peça grande, quanta tolerância um encaixe aguenta, quanta complexidade o sistema carrega para que a pessoa que o usa não precise carregar.",
+      "Isso aparece no que há aqui. Um eixo linear que resolvi em CAD, junto às pranchas de desenho técnico que o sustentam. Uma caixa de som minha com carcaça de caracol que termina alojando alto-falante, bateria e placa sobre bases que desenhei sob medida, assinada KROL. Uma escrivaninha de 2400 mm que primeiro cotei e depois construí, e a sinalização em letras caixa da BROTE montada em parede. Réplicas, maquetes e estojos que saem do meu negócio de impressão 3D, em que cuido de orçamento, projeto, produção e cliente. E dois sites no ar, BROTE e MESSA, com seus backoffices.",
+      "O fio condutor é bem simples: me interessa a parte do problema em que é preciso decidir. O que compro pronto e o que fabrico, onde divido uma peça grande, quanta tolerância um encaixe aguenta, quanta complexidade coloco no sistema para não colocar na pessoa que o usa.",
     ],
     facts: {
       "Ing. Mecánica — UTN FRGP": "Eng. Mecânica — UTN FRGP",
@@ -553,27 +553,27 @@ export const contentPt: ContentBundle = {
     capabilities: {
       "Ingeniería mecánica": {
         title: "Engenharia mecânica",
-        body: "Projeto de peças e mecanismos funcionais, pensando fabricação, normas e critérios de montagem desde o início.",
+        body: "Projeto peças e mecanismos funcionais, pensando desde o início em como se fabricam, que normas se aplicam e como se montam.",
       },
       "CAD y oficina técnica": {
         title: "CAD e escritório técnico",
-        body: "Modelagem em Fusion 360 e Solid Edge, desenhos normalizados, cortes, cotagem e metrologia básica.",
+        body: "Modelo em Fusion 360 e Solid Edge, e tiro desenhos normalizados com seus cortes e cotas. Metrologia básica.",
       },
       "Fabricación digital": {
         title: "Fabricação digital",
-        body: "Impressão 3D de ponta a ponta: preparação do modelo, produção em lotes e pós-processamento até o acabamento final.",
+        body: "Conduzo a impressão 3D de ponta a ponta: preparo o modelo, produzo em lotes e pós-processo até o acabamento final.",
       },
       "Diseño de producto y objeto": {
         title: "Design de produto e objeto",
-        body: "Da forma à montagem real: carcaças, mobiliário e peças em que a geometria precisa alojar componentes concretos.",
+        body: "Levo a forma até a montagem real: carcaças, mobiliário e peças em que a geometria precisa alojar componentes concretos.",
       },
       "Electrónica embebida": {
         title: "Eletrônica embarcada",
-        body: "Montagem de placas, baterias e atuadores sobre suportes desenhados sob medida. Noções de Arduino.",
+        body: "Monto placas, baterias e atuadores sobre suportes que desenho sob medida. Noções de Arduino.",
       },
       "Producto digital": {
         title: "Produto digital",
-        body: "Design e desenvolvimento de sites e backoffices, do modelo de dados à interface que o negócio usa todos os dias.",
+        body: "Projeto e desenvolvo sites e backoffices, do modelo de dados à interface que o negócio usa todos os dias.",
       },
     },
     education: {
@@ -587,7 +587,7 @@ export const contentPt: ContentBundle = {
       },
       "Cambridge IGCSE": {
         detail: "With Merit",
-        note: "Participação em Olimpíadas de Matemática e debates tipo Model United Nations.",
+        note: "Participei de Olimpíadas de Matemática e de debates tipo Model United Nations.",
       },
     },
     experience: {
@@ -595,7 +595,7 @@ export const contentPt: ContentBundle = {
         title: "Serviço de impressão 3D e design personalizado",
         org: "Negócio próprio",
         period: "2024 — presente",
-        body: "Projeto e fabricação de peças, placas e maquetes para clientes de arquitetura, comércios e uso geral.",
+        body: "Projeto e fabrico peças, placas e maquetes para clientes de arquitetura, comércios e uso geral. Conduzo o processo completo, da primeira conversa à entrega.",
         bullets: [
           "Orçamento",
           "Projeto CAD",
@@ -604,19 +604,19 @@ export const contentPt: ContentBundle = {
           "Planejamento de fabricação",
           "Resolução de problemas técnicos",
         ],
-        outcome: "Modelos em escala real de até 1,20 m.",
+        outcome: "Já cheguei a modelos em escala real de até 1,20 m.",
       },
       "Competencia de robótica": {
         title: "Competição de robótica",
         org: "Universidad Austral",
-        body: "Projeto em equipe: apresentação de um carrinho seguidor de linha, coordenação de tarefas e adaptação sob prazos apertados.",
-        outcome: "Segundo lugar.",
+        body: "Apresentei com minha equipe um carrinho seguidor de linha. Coordenei tarefas e adaptamos o projeto no caminho, com prazos apertados.",
+        outcome: "Ficamos em segundo lugar.",
       },
       "Proyectos técnicos personales en CAD": {
         title: "Projetos técnicos pessoais em CAD",
         org: "Trabalho próprio",
-        body: "Projeto de peças mecânicas funcionais considerando fabricação, normas e critérios de montagem.",
-        outcome: "Iteração de projetos para melhorar a função e reduzir a complexidade.",
+        body: "Projeto peças mecânicas funcionais pensando desde o início em como se fabricam, que normas se aplicam e como se montam.",
+        outcome: "Itero cada projeto para que funcione melhor e seja mais simples de fazer.",
       },
     },
     skills: {
@@ -639,6 +639,26 @@ export const contentPt: ContentBundle = {
         area: "Programação",
         items: ["HTML", "CSS", "JavaScript", "Digital House"],
       },
+      "Diseño web e integraciones": {
+        area: "Design web e integrações",
+        items: [
+          "Design de interfaces",
+          "Sites responsivos",
+          "Backoffices",
+          "Integração de APIs",
+          "Gateways de pagamento",
+          "Bancos de dados",
+        ],
+      },
+      "Automatizaciones básicas": {
+        area: "Automações básicas",
+        items: [
+          "Scripts para tarefas repetitivas",
+          "Automação de planilhas",
+          "Fluxos entre ferramentas",
+          "Geração de relatórios",
+        ],
+      },
       Electrónica: {
         area: "Eletrônica",
         items: ["Arduino", "Noções de eletrônica"],
@@ -657,11 +677,11 @@ export const contentPt: ContentBundle = {
       },
     },
     process: {
-      "01": { title: "Observe", body: "Entender o problema e o contexto." },
-      "02": { title: "Define", body: "Converter necessidades em critérios concretos." },
-      "03": { title: "Design", body: "Desenvolver ideias, desenhos e alternativas." },
-      "04": { title: "Build", body: "Prototipar, fabricar e testar." },
-      "05": { title: "Refine", body: "Iterar até chegar a uma solução mais clara e funcional." },
+      "01": { title: "Observe", body: "Entendo o problema e o contexto." },
+      "02": { title: "Define", body: "Converto as necessidades em critérios concretos." },
+      "03": { title: "Design", body: "Desenvolvo ideias, desenhos e alternativas." },
+      "04": { title: "Build", body: "Prototipo, fabrico e testo." },
+      "05": { title: "Refine", body: "Itero até chegar a uma solução mais clara e funcional." },
     },
   },
 };

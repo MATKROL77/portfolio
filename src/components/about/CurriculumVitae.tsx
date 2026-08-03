@@ -19,7 +19,7 @@ export function CurriculumVitae() {
     <section
       id="about"
       aria-labelledby="about-title"
-      className="relative scroll-mt-24 py-20 md:py-28"
+      className="relative scroll-mt-24 section-y"
     >
       <div className="shell">
         <SectionHeading
@@ -29,7 +29,7 @@ export function CurriculumVitae() {
           intro={profile.summary}
         />
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-10">
+        <div className="mt-12 grid gap-10 md:mt-16 md:gap-12 lg:grid-cols-12 lg:gap-10">
           {/* --- experiencia --------------------------------------------- */}
           <div className="lg:col-span-7">
             <h3 className="eyebrow eyebrow-copper">{t("cv.experience")}</h3>
@@ -37,7 +37,7 @@ export function CurriculumVitae() {
             <RevealGroup className="mt-7 space-y-4">
               {experience.map((item) => (
                 <RevealItem key={item.title}>
-                  <article className="glass p-6">
+                  <article className="glass p-5 sm:p-6">
                     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                       <h4 className="font-display text-xl leading-tight text-parchment">
                         {item.title}
@@ -79,7 +79,7 @@ export function CurriculumVitae() {
             <RevealGroup className="mt-7 space-y-4">
               {education.map((item) => (
                 <RevealItem key={item.institution}>
-                  <article className="glass p-6">
+                  <article className="glass p-5 sm:p-6">
                     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                       <h4 className="font-display text-lg leading-tight text-parchment">
                         {item.institution}
@@ -122,13 +122,13 @@ export function CurriculumVitae() {
         </div>
 
         {/* --- habilidades ------------------------------------------------ */}
-        <div className="mt-16">
+        <div className="mt-12 md:mt-16">
           <h3 className="eyebrow eyebrow-copper">{t("cv.skills")}</h3>
 
           <RevealGroup className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {skills.map((group) => (
               <RevealItem key={group.area} className="h-full">
-                <div className="glass h-full p-6">
+                <div className="glass h-full p-5 sm:p-6">
                   <h4 className="font-display text-lg text-parchment">
                     {group.area}
                   </h4>

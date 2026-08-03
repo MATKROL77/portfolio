@@ -65,6 +65,16 @@ const es = {
     "El sitio está tardando en cargar dentro del marco. Mientras tanto se muestra una captura real.",
   "web.replicaNote":
     "Réplica de demostración con datos inventados, incluida en el portfolio para mostrar la interfaz. No está conectada al sistema real y no necesita usuario ni contraseña.",
+  "web.accessTitle": "Acceso de invitado",
+  "web.accessEmail": "Usuario",
+  "web.accessPassword": "Contraseña",
+  "web.accessNote":
+    "Cuenta de solo lectura, para que puedas recorrer el panel. Copiá los datos y entrá con el formulario de abajo.",
+  "web.copy": "Copiar",
+  "web.copied": "Copiado",
+  "web.openAdmin": "Abrir el panel",
+  "web.adminBlocked":
+    "El panel no se deja mostrar dentro de otra página, así que se abre en una pestaña nueva con el acceso de invitado.",
 
   "process.eyebrow": "Proceso",
   "process.title": "Cómo trabajo un proyecto",
@@ -164,6 +174,16 @@ const en: Partial<Record<UiKey, string>> = {
     "The site is taking a while to load inside the frame. A real screenshot is shown in the meantime.",
   "web.replicaNote":
     "Demo replica with made-up data, included in the portfolio to show the interface. It is not connected to the real system and needs no login.",
+  "web.accessTitle": "Guest access",
+  "web.accessEmail": "User",
+  "web.accessPassword": "Password",
+  "web.accessNote":
+    "Read-only account, so you can walk through the panel. Copy the details and sign in with the form below.",
+  "web.copy": "Copy",
+  "web.copied": "Copied",
+  "web.openAdmin": "Open the panel",
+  "web.adminBlocked":
+    "The panel refuses to be shown inside another page, so it opens in a new tab with the guest access.",
 
   "process.eyebrow": "Process",
   "process.title": "How I work on a project",
@@ -256,6 +276,16 @@ const pt: Partial<Record<UiKey, string>> = {
     "O site está demorando para carregar dentro do quadro. Enquanto isso, mostramos uma captura real.",
   "web.replicaNote":
     "Réplica de demonstração com dados inventados, incluída no portfólio para mostrar a interface. Não está conectada ao sistema real e não pede login.",
+  "web.accessTitle": "Acesso de convidado",
+  "web.accessEmail": "Usuário",
+  "web.accessPassword": "Senha",
+  "web.accessNote":
+    "Conta somente leitura, para você percorrer o painel. Copie os dados e entre pelo formulário abaixo.",
+  "web.copy": "Copiar",
+  "web.copied": "Copiado",
+  "web.openAdmin": "Abrir o painel",
+  "web.adminBlocked":
+    "O painel não permite ser exibido dentro de outra página, então abre em uma nova aba com o acesso de convidado.",
 
   "process.eyebrow": "Processo",
   "process.title": "Como trabalho um projeto",

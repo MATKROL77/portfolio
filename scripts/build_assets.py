@@ -49,9 +49,11 @@ def resolve(filename):
 
 MAP = [
     # --- retrato ---------------------------------------------------------
-    # Unico retrato del sitio. Las otras fotos personales del archivo
-    # (selfies y la foto de traje) quedan fuera por decision del autor.
-    ("matias-portrait-4k.png", "portrait", "matias-portrait", "hero", "webp"),
+    # YO.jpg es el retrato principal: mismo clima que el sitio (madera, sombra
+    # de plantas, luz calida). El anterior queda como alternativo.
+    # Las demas fotos personales del archivo quedan fuera por decision del autor.
+    ("YO.jpg", "portrait", "matias-portrait", "hero", "webp"),
+    ("matias-portrait-4k.png", "portrait", "matias-portrait-alt", "hero", "webp"),
 
     # --- Parlante caracol (marca KROL) -----------------------------------
     # KROL es la firma que Matias graba en sus piezas, no el nombre del

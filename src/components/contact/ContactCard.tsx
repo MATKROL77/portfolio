@@ -22,7 +22,7 @@ export function ContactCard() {
     >
       <div className="shell">
         <Reveal>
-          <div className="glass-strong relative overflow-hidden p-8 md:p-14 lg:p-16">
+          <div className="glass-strong relative overflow-hidden p-6 sm:p-8 md:p-14 lg:p-16">
             {/* trama técnica y halo cálido, sólo decorativos */}
             <div
               className="blueprint pointer-events-none absolute inset-0 opacity-40"
@@ -58,7 +58,7 @@ export function ContactCard() {
                   href={whatsappHrefWith(t("contact.whatsappMessage"))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass group flex items-center gap-5 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-copper/30 md:p-7"
+                  className="glass group flex items-center gap-4 p-5 transition-all duration-500 hover:-translate-y-1 hover:border-copper/30 md:p-7"
                 >
                   <span
                     className="flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-inner)] border border-line-soft bg-moss/25 text-parchment transition-colors duration-500 group-hover:border-copper/40 group-hover:text-copper"
@@ -80,7 +80,7 @@ export function ContactCard() {
 
                 <a
                   href={mailtoHrefWith(t("contact.emailSubject"))}
-                  className="glass group flex items-center gap-5 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-copper/30 md:p-7"
+                  className="glass group flex items-center gap-4 p-5 transition-all duration-500 hover:-translate-y-1 hover:border-copper/30 md:p-7"
                 >
                   <span
                     className="flex size-12 shrink-0 items-center justify-center rounded-[var(--radius-inner)] border border-line-soft bg-walnut/25 text-parchment transition-colors duration-500 group-hover:border-copper/40 group-hover:text-copper"

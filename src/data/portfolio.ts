@@ -16,6 +16,9 @@ import type { AssetKey } from "./assets.generated";
  *   - KROL es la firma que Matías graba en sus piezas, no el nombre de un
  *     producto: el proyecto se llama "Parlante caracol".
  *
+ * Voz: el sitio está escrito en PRIMERA PERSONA. Al editar o agregar texto,
+ * mantener "diseñé", "fabrico", "aprendí". Nunca hablar de Matías en tercera.
+ *
  * Ningún proyecto declara clientes, premios, métricas ni medidas que no estén
  * confirmados por el material de origen o por el CV.
  */
@@ -76,7 +79,7 @@ export const projects: Project[] = [
     description:
       "Eje lineal motorizado modelado en CAD y láminas de dibujo técnico.",
     summary:
-      "Trabajo de diseño mecánico y oficina técnica: el modelado completo de un eje lineal accionado por husillo y motor paso a paso, y el conjunto de láminas de dibujo técnico hechas durante la carrera. Dos caras del mismo oficio: definir una pieza en tres dimensiones y saber comunicarla en dos.",
+      "Acá junto dos cosas que para mí van de la mano: el modelado completo de un eje lineal accionado por husillo y motor paso a paso, y las láminas de dibujo técnico que hice durante la carrera. Son las dos caras del mismo oficio: definir una pieza en tres dimensiones y saber comunicarla en dos.",
     role: "Diseño y modelado",
     year: "2025",
     tools: ["Fusion 360", "Solid Edge", "Dibujo técnico normalizado"],
@@ -165,29 +168,29 @@ export const projects: Project[] = [
     tags: ["CAD", "Dibujo técnico", "Transmisión"],
     featured: true,
     problem:
-      "Convertir un movimiento de giro en un desplazamiento lineal preciso y repetible, con una estructura que se pueda fabricar con perfilería y componentes estándar.",
+      "Necesitaba convertir un movimiento de giro en un desplazamiento lineal preciso y repetible, con una estructura que se pueda fabricar con perfilería y componentes estándar.",
     process: [
       {
-        title: "Componentes estándar primero",
-        body: "El diseño arranca por lo que ya existe: motor paso a paso NEMA, husillo con su tuerca, rodamientos y guías. Definir esas interfaces antes que la estructura evita rehacer todo más tarde.",
+        title: "Arranco por lo que ya existe",
+        body: "Primero fijo los componentes que se compran hechos: motor paso a paso NEMA, husillo con su tuerca, rodamientos y guías. Si defino esas interfaces antes que la estructura, después no tengo que rehacer todo.",
       },
       {
         title: "Estructura y alineación",
-        body: "La bancada se resuelve con perfil y placas mecanizadas. El punto crítico es la alineación entre el eje del motor y el husillo: cualquier desalineación se traduce en desgaste y en pérdida de precisión.",
+        body: "Resolví la bancada con perfil y placas mecanizadas. El punto crítico es la alineación entre el eje del motor y el husillo: cualquier desalineación se paga en desgaste y en pérdida de precisión.",
       },
       {
-        title: "Carro y montaje útil",
-        body: "El carro lleva un patrón de agujeros para poder montar herramientas o sensores encima, de modo que el eje sirva para más de una aplicación.",
+        title: "Un carro que sirva para algo",
+        body: "Le puse al carro un patrón de agujeros para montar herramientas o sensores encima. Así el eje no queda atado a una sola aplicación.",
       },
       {
         title: "Documentación",
-        body: "El conjunto se traduce a vistas, cortes y acotaciones siguiendo norma, que es la parte que permite que otra persona lo fabrique sin tener que preguntar.",
+        body: "Pasé el conjunto a vistas, cortes y acotaciones según norma. Esa es la parte que permite que otra persona lo fabrique sin tener que preguntarme nada.",
       },
     ],
     result:
-      "Un conjunto CAD completo, con vistas de conjunto, corte y despiece, listo para presupuestar y fabricar.",
+      "Quedó un conjunto CAD completo, con vistas de conjunto, corte y despiece, listo para presupuestar y fabricar.",
     reflection:
-      "Modelar es rápido; lo que lleva tiempo es decidir qué se puede comprar hecho y qué hay que fabricar. Cuanto antes se define esa frontera, más simple queda el diseño.",
+      "Modelar es rápido; lo que me lleva tiempo es decidir qué compro hecho y qué fabrico. Cuanto antes defino esa frontera, más simple me queda el diseño.",
     specs: [
       { label: "Transmisión", value: "Husillo y tuerca" },
       { label: "Accionamiento", value: "Motor paso a paso" },
@@ -206,7 +209,7 @@ export const projects: Project[] = [
     description:
       "Parlante con carcasa orgánica impresa y electrónica montada a medida.",
     summary:
-      "Un objeto propio que empieza como forma y termina como producto. La carcasa exterior es una geometría de caracol modelada y luego impresa; adentro se resuelve el montaje de un parlante, una batería y su placa sobre bases impresas a medida, con imanes, puerto de carga e interruptor. Las piezas van firmadas KROL, que es la marca con la que Matías firma lo que fabrica.",
+      "Un objeto mío que empieza como forma y termina como producto. La carcasa exterior es una geometría de caracol que modelé y después imprimí; adentro resolví el montaje de un parlante, una batería y su placa sobre bases impresas a medida, con imanes, puerto de carga e interruptor. Las piezas van firmadas KROL, que es la marca con la que firmo lo que fabrico.",
     role: "Proyecto propio: diseño, modelado, impresión y montaje",
     year: "2024 — presente",
     tools: ["Blender", "Fusion 360", "Impresión 3D FDM"],
@@ -299,29 +302,29 @@ export const projects: Project[] = [
     tags: ["Producto", "Electrónica", "Impresión 3D"],
     featured: true,
     problem:
-      "Meter electrónica real dentro de una forma que no fue pensada como caja. La geometría de caracol se define por criterio visual, pero el parlante, la batería y el conector necesitan planos, apoyos y accesos concretos.",
+      "Quería meter electrónica real dentro de una forma que no había pensado como caja. La geometría del caracol la definí por criterio visual, pero el parlante, la batería y el conector me pedían planos, apoyos y accesos concretos.",
     process: [
       {
         title: "La forma primero",
-        body: "El volumen exterior se modela buscando una silueta que funcione como objeto, con una cavidad que además sirva de apoyo para el teléfono.",
+        body: "Modelé el volumen exterior buscando una silueta que funcionara como objeto, con una cavidad que además sirviera de apoyo para el teléfono.",
       },
       {
         title: "Bases a medida",
-        body: "En vez de forzar la forma exterior, se diseñan placas internas: cada componente tiene su alojamiento, sus ranuras de ventilación y sus puntos de fijación.",
+        body: "En vez de forzar la forma exterior, diseñé placas internas: cada componente tiene su alojamiento, sus ranuras de ventilación y sus puntos de fijación.",
       },
       {
         title: "Accesos y cierre",
-        body: "Puerto de carga, interruptor e imanes de neodimio se ubican de modo que el objeto se pueda abrir para mantenimiento sin tornillos a la vista.",
+        body: "Ubiqué el puerto de carga, el interruptor y los imanes de neodimio de modo que pueda abrir el objeto para mantenimiento sin dejar tornillos a la vista.",
       },
       {
-        title: "Iteración sobre impreso",
-        body: "Cada versión se imprime y se prueba el encastre real. Las tolerancias de FDM no se calculan de una: se ajustan probando.",
+        title: "Iterar sobre lo impreso",
+        body: "Imprimí cada versión y probé el encastre real. Las tolerancias de FDM no las saco de una cuenta: las ajusto probando.",
       },
     ],
     result:
-      "Un objeto con identidad propia, firmado en la geometría y con la electrónica alojada en bases diseñadas específicamente para ella.",
+      "Quedó un objeto con identidad propia, firmado en la geometría, con la electrónica alojada en bases que diseñé específicamente para ella.",
     reflection:
-      "Separar la forma exterior de las bases internas fue la decisión que destrabó el proyecto: permite iterar la electrónica sin volver a imprimir la pieza grande, que es la que más tiempo de máquina consume.",
+      "Separar la forma exterior de las bases internas fue lo que me destrabó el proyecto: puedo iterar la electrónica sin volver a imprimir la pieza grande, que es la que me come todo el tiempo de máquina.",
     specs: [
       { label: "Proceso", value: "FDM" },
       { label: "Cierre", value: "Imanes de neodimio" },
@@ -340,7 +343,7 @@ export const projects: Project[] = [
     description:
       "Servicio propio: piezas, réplicas, maquetas y estuches a medida.",
     summary:
-      "Emprendimiento propio de impresión 3D y diseño personalizado. Piezas, carteles, réplicas y maquetas para clientes de arquitectura, negocios y uso general, gestionando el proceso completo: presupuesto, diseño CAD, producción, planificación de fabricación y comunicación con el cliente. Modelos a escala real de hasta 1,20 m.",
+      "Mi emprendimiento de impresión 3D y diseño personalizado. Hago piezas, carteles, réplicas y maquetas para clientes de arquitectura, negocios y uso general, y llevo el proceso completo: presupuesto, diseño CAD, producción, planificación de fabricación y comunicación con el cliente. Llegué a hacer modelos a escala real de hasta 1,20 m.",
     role: "Emprendimiento propio",
     year: "2024 — presente",
     tools: ["Fusion 360", "Blender", "Impresión 3D FDM", "Postprocesado"],
@@ -393,29 +396,29 @@ export const projects: Project[] = [
     tags: ["Fabricación", "Postprocesado", "Cliente"],
     featured: true,
     problem:
-      "Cada encargo llega distinto: una réplica decorativa, un estuche a medida, una maqueta de arquitectura. Lo que se repite es el problema de fondo: llevar una idea o un archivo ajeno a una pieza física que cierre en tiempo, en costo y en terminación.",
+      "Cada encargo me llega distinto: una réplica decorativa, un estuche a medida, una maqueta de arquitectura. Lo que se repite es el problema de fondo: llevar una idea o un archivo ajeno a una pieza física que cierre en tiempo, en costo y en terminación.",
     process: [
       {
         title: "Presupuesto y viabilidad",
-        body: "Antes de imprimir hay que saber si entra en la máquina, cuánto material lleva y en cuántas partes conviene dividirlo. Esa cuenta define el precio y el plazo.",
+        body: "Antes de imprimir necesito saber si entra en la máquina, cuánto material lleva y en cuántas partes conviene dividirlo. Esa cuenta me define el precio y el plazo.",
       },
       {
         title: "Preparación del modelo",
-        body: "Reparación de mallas, corte en piezas, espesores mínimos y orientación. La orientación decide dónde van a quedar las marcas de soporte y cuánto lijado va a hacer falta después.",
+        body: "Reparo mallas, corto la pieza, reviso espesores mínimos y elijo la orientación. La orientación me decide dónde van a quedar las marcas de soporte y cuánto voy a tener que lijar después.",
       },
       {
         title: "Producción",
-        body: "Planificación de tandas para aprovechar la cama y no dejar la máquina parada, con seguimiento de cada trabajo.",
+        body: "Planifico las tandas para aprovechar la cama y no dejar la máquina parada, y le hago seguimiento a cada trabajo.",
       },
       {
         title: "Terminación",
-        body: "Masillado, lijado y pintura cuando el encargo lo pide. Es la etapa que separa una pieza impresa de un objeto terminado.",
+        body: "Masillo, lijo y pinto cuando el encargo lo pide. Es la etapa que separa una pieza impresa de un objeto terminado.",
       },
     ],
     result:
-      "Piezas entregadas para arquitectura, comercios y uso general, incluyendo modelos a escala real de hasta 1,20 m resueltos por partes.",
+      "Entregué piezas para arquitectura, comercios y uso general, incluidos modelos a escala real de hasta 1,20 m resueltos por partes.",
     reflection:
-      "La impresión es la parte fácil. El trabajo real está en decidir cómo se parte una pieza grande, dónde van a quedar las uniones y cuánta terminación manual necesita para que el cliente la vea como un producto y no como un print.",
+      "La impresión es la parte fácil. El trabajo real está en decidir cómo parto una pieza grande, dónde van a quedar las uniones y cuánta terminación manual necesita para que el cliente vea un producto y no un print.",
     specs: [
       { label: "Tecnología", value: "FDM" },
       { label: "Escala máxima", value: "Hasta 1,20 m por partes" },
@@ -434,7 +437,7 @@ export const projects: Project[] = [
     description:
       "Escritorio en madera y hierro, módulo de cajones y señalética corpórea.",
     summary:
-      "Diseño de objetos llevado hasta la construcción. Un escritorio de 2400 x 700 x 800 mm en madera y estructura metálica, resuelto primero en CAD con sus medidas y después fabricado; un módulo de cajones y un panel de divisiones; y la señalética corpórea de BROTE, fabricada y montada en pared, sobre concreto y en exterior.",
+      "Diseño de objetos que llevé hasta la construcción. Un escritorio de 2400 x 700 x 800 mm en madera y estructura metálica, que resolví primero en CAD con sus medidas y después fabriqué; un módulo de cajones y un panel de divisiones; y la señalética corpórea de BROTE, que fabriqué y monté en pared, sobre concreto y en exterior.",
     role: "Diseño y fabricación",
     tools: ["Fusion 360", "Blender", "Fabricación digital"],
     materials: ["Madera", "Hierro", "Melamina"],
@@ -509,29 +512,29 @@ export const projects: Project[] = [
     tags: ["Mobiliario", "Madera", "Señalética"],
     featured: true,
     problem:
-      "Un escritorio grande tiene que ser estable, entrar por una puerta y poder armarse en el lugar. Las tres cosas se deciden en el diseño, no en el taller. La señalética plantea lo mismo con otra escala: una letra corpórea tiene que sostenerse, montarse derecha y leerse bien con la luz del lugar.",
+      "Un escritorio grande tiene que ser estable, entrar por una puerta y poder armarse en el lugar. Las tres cosas se deciden en el diseño, no en el taller. La señalética me planteó lo mismo en otra escala: una letra corpórea tiene que sostenerse, montarse derecha y leerse bien con la luz del lugar.",
     process: [
       {
         title: "Medidas de uso",
-        body: "Se parte de la altura de trabajo y del ancho útil, y recién después se define la estructura que los sostiene.",
+        body: "Arranco por la altura de trabajo y el ancho útil, y recién después defino la estructura que los sostiene.",
       },
       {
         title: "Estructura y unión",
-        body: "Bastidor metálico con tablero de madera. La unión entre ambos materiales es el punto donde se juega la rigidez.",
+        body: "Bastidor metálico con tablero de madera. La unión entre los dos materiales es donde se gana o se pierde la rigidez.",
       },
       {
         title: "Verificación en CAD",
-        body: "El modelo acotado permite revisar encastres y voladizos antes de cortar material.",
+        body: "Con el modelo acotado reviso encastres y voladizos antes de cortar material.",
       },
       {
         title: "Fabricación y montaje",
-        body: "Corte, armado y terminación, ajustando en obra lo que el modelo no anticipa. En la señalética, el montaje es parte del diseño: separación de la pared, sombra y alineación.",
+        body: "Corté, armé y terminé, ajustando en obra lo que el modelo no anticipa. En la señalética el montaje es parte del diseño: separación de la pared, sombra y alineación.",
       },
     ],
     result:
-      "El escritorio fabricado y en uso, una familia de piezas complementarias resueltas en CAD y la señalética de BROTE instalada.",
+      "El escritorio quedó fabricado y en uso, con una familia de piezas complementarias resueltas en CAD, y la señalética de BROTE instalada.",
     reflection:
-      "Ver la pieza construida al lado del render deja clara la diferencia entre lo que el modelo promete y lo que el material permite. Esa distancia es la que se aprende a anticipar.",
+      "Ver la pieza construida al lado del render me deja clara la diferencia entre lo que el modelo promete y lo que el material permite. Anticipar esa distancia es lo que estoy aprendiendo.",
     specs: [
       { label: "Escritorio", value: "2400 x 700 x 800 mm" },
       { label: "Módulo cajones", value: "600 x 600 x 560 mm" },
@@ -550,7 +553,7 @@ export const projects: Project[] = [
     description:
       "Estudios de asiento, iluminación y modelado orgánico resueltos como imagen.",
     summary:
-      "Trabajo de visualización 3D: escenas donde el objetivo no es fabricar sino entender y mostrar. Estudios de un sillón de estructura tubular, de una lámpara de anillos y de la escena de estar que los contiene, más modelado orgánico de referencia anatómica. Iluminación, materiales y encuadre son acá el trabajo, no el acompañamiento.",
+      "Visualización 3D: escenas donde no busco fabricar sino entender y mostrar. Estudios de un sillón de estructura tubular, de una lámpara de anillos y de la sala que los contiene, más modelado orgánico de referencia anatómica. Acá la iluminación, los materiales y el encuadre son el trabajo, no el acompañamiento.",
     role: "Modelado y render",
     tools: ["Blender", "Fusion 360", "Render"],
     materials: ["Tapizado", "Acero tubular", "Madera"],
@@ -600,29 +603,29 @@ export const projects: Project[] = [
     tags: ["Render", "Iluminación", "Modelado"],
     featured: true,
     problem:
-      "Una imagen tiene que explicar un objeto antes de que exista. El problema no es que se vea lindo, sino que se entienda: qué material es, cómo apoya, de dónde viene la luz.",
+      "Una imagen tiene que explicar un objeto antes de que exista. No me alcanza con que se vea lindo: tiene que entenderse qué material es, cómo apoya y de dónde viene la luz.",
     process: [
       {
         title: "Modelar para la cámara",
-        body: "El nivel de detalle se decide según lo que la cámara va a ver. Modelar todo por igual es tiempo perdido.",
+        body: "Decido el nivel de detalle según lo que la cámara va a ver. Modelar todo por igual es tiempo perdido.",
       },
       {
         title: "Materiales por comportamiento",
-        body: "Un tapizado, un tubo cromado y una madera no se definen por color sino por cómo devuelven la luz. Ahí se juega la credibilidad de la escena.",
+        body: "Un tapizado, un tubo cromado y una madera no los defino por color sino por cómo devuelven la luz. Ahí se juega la credibilidad de la escena.",
       },
       {
         title: "Iluminación",
-        body: "Pocas fuentes y bien puestas. En las escenas oscuras, la lámpara del propio diseño es la que define el clima.",
+        body: "Pocas fuentes y bien puestas. En las escenas oscuras dejo que la lámpara del propio diseño defina el clima.",
       },
       {
         title: "Encuadre",
-        body: "Vistas de conjunto para entender la pieza y detalles para contar cómo está resuelta.",
+        body: "Vistas de conjunto para que se entienda la pieza, y detalles para contar cómo está resuelta.",
       },
     ],
     result:
-      "Una serie de imágenes que presentan cada objeto tanto en su conjunto como en el detalle constructivo.",
+      "Una serie de imágenes que muestran cada objeto tanto en conjunto como en el detalle constructivo.",
     reflection:
-      "Renderizar obliga a mirar el objeto como lo va a mirar otra persona. Muchas veces el render deja en evidencia un problema de diseño antes de que llegue al taller.",
+      "Renderizar me obliga a mirar el objeto como lo va a mirar otra persona. Muchas veces el render me deja en evidencia un problema de diseño antes de que llegue al taller.",
     specs: [
       { label: "Software", value: "Blender / Fusion 360" },
       { label: "Enfoque", value: "Producto y escena" },
@@ -640,7 +643,7 @@ export const projects: Project[] = [
     description:
       "E-commerce de alimentos naturales, con tienda y panel de administración.",
     summary:
-      "Colaboración en el producto digital de BROTE: una tienda en línea de productos naturales y orgánicos, con catálogo, club de clientes, recetas y carrito, más el backoffice desde el que el negocio gestiona todo eso sin tocar código.",
+      "Colaboré en el producto digital de BROTE: una tienda en línea de productos naturales y orgánicos, con catálogo, club de clientes, recetas y carrito, más el backoffice desde el que el negocio gestiona todo eso sin tocar código.",
     role: "Colaborador / diseño y desarrollo del producto digital",
     tools: ["Diseño UI", "Desarrollo web", "Cloudflare Workers"],
     heroImage: "projects/brote/site-public",
@@ -649,25 +652,25 @@ export const projects: Project[] = [
     tags: ["Web", "E-commerce", "Backoffice"],
     featured: true,
     problem:
-      "Una marca que existe en un local físico y necesita vender en línea, con un panel que la gente del negocio pueda usar sin ayuda técnica.",
+      "Una marca que existe en un local físico y necesitaba vender en línea, con un panel que la gente del negocio pudiera usar sin ayuda técnica.",
     process: [
       {
         title: "Tienda",
-        body: "Catálogo, combos y carrito, pensados para leerse rápido desde el teléfono, que es donde compra la mayoría.",
+        body: "Armé catálogo, combos y carrito pensados para leerse rápido desde el teléfono, que es donde compra la mayoría.",
       },
       {
         title: "Club y recetas",
-        body: "Secciones de fidelización y contenido, para que el sitio tenga motivo de visita más allá de la compra puntual.",
+        body: "Sumé secciones de fidelización y contenido, para que el sitio tenga motivo de visita más allá de la compra puntual.",
       },
       {
         title: "Backoffice",
-        body: "Panel de administración para gestionar productos, precios y contenido del sitio.",
+        body: "Un panel de administración para gestionar productos, precios y contenido del sitio.",
       },
     ],
     result:
-      "Tienda en producción y panel de administración en uso por el negocio.",
+      "La tienda quedó en producción y el panel en uso diario por el negocio.",
     reflection:
-      "El panel es la parte que nadie ve y la que decide si el sitio se mantiene vivo. Si cargar un producto es incómodo, el catálogo queda viejo en dos semanas.",
+      "El panel es la parte que nadie ve y la que decide si el sitio se mantiene vivo. Si cargar un producto es incómodo, en dos semanas el catálogo está viejo.",
     specs: [
       { label: "Rol", value: "Colaborador" },
       { label: "Alcance", value: "Tienda y backoffice" },
@@ -685,7 +688,7 @@ export const projects: Project[] = [
     description:
       "Producto propio para restaurantes: carta digital, pedido por QR y panel.",
     summary:
-      "Proyecto propio de diseño y desarrollo integral. MESSA es la cara digital de un restaurante: presentación, carta, pedido desde la mesa escaneando un QR y cuenta de cliente, con un acceso de equipo para operar el servicio. Todo el producto, del modelo de datos a la interfaz, está resuelto de punta a punta.",
+      "Proyecto mío, de diseño y desarrollo integral. MESSA es la cara digital de un restaurante: presentación, carta, pedido desde la mesa escaneando un QR y cuenta de cliente, con un acceso de equipo para operar el servicio. Lo resolví entero, del modelo de datos a la interfaz.",
     role: "Proyecto propio / diseño y desarrollo integral",
     tools: ["Diseño UX/UI", "Desarrollo web", "Cloudflare Workers"],
     heroImage: "projects/messa/site-public",
@@ -694,24 +697,24 @@ export const projects: Project[] = [
     tags: ["Web", "Producto", "UX/UI"],
     featured: true,
     problem:
-      "Un restaurante necesita que el pedido empiece antes de que llegue el mozo, sin obligar al comensal a instalar nada ni a crear una cuenta para mirar la carta.",
+      "Un restaurante necesita que el pedido empiece antes de que llegue el mozo, sin obligar al comensal a instalar nada ni a crear una cuenta sólo para mirar la carta.",
     process: [
       {
         title: "Modelo del servicio",
-        body: "Primero el modelo: qué es una mesa, qué es un pedido, qué estados puede tener y cómo pasa de uno a otro.",
+        body: "Empecé por el modelo: qué es una mesa, qué es un pedido, qué estados puede tener y cómo pasa de uno a otro.",
       },
       {
         title: "Carta y pedido por QR",
-        body: "El comensal escanea, ve la carta y pide desde la mesa. La interfaz prioriza lectura rápida por sobre densidad de información.",
+        body: "El comensal escanea, ve la carta y pide desde la mesa. Prioricé la lectura rápida por sobre la densidad de información.",
       },
       {
         title: "Acceso del equipo",
-        body: "Un panel aparte para que el salón vea y opere el servicio en curso.",
+        body: "Hice un panel aparte para que el salón vea y opere el servicio en curso.",
       },
     ],
-    result: "Producto propio en línea, con sitio público y backoffice funcionando.",
+    result: "Quedó en línea, con el sitio público y el backoffice funcionando.",
     reflection:
-      "Hacerlo entero obliga a decidir dónde poner la complejidad. Casi siempre conviene que la cargue el sistema y no la persona que lo usa a las nueve de la noche con el salón lleno.",
+      "Hacerlo entero me obligó a decidir dónde poner la complejidad. Casi siempre conviene que la cargue el sistema y no la persona que lo usa a las nueve de la noche con el salón lleno.",
     specs: [
       { label: "Rol", value: "Diseño y desarrollo integral" },
       { label: "Alcance", value: "Producto completo" },
@@ -752,6 +755,8 @@ export type WebProduct = {
   cover: AssetKey;
   accent: string;
   publicEmbeddable: boolean;
+  /** si el panel de administración se deja mostrar dentro de un iframe */
+  adminEmbeddable: boolean;
 };
 
 export const webProducts: WebProduct[] = [
@@ -765,6 +770,7 @@ export const webProducts: WebProduct[] = [
     cover: "projects/brote/site-public",
     accent: "#53614c",
     publicEmbeddable: true,
+    adminEmbeddable: true,
   },
   {
     slug: "messa",
@@ -775,6 +781,8 @@ export const webProducts: WebProduct[] = [
     adminUrl: "https://messa.matiascolimodio.workers.dev/admin",
     cover: "projects/messa/site-public",
     accent: "#b58b5d",
+    // MESSA sirve todo el dominio con `frame-ancestors 'none'`, panel incluido
     publicEmbeddable: false,
+    adminEmbeddable: false,
   },
 ];

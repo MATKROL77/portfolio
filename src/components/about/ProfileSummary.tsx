@@ -29,38 +29,38 @@ const capabilities = [
   {
     icon: Compass,
     title: "Ingeniería mecánica",
-    body: "Diseño de piezas y mecanismos funcionales, pensando fabricación, normas y criterios de ensamblaje desde el principio.",
+    body: "Diseño piezas y mecanismos funcionales, pensando desde el principio en cómo se fabrican, qué normas aplican y cómo se ensamblan.",
   },
   {
     icon: Ruler,
     title: "CAD y oficina técnica",
-    body: "Modelado en Fusion 360 y Solid Edge, planos normalizados, cortes, acotación y metrología básica.",
+    body: "Modelo en Fusion 360 y Solid Edge, y saco planos normalizados con sus cortes y acotaciones. Metrología básica.",
   },
   {
     icon: Printer,
     title: "Fabricación digital",
-    body: "Impresión 3D de punta a punta: preparación del modelo, producción por tandas y postprocesado hasta el acabado final.",
+    body: "Manejo la impresión 3D de punta a punta: preparo el modelo, produzco por tandas y postproceso hasta el acabado final.",
   },
   {
     icon: Boxes,
     title: "Diseño de producto y objeto",
-    body: "De la forma al ensamble real: carcasas, mobiliario y piezas donde la geometría tiene que alojar componentes concretos.",
+    body: "Llevo la forma hasta el ensamble real: carcasas, mobiliario y piezas donde la geometría tiene que alojar componentes concretos.",
   },
   {
     icon: CircuitBoard,
     title: "Electrónica embebida",
-    body: "Montaje de placas, baterías y actuadores sobre soportes diseñados a medida. Nociones de Arduino.",
+    body: "Monto placas, baterías y actuadores sobre soportes que diseño a medida. Nociones de Arduino.",
   },
   {
     icon: MonitorSmartphone,
     title: "Producto digital",
-    body: "Diseño y desarrollo de sitios y backoffices, del modelo de datos a la interfaz que usa el negocio todos los días.",
+    body: "Diseño y desarrollo sitios y backoffices, del modelo de datos a la interfaz que el negocio usa todos los días.",
   },
 ];
 
 const facts = [
   { labelKey: "profile.education" as const, value: "Ing. Mecánica — UTN FRGP" },
-  { labelKey: "profile.since" as const, value: "2025, estudiante activo" },
+  { labelKey: "profile.since" as const, value: "2025, cursando" },
   { labelKey: "profile.venture" as const, value: "Impresión 3D, desde 2024" },
   { labelKey: "profile.award" as const, value: "2.º puesto, robótica U. Austral" },
 ];
@@ -68,8 +68,8 @@ const facts = [
 /** Párrafos del resumen en español; las traducciones vienen de `useCv`. */
 const paragraphsEs = [
   "Soy estudiante de Ingeniería Mecánica en la UTN Facultad Regional General Pacheco, con secundario bilingüe e inglés C1. Trabajo en la franja donde la ingeniería se cruza con el diseño: modelo en CAD, fabrico, ensamblo y, cuando el proyecto lo pide, también lo llevo a pantalla.",
-  "Eso se ve en lo que hay en este archivo. Un eje lineal resuelto en CAD junto a las láminas de dibujo técnico que lo sostienen. Un parlante propio con carcasa de caracol que termina alojando parlante, batería y placa sobre bases diseñadas a medida, firmado KROL. Un escritorio de 2400 mm que existe primero acotado y después construido, y la señalética corpórea de BROTE montada en pared. Réplicas, maquetas y estuches salidos de un emprendimiento propio de impresión 3D donde manejo presupuesto, diseño, producción y cliente. Y dos sitios web en línea, BROTE y MESSA, con sus backoffices.",
-  "El hilo común es bastante simple: me interesa la parte del problema donde hay que decidir. Qué se compra hecho y qué se fabrica, dónde se parte una pieza grande, cuánta tolerancia aguanta un encastre, qué complejidad carga el sistema para que no la cargue la persona que lo usa.",
+  "Eso se ve en lo que hay acá. Un eje lineal que resolví en CAD, junto a las láminas de dibujo técnico que lo sostienen. Un parlante mío con carcasa de caracol que termina alojando parlante, batería y placa sobre bases que diseñé a medida, firmado KROL. Un escritorio de 2400 mm que primero acoté y después construí, y la señalética corpórea de BROTE montada en pared. Réplicas, maquetas y estuches que salen de mi emprendimiento de impresión 3D, donde manejo presupuesto, diseño, producción y cliente. Y dos sitios web en línea, BROTE y MESSA, con sus backoffices.",
+  "El hilo común es bastante simple: me interesa la parte del problema donde hay que decidir. Qué compro hecho y qué fabrico, dónde parto una pieza grande, cuánta tolerancia aguanta un encastre, cuánta complejidad le cargo al sistema para no cargársela a la persona que lo usa.",
 ];
 
 export function ProfileSummary() {
@@ -82,7 +82,7 @@ export function ProfileSummary() {
     <section
       id="profile"
       aria-labelledby="profile-title"
-      className="relative scroll-mt-24 py-20 md:py-28"
+      className="relative scroll-mt-24 section-y"
     >
       <div className="shell">
         <div className="grid gap-6 lg:grid-cols-12">
@@ -105,7 +105,7 @@ export function ProfileSummary() {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 <dl className="space-y-4">
                   {facts.map((f) => (
                     <div key={f.value}>
@@ -135,7 +135,7 @@ export function ProfileSummary() {
 
           {/* --- texto + capacidades -------------------------------------- */}
           <div className="lg:col-span-8">
-            <Reveal className="glass-strong p-7 md:p-10">
+            <Reveal className="glass-strong p-5 sm:p-7 md:p-10">
               <div className="flex items-center gap-4">
                 <span className="h-px w-8 bg-copper/70" aria-hidden="true" />
                 <span className="eyebrow eyebrow-copper">

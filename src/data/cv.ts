@@ -1,15 +1,19 @@
 /**
- * Datos del CV. Todo lo que hay acá está tomado del CV de Matías: no se agregan
+ * Datos del CV. Todo lo que hay acá está tomado del CV real: no se agregan
  * clientes, métricas, premios ni fechas que no estén confirmados.
+ *
+ * El sitio está escrito en primera persona: lo hizo Matías y habla de él.
+ * Al agregar o editar texto, mantener esa voz ("diseño", "fabrico", "aprendí"),
+ * nunca tercera persona.
  */
 
 export const profile = {
   name: "Matías Colimodio",
   tagline: "Engineering / Design / Fabrication",
   claim: "Solving problems. Building things that last.",
-  headline: "Ingeniería, diseño y fabricación de ideas que se pueden tocar.",
+  headline: "Diseño, calculo y fabrico ideas que se pueden tocar.",
   summary:
-    "Estudiante de Ingeniería Mecánica en UTN, Facultad Regional General Pacheco, con formación secundaria bilingüe e inglés C1. Tiene facilidad para aprender rápido, trabajar con autonomía y adaptarse a distintos entornos, combinando tareas técnicas, diseño, análisis de datos, comunicación con proveedores, coordinación y soporte de proyectos.",
+    "Soy estudiante de Ingeniería Mecánica en la UTN, Facultad Regional General Pacheco, con secundario bilingüe e inglés C1. Aprendo rápido, trabajo con autonomía y me adapto bien a entornos distintos: combino tareas técnicas, diseño, análisis de datos, comunicación con proveedores, coordinación y soporte de proyectos.",
   email: "matiascolimodio@gmail.com",
   phone: "2324582614",
   location: "Pilar, Buenos Aires",
@@ -30,7 +34,7 @@ export const education: EducationItem[] = [
     institution: "UTN, Facultad Regional General Pacheco",
     detail: "Ingeniería Mecánica",
     period: "2025 — presente",
-    note: "Estudiante activo",
+    note: "Cursando",
   },
   {
     institution: "Brick Towers College",
@@ -45,7 +49,7 @@ export const education: EducationItem[] = [
       "English as First Language",
       "ICT: Excel, Word y Access",
     ],
-    note: "Participación en Olimpíadas de Matemática y debates tipo Model United Nations.",
+    note: "Participé en Olimpíadas de Matemática y en debates tipo Model United Nations.",
   },
 ];
 
@@ -63,7 +67,7 @@ export const experience: ExperienceItem[] = [
     title: "Servicio de impresión 3D y diseño personalizado",
     org: "Emprendimiento propio",
     period: "2024 — presente",
-    body: "Diseño y fabricación de piezas, carteles y maquetas para clientes de arquitectura, negocios y uso general.",
+    body: "Diseño y fabrico piezas, carteles y maquetas para clientes de arquitectura, negocios y uso general. Manejo el proceso completo, de la primera charla a la entrega.",
     bullets: [
       "Presupuesto",
       "Diseño CAD",
@@ -72,19 +76,19 @@ export const experience: ExperienceItem[] = [
       "Planificación de fabricación",
       "Resolución de problemas técnicos",
     ],
-    outcome: "Modelos a escala real de hasta 1,20 m.",
+    outcome: "Llegué a hacer modelos a escala real de hasta 1,20 m.",
   },
   {
     title: "Competencia de robótica",
     org: "Universidad Austral",
-    body: "Proyecto en equipo: presentación de un carro que sigue líneas, coordinación de tareas y adaptación bajo plazos ajustados.",
-    outcome: "Segundo puesto.",
+    body: "Presenté con mi equipo un carro seguidor de líneas. Coordiné tareas y adaptamos el diseño sobre la marcha, con plazos ajustados.",
+    outcome: "Salimos segundos.",
   },
   {
     title: "Proyectos técnicos personales en CAD",
     org: "Trabajo propio",
-    body: "Diseño de piezas mecánicas funcionales considerando fabricación, normas y criterios de ensamblaje.",
-    outcome: "Iteración de diseños para optimizar funcionalidad y reducir complejidad.",
+    body: "Diseño piezas mecánicas funcionales pensando desde el principio en cómo se fabrican, qué normas aplican y cómo se ensamblan.",
+    outcome: "Itero cada diseño para que funcione mejor y sea más simple de hacer.",
   },
 ];
 
@@ -119,6 +123,26 @@ export const skills: SkillGroup[] = [
     items: ["HTML", "CSS", "JavaScript", "Digital House"],
   },
   {
+    area: "Diseño web e integraciones",
+    items: [
+      "Diseño de interfaces",
+      "Sitios responsive",
+      "Backoffices",
+      "Integración de APIs",
+      "Pasarelas de pago",
+      "Bases de datos",
+    ],
+  },
+  {
+    area: "Automatizaciones básicas",
+    items: [
+      "Scripts de tareas repetitivas",
+      "Automatización de planillas",
+      "Flujos entre herramientas",
+      "Generación de reportes",
+    ],
+  },
+  {
     area: "Electrónica",
     items: ["Arduino", "Nociones de electrónica"],
   },
@@ -146,26 +170,26 @@ export const processSteps: ProcessStep[] = [
   {
     number: "01",
     title: "Observe",
-    body: "Entender el problema y el contexto.",
+    body: "Entiendo el problema y el contexto.",
   },
   {
     number: "02",
     title: "Define",
-    body: "Convertir necesidades en criterios concretos.",
+    body: "Convierto las necesidades en criterios concretos.",
   },
   {
     number: "03",
     title: "Design",
-    body: "Desarrollar ideas, planos y alternativas.",
+    body: "Desarrollo ideas, planos y alternativas.",
   },
   {
     number: "04",
     title: "Build",
-    body: "Prototipar, fabricar y probar.",
+    body: "Prototipo, fabrico y pruebo.",
   },
   {
     number: "05",
     title: "Refine",
-    body: "Iterar hasta lograr una solución más clara y funcional.",
+    body: "Itero hasta llegar a una solución más clara y funcional.",
   },
 ];

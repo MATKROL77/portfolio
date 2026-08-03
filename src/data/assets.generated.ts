@@ -16,6 +16,14 @@ export type Asset = {
 export const assets = {
   "portrait/matias-portrait": {
     "src": "/assets/portrait/matias-portrait.webp",
+    "width": 960,
+    "height": 1280,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAgCdASoMABAAA4BaJaACdAD8LsRvkegGgAD+9pPncHlic2DqggFKGv9PAuXQzngO1wC5hbl5GKnTjg85EToe7OvHHOgA",
+    "color": "#38281a",
+    "origin": "YO.jpg"
+  },
+  "portrait/matias-portrait-alt": {
+    "src": "/assets/portrait/matias-portrait-alt.webp",
     "width": 2160,
     "height": 2700,
     "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAwAgCdASoNABAAA4BaJZgCdAELX/SBo32HAAD+9pIHnVP6b158Qm4D9hf419NV7spBpdKBbHGFKjHzjtobbZQOZ9gE11WKGnFv4Vczrxus7YlSAAA=",

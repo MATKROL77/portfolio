@@ -8,33 +8,33 @@ export const contentEn: ContentBundle = {
       category: "Engineering",
       description: "A motorised linear axis modelled in CAD, plus technical drawing plates.",
       summary:
-        "Mechanical design and drawing-office work: the full model of a linear axis driven by a lead screw and a stepper motor, together with the technical drawing plates made during the degree. Two sides of the same craft: defining a part in three dimensions and knowing how to communicate it in two.",
+        "Here I put together two things that for me go hand in hand: the full model of a linear axis driven by a lead screw and a stepper motor, and the technical drawing plates I made during my degree. They are two sides of the same craft: defining a part in three dimensions and knowing how to communicate it in two.",
       role: "Design and modelling",
       problem:
-        "Turning rotation into precise, repeatable linear travel, with a structure that can be built from extrusion and off-the-shelf components.",
+        "I needed to turn rotation into precise, repeatable linear travel, with a structure I could build from extrusion and off-the-shelf components.",
       result:
-        "A complete CAD assembly, with general views, sections and an exploded view, ready to quote and manufacture.",
+        "It ended up as a complete CAD assembly, with general views, sections and an exploded view, ready to quote and manufacture.",
       reflection:
-        "Modelling is fast; what takes time is deciding what can be bought ready-made and what has to be manufactured. The sooner that line is drawn, the simpler the design stays.",
+        "Modelling is fast; what takes me time is deciding what to buy ready-made and what to manufacture. The sooner I draw that line, the simpler the design stays.",
       tools: ["Fusion 360", "Solid Edge", "Standard technical drawing"],
       materials: ["Extruded aluminium", "Steel", "Trapezoidal lead screw"],
       tags: ["CAD", "Technical drawing", "Transmission"],
       process: [
         {
-          title: "Off-the-shelf parts first",
-          body: "The design starts from what already exists: a NEMA stepper, a lead screw and its nut, bearings and rails. Fixing those interfaces before the structure avoids redoing everything later.",
+          title: "I start from what already exists",
+          body: "First I fix the parts you buy ready-made: a NEMA stepper, a lead screw and its nut, bearings and rails. If I define those interfaces before the structure, I don't have to redo everything later.",
         },
         {
           title: "Structure and alignment",
-          body: "The frame is built from extrusion and machined plates. The critical point is the alignment between the motor shaft and the lead screw: any misalignment turns into wear and lost precision.",
+          body: "I solved the frame with extrusion and machined plates. The critical point is the alignment between the motor shaft and the lead screw: any misalignment gets paid for in wear and lost precision.",
         },
         {
           title: "A carriage that is actually useful",
-          body: "The carriage carries a hole pattern so tools or sensors can be mounted on top, which lets the axis serve more than one application.",
+          body: "I gave the carriage a hole pattern so tools or sensors can be mounted on top. That way the axis isn't tied to a single application.",
         },
         {
           title: "Documentation",
-          body: "The assembly is translated into views, sections and dimensions following the standard, which is the part that lets someone else build it without having to ask.",
+          body: "I translated the assembly into views, sections and dimensions following the standard. That is the part that lets someone else build it without having to ask me anything.",
         },
       ],
       specs: [
@@ -109,34 +109,34 @@ export const contentEn: ContentBundle = {
       category: "Product",
       description: "A speaker with a printed organic shell and electronics mounted on custom bases.",
       summary:
-        "A project of my own that starts as a shape and ends as a product. The outer shell is a snail-shell geometry, modelled and then printed; inside, a speaker, a battery and its board sit on custom-printed bases, with magnets, a charging port and a switch. The parts are signed KROL, the mark Matías puts on what he makes.",
+        "A project of mine that starts as a shape and ends as a product. The outer shell is a snail-shell geometry I modelled and then printed; inside, I solved the mounting of a speaker, a battery and its board on custom-printed bases, with magnets, a charging port and a switch. The parts are signed KROL, the mark I put on what I make.",
       role: "Own project: design, modelling, printing and assembly",
       year: "2024 — present",
       problem:
-        "Fitting real electronics inside a shape that was never conceived as a box. The shell geometry is driven by visual judgement, but the speaker, the battery and the connector need flat seats, supports and concrete access.",
+        "I wanted to fit real electronics inside a shape I had never conceived as a box. I drove the shell geometry by visual judgement, but the speaker, the battery and the connector all asked me for flat seats, supports and concrete access.",
       result:
-        "An object with an identity of its own, signed into the geometry, with the electronics housed on bases designed specifically for them.",
+        "It ended up as an object with an identity of its own, signed into the geometry, with the electronics housed on bases I designed specifically for them.",
       reflection:
-        "Separating the outer shell from the internal bases was the decision that unblocked the project: it lets the electronics be iterated without reprinting the large part, which is the one that eats the machine time.",
+        "Separating the outer shell from the internal bases is what unblocked the project for me: I can iterate the electronics without reprinting the large part, which is the one that eats all my machine time.",
       tools: ["Blender", "Fusion 360", "FDM 3D printing"],
       materials: ["PLA", "Neodymium magnet", "LiPo battery"],
       tags: ["Product", "Electronics", "3D printing"],
       process: [
         {
           title: "Shape first",
-          body: "The outer volume is modelled looking for a silhouette that works as an object, with a cavity that also holds a phone.",
+          body: "I modelled the outer volume looking for a silhouette that works as an object, with a cavity that also holds a phone.",
         },
         {
           title: "Custom bases",
-          body: "Rather than forcing the outer shape, internal plates are designed: every component gets its seat, its vents and its fixing points.",
+          body: "Rather than forcing the outer shape, I designed internal plates: every component gets its seat, its vents and its fixing points.",
         },
         {
           title: "Access and closing",
-          body: "Charging port, switch and neodymium magnets are placed so the object can be opened for maintenance with no visible screws.",
+          body: "I placed the charging port, the switch and the neodymium magnets so I can open the object for maintenance without leaving visible screws.",
         },
         {
           title: "Iterating on the print",
-          body: "Every version is printed and the real fit is tested. FDM tolerances are not calculated in one go: they are adjusted by trying.",
+          body: "I printed every version and tested the real fit. I don't get FDM tolerances from a calculation: I adjust them by trying.",
         },
       ],
       specs: [
@@ -209,34 +209,34 @@ export const contentEn: ContentBundle = {
       category: "Fabrication",
       description: "My own service: parts, replicas, scale models and custom cases.",
       summary:
-        "My own 3D printing and custom design venture. Parts, signage, replicas and scale models for architecture clients, businesses and general use, running the whole process: quoting, CAD design, production, manufacturing planning and client communication. Full-scale models up to 1.20 m.",
+        "My 3D printing and custom design venture. I make parts, signage, replicas and scale models for architecture clients, businesses and general use, and I run the whole process: quoting, CAD design, production, manufacturing planning and client communication. I have gone up to full-scale models of 1.20 m.",
       role: "Own venture",
       year: "2024 — present",
       problem:
-        "Every job arrives different: a decorative replica, a custom case, an architectural model. What repeats is the underlying problem: taking an idea or someone else's file to a physical part that works out on time, on cost and on finish.",
+        "Every job reaches me different: a decorative replica, a custom case, an architectural model. What repeats is the underlying problem: taking an idea or someone else's file to a physical part that works out on time, on cost and on finish.",
       result:
-        "Parts delivered for architecture, shops and general use, including full-scale models up to 1.20 m solved in sections.",
+        "I have delivered parts for architecture, shops and general use, including full-scale models up to 1.20 m solved in sections.",
       reflection:
-        "Printing is the easy part. The real work is deciding how to split a large piece, where the joints will land and how much hand finishing it needs so the client sees a product and not a print.",
+        "Printing is the easy part. The real work is deciding how I split a large piece, where the joints will land and how much hand finishing it needs so the client sees a product and not a print.",
       tools: ["Fusion 360", "Blender", "FDM 3D printing", "Post-processing"],
       materials: ["PLA", "Resin", "Filler and paint"],
       tags: ["Fabrication", "Post-processing", "Client work"],
       process: [
         {
           title: "Quote and feasibility",
-          body: "Before printing you need to know whether it fits the machine, how much material it takes and how many pieces it is worth splitting into. That calculation sets the price and the lead time.",
+          body: "Before printing I need to know whether it fits the machine, how much material it takes and how many pieces it is worth splitting into. That calculation sets my price and my lead time.",
         },
         {
           title: "Preparing the model",
-          body: "Mesh repair, splitting, minimum wall thickness and orientation. Orientation decides where the support marks will land and how much sanding will be needed later.",
+          body: "I repair meshes, split the part, check minimum wall thickness and choose the orientation. Orientation decides where the support marks land and how much sanding I will have to do later.",
         },
         {
           title: "Production",
-          body: "Batches planned to fill the bed and keep the machine running, with each job tracked.",
+          body: "I plan the batches to fill the bed and keep the machine running, and I track every job.",
         },
         {
           title: "Finishing",
-          body: "Filling, sanding and painting when the job calls for it. This is the stage that separates a printed part from a finished object.",
+          body: "I fill, sand and paint when the job calls for it. This is the stage that separates a printed part from a finished object.",
         },
       ],
       specs: [
@@ -287,33 +287,33 @@ export const contentEn: ContentBundle = {
       category: "Furniture",
       description: "A desk in wood and steel, a drawer unit and dimensional signage.",
       summary:
-        "Object design taken through to construction. A 2400 x 700 x 800 mm desk in wood with a steel structure, first resolved in CAD with its dimensions and then built; a drawer unit and a divided panel; and BROTE's dimensional signage, made and installed on a wall, on concrete and outdoors.",
+        "Object design I took through to construction. A 2400 x 700 x 800 mm desk in wood with a steel structure, which I first resolved in CAD with its dimensions and then built; a drawer unit and a divided panel; and BROTE's dimensional signage, which I made and installed on a wall, on concrete and outdoors.",
       role: "Design and fabrication",
       problem:
-        "A large desk has to be stable, fit through a door and be assembled on site. All three are decided in the design, not in the workshop. Signage poses the same question at a different scale: a dimensional letter has to hold itself up, mount straight and read well under the light of the place.",
+        "A large desk has to be stable, fit through a door and be assembled on site. All three are decided in the design, not in the workshop. Signage put the same question to me at a different scale: a dimensional letter has to hold itself up, mount straight and read well under the light of the place.",
       result:
-        "The desk built and in use, a family of complementary pieces resolved in CAD, and BROTE's signage installed.",
+        "The desk ended up built and in use, with a family of complementary pieces resolved in CAD, and BROTE's signage installed.",
       reflection:
-        "Seeing the built piece next to the render makes the difference plain between what the model promises and what the material allows. Learning to anticipate that gap is the job.",
+        "Seeing the built piece next to the render makes plain the difference between what the model promises and what the material allows. Anticipating that gap is what I am learning.",
       tools: ["Fusion 360", "Blender", "Digital fabrication"],
       materials: ["Wood", "Steel", "Melamine"],
       tags: ["Furniture", "Wood", "Signage"],
       process: [
         {
           title: "Dimensions from use",
-          body: "It starts from working height and usable width, and only then does the structure that holds them get defined.",
+          body: "I start from working height and usable width, and only then do I define the structure that holds them.",
         },
         {
           title: "Structure and joint",
-          body: "A steel frame with a wooden top. The joint between the two materials is where the rigidity is won or lost.",
+          body: "A steel frame with a wooden top. The joint between the two materials is where rigidity is won or lost.",
         },
         {
           title: "Checking in CAD",
-          body: "The dimensioned model makes it possible to review fits and overhangs before cutting any material.",
+          body: "With the dimensioned model I review fits and overhangs before cutting any material.",
         },
         {
           title: "Fabrication and installation",
-          body: "Cutting, assembly and finishing, adjusting on site whatever the model did not anticipate. In signage, mounting is part of the design: standoff from the wall, shadow and alignment.",
+          body: "I cut, assembled and finished it, adjusting on site whatever the model did not anticipate. In signage, mounting is part of the design: standoff from the wall, shadow and alignment.",
         },
       ],
       specs: [
@@ -382,33 +382,33 @@ export const contentEn: ContentBundle = {
       category: "Visualisation",
       description: "Seating, lighting and organic modelling studies resolved as images.",
       summary:
-        "Visualisation work: scenes where the goal is not to manufacture but to understand and to show. Studies of a tubular-frame armchair, of a stacked-ring lamp and of the living room that holds them, plus organic modelling for anatomical reference. Here lighting, materials and framing are the work, not the accompaniment.",
+        "3D visualisation: scenes where I am not trying to manufacture but to understand and to show. Studies of a tubular-frame armchair, of a stacked-ring lamp and of the living room that holds them, plus organic modelling for anatomical reference. Here lighting, materials and framing are the work, not the accompaniment.",
       role: "Modelling and rendering",
       problem:
-        "An image has to explain an object before it exists. The problem is not that it looks nice, but that it reads: what material it is, how it rests, where the light comes from.",
+        "An image has to explain an object before it exists. It is not enough for me that it looks nice: it has to read — what material it is, how it rests, where the light comes from.",
       result:
-        "A series of images that present each object both as a whole and in the detail of how it is resolved.",
+        "A series of images that show each object both as a whole and in the detail of how it is put together.",
       reflection:
-        "Rendering forces you to look at the object the way someone else will. Often the render exposes a design problem before it ever reaches the workshop.",
+        "Rendering forces me to look at the object the way someone else will. Often the render exposes a design problem to me before it ever reaches the workshop.",
       tools: ["Blender", "Fusion 360", "Rendering"],
       materials: ["Upholstery", "Tubular steel", "Wood"],
       tags: ["Render", "Lighting", "Modelling"],
       process: [
         {
           title: "Model for the camera",
-          body: "The level of detail is decided by what the camera will actually see. Modelling everything equally is wasted time.",
+          body: "I decide the level of detail by what the camera will actually see. Modelling everything equally is wasted time.",
         },
         {
           title: "Materials by behaviour",
-          body: "Upholstery, chromed tube and wood are not defined by colour but by how they return light. That is where the credibility of the scene is won.",
+          body: "I don't define upholstery, chromed tube and wood by colour but by how they return light. That is where the credibility of the scene is won.",
         },
         {
           title: "Lighting",
-          body: "Few sources, well placed. In the dark scenes, the lamp from the design itself is what sets the mood.",
+          body: "Few sources, well placed. In the dark scenes I let the lamp from the design itself set the mood.",
         },
         {
           title: "Framing",
-          body: "Overall views to understand the piece, and details to tell how it is put together.",
+          body: "Overall views so the piece reads, and details to tell how it is put together.",
         },
       ],
       specs: [
@@ -456,23 +456,23 @@ export const contentEn: ContentBundle = {
       category: "Website",
       description: "A natural food e-commerce, with a storefront and an admin panel.",
       summary:
-        "Collaboration on BROTE's digital product: an online shop for natural and organic products, with a catalogue, a customer club, recipes and a cart, plus the backoffice the business uses to manage all of it without touching code.",
+        "I collaborated on BROTE's digital product: an online shop for natural and organic products, with a catalogue, a customer club, recipes and a cart, plus the backoffice the business uses to manage all of it without touching code.",
       role: "Collaborator / design and development of the digital product",
       problem:
-        "A brand that exists in a physical shop and needs to sell online, with a panel the people running the business can use without technical help.",
-      result: "Storefront in production and an admin panel in daily use by the business.",
+        "A brand that exists in a physical shop and needed to sell online, with a panel the people running the business could use without technical help.",
+      result: "The storefront went into production and the panel is in daily use by the business.",
       reflection:
-        "The panel is the part nobody sees and the one that decides whether the site stays alive. If adding a product is awkward, the catalogue goes stale in two weeks.",
+        "The panel is the part nobody sees and the one that decides whether the site stays alive. If adding a product is awkward, in two weeks the catalogue is stale.",
       tools: ["UI design", "Web development", "Cloudflare Workers"],
       tags: ["Web", "E-commerce", "Backoffice"],
       process: [
         {
           title: "Storefront",
-          body: "Catalogue, bundles and cart, built to be read quickly on a phone, which is where most people buy.",
+          body: "I built the catalogue, bundles and cart to be read quickly on a phone, which is where most people buy.",
         },
         {
           title: "Club and recipes",
-          body: "Loyalty and content sections, so the site has a reason to be visited beyond a one-off purchase.",
+          body: "I added loyalty and content sections, so the site has a reason to be visited beyond a one-off purchase.",
         },
         {
           title: "Backoffice",
@@ -491,27 +491,27 @@ export const contentEn: ContentBundle = {
       category: "Website",
       description: "My own product for restaurants: digital menu, QR ordering and panel.",
       summary:
-        "My own end-to-end design and development project. MESSA is a restaurant's digital face: presentation, menu, ordering from the table by scanning a QR code, and a customer account, with a team login to run the service. The whole product, from the data model to the interface, is resolved end to end.",
+        "A project of mine, designed and developed end to end. MESSA is a restaurant's digital face: presentation, menu, ordering from the table by scanning a QR code, and a customer account, with a team login to run the service. I resolved all of it, from the data model to the interface.",
       role: "Own project / end-to-end design and development",
       problem:
         "A restaurant needs the order to start before the waiter arrives, without making the guest install anything or create an account just to look at the menu.",
-      result: "My own product online, with both the public site and the backoffice running.",
+      result: "It went online, with both the public site and the backoffice running.",
       reflection:
-        "Building the whole thing forces you to decide where the complexity goes. It is almost always better for the system to carry it, rather than the person using it at nine at night with a full room.",
+        "Building the whole thing forced me to decide where the complexity goes. It is almost always better for the system to carry it than the person using it at nine at night with a full room.",
       tools: ["UX/UI design", "Web development", "Cloudflare Workers"],
       tags: ["Web", "Product", "UX/UI"],
       process: [
         {
           title: "Modelling the service",
-          body: "The model comes first: what a table is, what an order is, what states it can be in and how it moves between them.",
+          body: "I started from the model: what a table is, what an order is, what states it can be in and how it moves between them.",
         },
         {
           title: "Menu and QR ordering",
-          body: "The guest scans, sees the menu and orders from the table. The interface favours quick reading over information density.",
+          body: "The guest scans, sees the menu and orders from the table. I favoured quick reading over information density.",
         },
         {
           title: "Team access",
-          body: "A separate panel so the floor can see and run the service in progress.",
+          body: "I built a separate panel so the floor can see and run the service in progress.",
         },
       ],
       specs: [
@@ -535,14 +535,14 @@ export const contentEn: ContentBundle = {
 
   cv: {
     profile: {
-      headline: "Engineering, design and fabrication of ideas you can touch.",
+      headline: "I design, calculate and build ideas you can touch.",
       summary:
-        "Mechanical Engineering student at UTN, Facultad Regional General Pacheco, with a bilingual secondary education and C1 English. He learns quickly, works independently and adapts to different environments, combining technical work, design, data analysis, supplier communication, coordination and project support.",
+        "I am a Mechanical Engineering student at UTN, Facultad Regional General Pacheco, with a bilingual secondary education and C1 English. I learn fast, work independently and adapt well to different environments: I combine technical work, design, data analysis, supplier communication, coordination and project support.",
     },
     profileParagraphs: [
       "I am a Mechanical Engineering student at UTN Facultad Regional General Pacheco, with a bilingual secondary education and C1 English. I work in the band where engineering meets design: I model in CAD, I fabricate, I assemble and, when the project calls for it, I take it to the screen as well.",
-      "You can see that in what this archive holds. A linear axis resolved in CAD alongside the technical drawing plates that back it. A speaker of my own with a shell-shaped body that ends up housing a driver, a battery and a board on custom-designed bases, signed KROL. A 2400 mm desk that exists first as dimensions and then as a built object, and BROTE's dimensional signage mounted on a wall. Replicas, scale models and cases out of my own 3D printing venture, where I handle quoting, design, production and the client. And two websites online, BROTE and MESSA, with their backoffices.",
-      "The common thread is fairly simple: I am interested in the part of the problem where decisions have to be made. What gets bought ready-made and what gets fabricated, where a large piece should be split, how much tolerance a fit can take, how much complexity the system should carry so the person using it does not have to.",
+      "You can see that in what is here. A linear axis I resolved in CAD, alongside the technical drawing plates that back it. A speaker of mine with a shell-shaped body that ends up housing a driver, a battery and a board on bases I designed to fit, signed KROL. A 2400 mm desk I first dimensioned and then built, and BROTE's dimensional signage mounted on a wall. Replicas, scale models and cases that come out of my 3D printing venture, where I handle quoting, design, production and the client. And two websites online, BROTE and MESSA, with their backoffices.",
+      "The common thread is fairly simple: I am interested in the part of the problem where decisions have to be made. What I buy ready-made and what I fabricate, where I split a large piece, how much tolerance a fit can take, how much complexity I load onto the system so I don't load it onto the person using it.",
     ],
     facts: {
       "Ing. Mecánica — UTN FRGP": "Mechanical Eng. — UTN FRGP",
@@ -553,27 +553,27 @@ export const contentEn: ContentBundle = {
     capabilities: {
       "Ingeniería mecánica": {
         title: "Mechanical engineering",
-        body: "Design of functional parts and mechanisms, thinking about manufacturing, standards and assembly criteria from the start.",
+        body: "I design functional parts and mechanisms, thinking from the start about how they are made, what standards apply and how they go together.",
       },
       "CAD y oficina técnica": {
         title: "CAD and drawing office",
-        body: "Modelling in Fusion 360 and Solid Edge, standard drawings, sections, dimensioning and basic metrology.",
+        body: "I model in Fusion 360 and Solid Edge, and produce standard drawings with their sections and dimensions. Basic metrology.",
       },
       "Fabricación digital": {
         title: "Digital fabrication",
-        body: "3D printing end to end: preparing the model, batch production and post-processing through to the final finish.",
+        body: "I run 3D printing end to end: I prepare the model, produce in batches and post-process through to the final finish.",
       },
       "Diseño de producto y objeto": {
         title: "Product and object design",
-        body: "From shape to real assembly: enclosures, furniture and parts where the geometry has to house concrete components.",
+        body: "I take shape through to real assembly: enclosures, furniture and parts where the geometry has to house concrete components.",
       },
       "Electrónica embebida": {
         title: "Embedded electronics",
-        body: "Mounting boards, batteries and actuators on custom-designed supports. Working knowledge of Arduino.",
+        body: "I mount boards, batteries and actuators on supports I design to fit. Working knowledge of Arduino.",
       },
       "Producto digital": {
         title: "Digital product",
-        body: "Design and development of sites and backoffices, from the data model to the interface the business uses every day.",
+        body: "I design and develop sites and backoffices, from the data model to the interface the business uses every day.",
       },
     },
     education: {
@@ -587,7 +587,7 @@ export const contentEn: ContentBundle = {
       },
       "Cambridge IGCSE": {
         detail: "With Merit",
-        note: "Took part in Mathematics Olympiads and Model United Nations debates.",
+        note: "I took part in Mathematics Olympiads and Model United Nations debates.",
       },
     },
     experience: {
@@ -595,7 +595,7 @@ export const contentEn: ContentBundle = {
         title: "3D printing and custom design service",
         org: "Own venture",
         period: "2024 — present",
-        body: "Design and fabrication of parts, signage and scale models for architecture clients, businesses and general use.",
+        body: "I design and make parts, signage and scale models for architecture clients, businesses and general use. I run the whole process, from the first conversation to delivery.",
         bullets: [
           "Quoting",
           "CAD design",
@@ -604,19 +604,19 @@ export const contentEn: ContentBundle = {
           "Manufacturing planning",
           "Technical problem solving",
         ],
-        outcome: "Full-scale models up to 1.20 m.",
+        outcome: "I have gone up to full-scale models of 1.20 m.",
       },
       "Competencia de robótica": {
         title: "Robotics competition",
         org: "Universidad Austral",
-        body: "Team project: presenting a line-following car, coordinating tasks and adapting under tight deadlines.",
-        outcome: "Second place.",
+        body: "My team and I presented a line-following car. I coordinated tasks and we adapted the design as we went, on tight deadlines.",
+        outcome: "We came second.",
       },
       "Proyectos técnicos personales en CAD": {
         title: "Personal technical projects in CAD",
         org: "Own work",
-        body: "Design of functional mechanical parts considering manufacturing, standards and assembly criteria.",
-        outcome: "Iterating designs to improve function and reduce complexity.",
+        body: "I design functional mechanical parts, thinking from the start about how they are made, what standards apply and how they go together.",
+        outcome: "I iterate every design so it works better and is simpler to make.",
       },
     },
     skills: {
@@ -639,6 +639,26 @@ export const contentEn: ContentBundle = {
         area: "Programming",
         items: ["HTML", "CSS", "JavaScript", "Digital House"],
       },
+      "Diseño web e integraciones": {
+        area: "Web design and integrations",
+        items: [
+          "Interface design",
+          "Responsive sites",
+          "Backoffices",
+          "API integration",
+          "Payment gateways",
+          "Databases",
+        ],
+      },
+      "Automatizaciones básicas": {
+        area: "Basic automation",
+        items: [
+          "Scripting repetitive tasks",
+          "Spreadsheet automation",
+          "Flows between tools",
+          "Report generation",
+        ],
+      },
       Electrónica: {
         area: "Electronics",
         items: ["Arduino", "Working knowledge of electronics"],
@@ -657,11 +677,11 @@ export const contentEn: ContentBundle = {
       },
     },
     process: {
-      "01": { title: "Observe", body: "Understand the problem and its context." },
-      "02": { title: "Define", body: "Turn needs into concrete criteria." },
-      "03": { title: "Design", body: "Develop ideas, drawings and alternatives." },
-      "04": { title: "Build", body: "Prototype, fabricate and test." },
-      "05": { title: "Refine", body: "Iterate towards a clearer, more functional solution." },
+      "01": { title: "Observe", body: "I understand the problem and its context." },
+      "02": { title: "Define", body: "I turn the needs into concrete criteria." },
+      "03": { title: "Design", body: "I develop ideas, drawings and alternatives." },
+      "04": { title: "Build", body: "I prototype, fabricate and test." },
+      "05": { title: "Refine", body: "I iterate towards a clearer, more functional solution." },
     },
   },
 };
