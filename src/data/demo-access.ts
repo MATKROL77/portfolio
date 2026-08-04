@@ -48,7 +48,17 @@ export const demoAccess: Record<"brote" | "messa", DemoAccess> = {
   },
 };
 
-/** true cuando hay credenciales cargadas para mostrar. */
+/**
+ * Si se muestra el panel real (con su pantalla de login) o la réplica local.
+ * No depende de que la contraseña esté cargada: ver el login verdadero ya es
+ * más honesto que una maqueta, y la barra de acceso aparece igual con lo que
+ * haya configurado.
+ */
+export function showsRealBackoffice(access: DemoAccess): boolean {
+  return access.enabled;
+}
+
+/** true cuando hay contraseña cargada y se puede mostrar el acceso completo. */
 export function hasCredentials(access: DemoAccess): boolean {
   return access.enabled && access.email.length > 0 && access.password.length > 0;
 }

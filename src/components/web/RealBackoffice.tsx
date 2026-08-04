@@ -11,9 +11,9 @@ import { AccessBar } from "./AccessBar";
  * Backoffice real, con el acceso de invitado a la vista.
  *
  * Arriba van el usuario y la contraseña con sus botones de copiar; abajo, el
- * panel real embebido para que se pueda iniciar sesión sin salir del portfolio.
- * Si el panel prohíbe mostrarse dentro de otra página, se explica y se ofrece
- * abrirlo en una pestaña.
+ * panel real embebido, con su propia pantalla de login, para poder entrar sin
+ * salir del portfolio. Si el panel prohíbe mostrarse dentro de otra página, se
+ * explica y se ofrece abrirlo en una pestaña.
  *
  * El portfolio nunca completa el formulario ni envía las credenciales: sólo las
  * muestra para que las copie quien esté mirando.
@@ -21,10 +21,13 @@ import { AccessBar } from "./AccessBar";
 export function RealBackoffice({ product }: { product: WebProduct }) {
   const t = useT();
   const access = demoAccess[product.slug];
+  const credentialsReady = hasCredentials(access);
 
   return (
     <div className="flex h-full flex-col bg-[#141110]">
-      {hasCredentials(access) && <AccessBar access={access} />}
+      {access.email.length > 0 && (
+        <AccessBar access={access} missingPassword={!credentialsReady} />
+      )}
 
       {product.adminEmbeddable ? (
         <iframe
@@ -32,7 +35,7 @@ export function RealBackoffice({ product }: { product: WebProduct }) {
           title={`Backoffice de ${product.name}`}
           loading="lazy"
           referrerPolicy="no-referrer"
-          // el formulario de login tiene que poder enviarse, por eso allow-forms
+          // allow-forms es lo que permite enviar el formulario de login
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
           className="min-h-0 w-full flex-1 border-0 bg-white"
         />

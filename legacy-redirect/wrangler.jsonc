@@ -1,0 +1,7 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  // Ocupa el nombre de la direccion anterior del portfolio y redirige al nuevo.
+  "name": "portfolio-matias-colimodio",
+  "main": "index.js",
+  "compatibility_date": "2026-08-03"
+}

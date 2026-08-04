@@ -14,7 +14,14 @@ import { useT } from "@/i18n/LocaleProvider";
  * Estos valores son públicos a propósito: están para que quien visita el
  * portfolio pueda entrar a mirar el panel. Ver `src/data/demo-access.ts`.
  */
-export function AccessBar({ access }: { access: DemoAccess }) {
+export function AccessBar({
+  access,
+  missingPassword = false,
+}: {
+  access: DemoAccess;
+  /** la contraseña todavía no está cargada en src/data/demo-access.ts */
+  missingPassword?: boolean;
+}) {
   const t = useT();
 
   return (
@@ -26,11 +33,15 @@ export function AccessBar({ access }: { access: DemoAccess }) {
         </span>
 
         <CopyField label={t("web.accessEmail")} value={access.email} />
-        <CopyField label={t("web.accessPassword")} value={access.password} />
+        {!missingPassword && (
+          <CopyField label={t("web.accessPassword")} value={access.password} />
+        )}
       </div>
 
       <p className="mt-2.5 text-[0.66rem] leading-relaxed text-sand/60">
-        {access.note ?? t("web.accessNote")}
+        {missingPassword
+          ? t("web.accessPending")
+          : (access.note ?? t("web.accessNote"))}
       </p>
     </div>
   );

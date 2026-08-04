@@ -6,7 +6,7 @@ import { ArrowUpRight, Expand, Layers, X } from "lucide-react";
 
 import { assets } from "@/data/assets.generated";
 import { broteDemo, messaDemo } from "@/data/backoffice-demo";
-import { demoAccess, hasCredentials } from "@/data/demo-access";
+import { demoAccess, showsRealBackoffice } from "@/data/demo-access";
 import type { WebProduct } from "@/data/portfolio";
 import { cn } from "@/lib/cn";
 import { useT } from "@/i18n/LocaleProvider";
@@ -24,7 +24,7 @@ const demos = { brote: broteDemo, messa: messaDemo } as const;
  * credenciales cargadas, o la réplica local de demostración si no.
  */
 function useBackoffice(product: WebProduct) {
-  const real = hasCredentials(demoAccess[product.slug]);
+  const real = showsRealBackoffice(demoAccess[product.slug]);
   return {
     real,
     badgeKey: real ? ("web.accessTitle" as const) : ("web.readOnly" as const),
