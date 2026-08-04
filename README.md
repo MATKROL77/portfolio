@@ -133,17 +133,42 @@ El iframe va con `sandbox="allow-scripts allow-same-origin allow-popups"`: se
 puede mirar, no operar. El portfolio nunca hace `POST`, `PUT`, `PATCH` ni
 `DELETE` contra ningún sitio real.
 
-**El backoffice** es una réplica local: una maqueta con datos inventados que
-vive en `src/data/backoffice-demo.ts`. No está conectada a los sistemas reales,
-no pide usuario ni contraseña y cualquiera puede verla siempre.
+**El backoffice** tiene dos modos, y el que se muestra depende de
+`src/data/demo-access.ts`:
 
-> **Por qué no hay una cuenta real de solo lectura.** Todo lo que viva en el
-> frontend es público: cualquiera puede abrir el código de la página y leerlo.
-> Poner ahí un usuario y una contraseña reales —aunque sean de una cuenta de
-> solo vista— significa publicar credenciales de un sistema en producción. La
-> forma segura de tener un backoffice real abierto es agregar un **modo demo**
-> en las apps de BROTE y MESSA: una ruta pública que sirva datos de ejemplo y
-> tenga la escritura deshabilitada del lado del servidor.
+1. **Con credenciales cargadas** — se embebe el panel real y arriba aparece una
+   barra con el usuario y la contraseña de la cuenta de invitado, cada uno con
+   su botón de copiar. El visitante copia, entra con el formulario del propio
+   panel y recorre el sistema. El portfolio nunca completa ni envía el
+   formulario: sólo muestra los datos.
+2. **Sin credenciales** (por defecto) — se muestra una réplica local: una
+   maqueta con datos inventados que vive en `src/data/backoffice-demo.ts`, sin
+   conexión con los sistemas reales y sin login.
+
+### Para activar el acceso al panel real
+
+Editá `password` en `src/data/demo-access.ts`. Está vacío a propósito: la
+contraseña no se versiona automáticamente para que sea una decisión consciente.
+
+> **Leer antes de completarlo.** Lo que se escriba ahí queda público: el sitio
+> es estático y cualquiera puede abrir el código de la página y leerlo. Esa es
+> la intención — que se pueda entrar a mirar —, pero exige dos cosas del lado
+> del servidor:
+>
+> 1. Que la cuenta sea de **solo lectura de verdad**, verificado en el backend.
+>    Si el rol se chequea nada más que en la interfaz, cualquiera puede
+>    modificar datos reales llamando a la API a mano.
+> 2. Que el panel **no muestre datos personales de clientes** con esa cuenta
+>    (nombres, teléfonos, direcciones, correos). Si los muestra, conviene que la
+>    cuenta de invitado vea datos de prueba.
+>
+> Si alguna de las dos no se cumple, dejá `enabled: false` y queda la réplica
+> local, que no toca nada. Lo más prolijo a largo plazo es agregar un **modo
+> demo** en las apps de BROTE y MESSA: una ruta pública con datos de ejemplo y
+> la escritura deshabilitada en el servidor.
+
+Ojo: MESSA sirve todo su dominio con `frame-ancestors 'none'`, así que su panel
+no se puede embeber; se ofrece abrirlo en una pestaña con el mismo acceso.
 
 ---
 

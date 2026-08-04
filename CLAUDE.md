@@ -21,10 +21,15 @@ textos ni componentes.
   ni medidas que no estén respaldados por el CV (`src/data/cv.ts`) o por el
   material de `_source-images/`. Si algo es conceptual, marcarlo con
   `status: "concept"` y explicarlo en `disclaimer`.
-- **Nunca poner credenciales en el frontend.** Todo lo que esté en el código de
-  la página es público. El backoffice del sitio es una réplica local con datos
-  inventados (`src/data/backoffice-demo.ts`), a propósito. Ver la sección "Cómo
-  funciona el modo solo lectura" del README.
+- **El sitio está escrito en primera persona.** "Diseño", "fabrico", "aprendí".
+  Nunca hablar de Matías en tercera persona.
+- **Cuidado con las credenciales.** Todo lo que esté en el código de la página es
+  público. El acceso de invitado al backoffice vive en `src/data/demo-access.ts`
+  y sólo debe completarse si la cuenta es de solo lectura verificada en el
+  servidor y el panel no expone datos personales de clientes. Si no, dejar
+  `enabled: false`: cae en la réplica local con datos inventados
+  (`src/data/backoffice-demo.ts`). Ver "Cómo funciona el modo solo lectura" en
+  el README.
 - **Nunca hacer escrituras contra los sitios reales** de BROTE o MESSA. Sólo
   `GET` a las URLs públicas, nunca a `/admin`.
 - **No borrar ni modificar `_source-images/`.** Son los originales; el pipeline
