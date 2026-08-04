@@ -102,14 +102,6 @@ export const assets = {
     "color": "#31302f",
     "origin": "f94683a2-0b84-4d5d-8f6a-ceda29e5d6c3.jpg"
   },
-  "projects/parlante-caracol/print-in-progress": {
-    "src": "/assets/projects/parlante-caracol/print-in-progress.webp",
-    "width": 960,
-    "height": 1280,
-    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABwAgCdASoMABAAA4BaJQBOj+ADL/AvfpgqgotgAP5MwY9g9S8qrKWnwGQUc9tjubQo9ZDSNgXQH22r1o9Q5XZyVjlWDOIsA/QEuKfEhaN1gGesidR6NjunNNqFwhOh1ccZ+ZSuAAA=",
-    "color": "#80796d",
-    "origin": "d4deeddf-e15a-4172-9743-450a3811e940.jpg"
-  },
   "projects/parlante-caracol/assembly-full": {
     "src": "/assets/projects/parlante-caracol/assembly-full.webp",
     "width": 1600,
@@ -310,14 +302,6 @@ export const assets = {
     "color": "#c9bead",
     "origin": "43314028-2b10-4939-9a76-d16dee267c4d.jpg"
   },
-  "projects/mechanical-design/part-metal-finish": {
-    "src": "/assets/projects/mechanical-design/part-metal-finish.webp",
-    "width": 1600,
-    "height": 1200,
-    "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAwAA4BaJZwAAuH2mGOAAPjXjS2DZpoUEqR/gLv3V+mtT2RzbjeLgAA=",
-    "color": "#807c75",
-    "origin": "675c35bd-8a70-479e-99f3-cc5261292e9e.jpg"
-  },
   "projects/3d-printing/nike-outdoor": {
     "src": "/assets/projects/3d-printing/nike-outdoor.webp",
     "width": 2400,
@@ -342,13 +326,13 @@ export const assets = {
     "color": "#8f8076",
     "origin": "61634a2e-dbd1-4207-adaf-c40995ed287b.jpg"
   },
-  "projects/3d-printing/workshop-finishing": {
-    "src": "/assets/projects/3d-printing/workshop-finishing.webp",
-    "width": 1600,
-    "height": 2133,
-    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoMABAAA4BaJZgCdABz3qMAAP7VvzEi3dRcY/v+z/niebchROILyuDrIfT9qdpf9PPDAIzofdpWeZ6BlsTKiMUaQvUF5zmAAAA=",
-    "color": "#95846c",
-    "origin": "a989df52-5206-4e23-bdcf-d4a48b5b4001.jpg"
+  "projects/3d-printing/nike-printing": {
+    "src": "/assets/projects/3d-printing/nike-printing.webp",
+    "width": 960,
+    "height": 1280,
+    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABwAgCdASoMABAAA4BaJQBOj+ADL/AvfpgqgotgAP5MwY9g9S8qrKWnwGQUc9tjubQo9ZDSNgXQH22r1o9Q5XZyVjlWDOIsA/QEuKfEhaN1gGesidR6NjunNNqFwhOh1ccZ+ZSuAAA=",
+    "color": "#80796d",
+    "origin": "d4deeddf-e15a-4172-9743-450a3811e940.jpg"
   },
   "projects/3d-printing/shelf-decor": {
     "src": "/assets/projects/3d-printing/shelf-decor.webp",
@@ -365,6 +349,14 @@ export const assets = {
     "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoQAAwAA4BaJZQCdAD2K1jG00dwAPtsP3uFuj8G1Iu2OwV9DGv/OXylFRapJiaWbkrRGcLAVW2PDhZUOpjD67AA",
     "color": "#776d61",
     "origin": "6a00a939-5ede-4f03-b12a-bfc468ff1e55.jpg"
+  },
+  "projects/3d-printing/caliper-case-closed": {
+    "src": "/assets/projects/3d-printing/caliper-case-closed.webp",
+    "width": 1600,
+    "height": 1200,
+    "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAwAA4BaJZwAAuH2mGOAAPjXjS2DZpoUEqR/gLv3V+mtT2RzbjeLgAA=",
+    "color": "#807c75",
+    "origin": "675c35bd-8a70-479e-99f3-cc5261292e9e.jpg"
   },
   "projects/3d-printing/arch-model-01": {
     "src": "/assets/projects/3d-printing/arch-model-01.webp",
@@ -517,6 +509,14 @@ export const assets = {
     "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoMABAAA4BaJaACdADhZN+MAAD+9aIv22ClQcSMcT5vD0zGDCUcdAnVvpm03FRYWUmVOtz8FbndNhNFSs1IcsOb+Uve2onObB9h0VxYAAA=",
     "color": "#746246",
     "origin": "212bf4db-1f5c-4d34-9366-2e81d4b46390.jpg"
+  },
+  "projects/furniture/brote-workshop": {
+    "src": "/assets/projects/furniture/brote-workshop.webp",
+    "width": 1600,
+    "height": 2133,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoMABAAA4BaJZgCdABz3qMAAP7VvzEi3dRcY/v+z/niebchROILyuDrIfT9qdpf9PPDAIzofdpWeZ6BlsTKiMUaQvUF5zmAAAA=",
+    "color": "#95846c",
+    "origin": "a989df52-5206-4e23-bdcf-d4a48b5b4001.jpg"
   },
   "projects/renders/armchair-lamp": {
     "src": "/assets/projects/renders/armchair-lamp.webp",

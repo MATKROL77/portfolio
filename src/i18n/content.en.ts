@@ -97,10 +97,6 @@ export const contentEn: ContentBundle = {
           alt: "Technical drawing of a joint with dimensioned circles",
           caption: "Tolerances and fits on a bearing seat.",
         },
-        "projects/mechanical-design/part-metal-finish": {
-          alt: "Printed part with a metallic finish resting on a dark surface",
-          caption: "From drawing to object: the finished part.",
-        },
       },
     },
 
@@ -164,10 +160,6 @@ export const contentEn: ContentBundle = {
         "projects/parlante-caracol/render-form-04": { alt: "Render of the shell standing upright" },
         "projects/parlante-caracol/render-form-05": { alt: "Front render of the shell" },
         "projects/parlante-caracol/render-form-06": { alt: "General render of the shell at rest" },
-        "projects/parlante-caracol/print-in-progress": {
-          alt: "The shell printing on the bed of a Bambu Lab printer",
-          caption: "From render to machine.",
-        },
         "projects/parlante-caracol/board-mounted": {
           alt: "Electronic board and battery mounted on a printed base",
           caption: "A base printed to fit the board and the battery.",
@@ -254,9 +246,9 @@ export const contentEn: ContentBundle = {
           alt: "Printed replica in cream mounted on a red base, indoors",
           caption: "The same piece in a different finish.",
         },
-        "projects/3d-printing/workshop-finishing": {
-          alt: "Work table with gold frames and a white piece being filled",
-          caption: "Post-processing: filler, sanding and paint.",
+        "projects/3d-printing/nike-printing": {
+          alt: "The Winged Victory replica printing on a Bambu Lab printer",
+          caption: "The same replica coming off the machine, in sections.",
         },
         "projects/3d-printing/shelf-decor": {
           alt: "Shelf with printed decorative pieces, copper circles and dried flowers",
@@ -264,7 +256,11 @@ export const contentEn: ContentBundle = {
         },
         "projects/3d-printing/caliper-case-open": {
           alt: "Open printed case with a caliper inside",
-          caption: "A case printed to fit a caliper.",
+          caption: "A case printed to fit a caliper, with its seat.",
+        },
+        "projects/3d-printing/caliper-case-closed": {
+          alt: "The same case closed, with a metallic finish, on a dark surface",
+          caption: "Closed: the hinge and the catch are printed too.",
         },
         "projects/3d-printing/arch-model-01": {
           alt: "White scale model of a multi-level structure seen at an angle",
@@ -373,6 +369,11 @@ export const contentEn: ContentBundle = {
         },
         "projects/furniture/brote-framed-piece": {
           alt: "Framed picture with seeds and nuts on a wooden wall",
+          caption: "The finished frame, mounted in the shop.",
+        },
+        "projects/furniture/brote-workshop": {
+          alt: "Workshop table with the gold frames and a white acorn being filled",
+          caption: "The BROTE pieces in the workshop: filler, sanding and paint.",
         },
       },
     },

@@ -67,7 +67,6 @@ MAP = [
     ("9b500ba7-8495-42bc-a9aa-2e9ee7cc0b03.jpg", "projects/parlante-caracol", "render-form-05", "gallery", "webp"),
     ("b0a2d950-2b8d-4d18-b7b8-0e5d6d001bd1.jpg", "projects/parlante-caracol", "render-detail", "gallery", "webp"),
     ("f94683a2-0b84-4d5d-8f6a-ceda29e5d6c3.jpg", "projects/parlante-caracol", "render-form-06", "gallery", "webp"),
-    ("d4deeddf-e15a-4172-9743-450a3811e940.jpg", "projects/parlante-caracol", "print-in-progress", "gallery", "webp"),
     ("7c1a3358-1950-42df-8b37-a35917f0762c.jpg", "projects/parlante-caracol", "assembly-full", "gallery", "webp"),
     ("38fead71-3d62-4123-abb3-851c07423552.jpg", "projects/parlante-caracol", "assembly-pcb", "gallery", "webp"),
     ("599d5430-150d-4896-b258-2f82254262b7.jpg", "projects/parlante-caracol", "assembly-speaker", "gallery", "webp"),
@@ -95,15 +94,18 @@ MAP = [
     ("4a038ca8-0f88-441d-a08c-a6fc13026bb3.jpg", "projects/mechanical-design", "drawing-views-02", "gallery", "webp"),
     ("17906446-15a4-4f0e-aaf3-aa0f0113d870.jpg", "projects/mechanical-design", "drawing-views-03", "gallery", "webp"),
     ("43314028-2b10-4939-9a76-d16dee267c4d.jpg", "projects/mechanical-design", "drawing-revolution", "gallery", "webp"),
-    ("675c35bd-8a70-479e-99f3-cc5261292e9e.jpg", "projects/mechanical-design", "part-metal-finish", "gallery", "webp"),
 
     # --- Impresion 3D y prototipado --------------------------------------
     ("a25eba60-4034-4a0d-95f4-cda7cc18daa3.jpg", "projects/3d-printing", "nike-outdoor", "hero", "webp"),
     ("002f6538-dadc-4878-9a38-26cde3bf4253.jpg", "projects/3d-printing", "nike-outdoor-alt", "gallery", "webp"),
     ("61634a2e-dbd1-4207-adaf-c40995ed287b.jpg", "projects/3d-printing", "nike-red-base", "gallery", "webp"),
-    ("a989df52-5206-4e23-bdcf-d4a48b5b4001.jpg", "projects/3d-printing", "workshop-finishing", "gallery", "webp"),
+    # la foto de la impresora es la replica de la Nike saliendo de la maquina,
+    # no la carcasa del parlante: va con el resto de la replica.
+    ("d4deeddf-e15a-4172-9743-450a3811e940.jpg", "projects/3d-printing", "nike-printing", "gallery", "webp"),
     ("39ff6257-c83e-4ef5-b0b4-fb20825480c1.jpg", "projects/3d-printing", "shelf-decor", "gallery", "webp"),
     ("6a00a939-5ede-4f03-b12a-bfc468ff1e55.jpg", "projects/3d-printing", "caliper-case-open", "gallery", "webp"),
+    # es el mismo estuche cerrado, no una pieza del diseno mecanico
+    ("675c35bd-8a70-479e-99f3-cc5261292e9e.jpg", "projects/3d-printing", "caliper-case-closed", "gallery", "webp"),
     ("f619d0e7-a99a-45f8-8c4e-e00f5026d27c.jpg", "projects/3d-printing", "arch-model-01", "gallery", "webp"),
     ("e1e89906-e6a3-4be1-99d0-d8f3cc7f0929.jpg", "projects/3d-printing", "arch-model-02", "gallery", "webp"),
     ("55aba7ba-af84-450b-a278-ed9c1362c165.jpg", "projects/3d-printing", "arch-model-03", "gallery", "webp"),
@@ -127,6 +129,9 @@ MAP = [
     ("bf82c7a1-b03a-453d-999f-aa179621af79.jpg", "projects/furniture", "brote-corners", "gallery", "webp"),
     ("799ca26d-c78a-4acb-8749-ce7aee672c3c.jpg", "projects/furniture", "brote-corners-alt", "gallery", "webp"),
     ("212bf4db-1f5c-4d34-9366-2e81d4b46390.jpg", "projects/furniture", "brote-framed-piece", "gallery", "webp"),
+    # la mesa de taller con los marcos dorados y la bellota es el proceso de las
+    # piezas de BROTE, no del servicio general de impresion 3D.
+    ("a989df52-5206-4e23-bdcf-d4a48b5b4001.jpg", "projects/furniture", "brote-workshop", "gallery", "webp"),
 
     # --- Renders (visualizacion 3D) --------------------------------------
     ("669a8777-c280-49ce-9a1e-1948c8261a14.jpg", "projects/renders", "armchair-lamp", "hero", "webp"),
@@ -497,6 +502,14 @@ def main():
     if not os.path.isdir(SRC):
         raise SystemExit("No se encontraron originales en %s" % SRC)
 
+    # Se anota lo que este mapa genera para poder borrar despues lo que sobra.
+    # Sin esto, reclasificar una imagen deja el archivo viejo dando vueltas en
+    # public/assets: no se ve en el sitio pero infla el repo y confunde.
+    expected = set()
+    for _, folder, name, _, fmt in MAP:
+        ext = "png" if fmt == "png-cutout" else "webp"
+        expected.add(os.path.join(PUB, folder.replace("/", os.sep), "%s.%s" % (name, ext)))
+
     manifest = {}
     for src_name, folder, name, role, fmt in MAP:
         src_path = resolve(src_name)
@@ -534,6 +547,24 @@ def main():
             "origin": src_name,
         }
         print("ok  %-46s %5dx%-5d  <- %s" % (key, im.width, im.height, src_name))
+
+    # limpieza: fuera lo que ya no esta en el mapa (las texturas quedan aparte)
+    removed = 0
+    for folder in ("portrait", "projects"):
+        root = os.path.join(PUB, folder)
+        for dirpath, _, filenames in os.walk(root):
+            for filename in filenames:
+                path = os.path.join(dirpath, filename)
+                if path not in expected:
+                    os.remove(path)
+                    removed += 1
+                    print("--  huerfano eliminado: %s" % os.path.relpath(path, PUB))
+    # y las carpetas que quedaron vacias
+    for dirpath, dirnames, filenames in os.walk(os.path.join(PUB, "projects"), topdown=False):
+        if not dirnames and not filenames:
+            os.rmdir(dirpath)
+    if removed:
+        print("--  %d archivos huerfanos borrados" % removed)
 
     textures = make_textures()
     print("ok  texturas procedurales: %s" % ", ".join(textures))

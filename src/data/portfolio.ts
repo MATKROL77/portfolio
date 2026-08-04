@@ -159,11 +159,6 @@ export const projects: Project[] = [
         alt: "Plano técnico de una junta con circunferencias acotadas",
         caption: "Tolerancias y ajustes en un apoyo.",
       },
-      {
-        image: "projects/mechanical-design/part-metal-finish",
-        alt: "Pieza impresa con acabado metálico apoyada sobre una superficie oscura",
-        caption: "Del plano al objeto: pieza terminada.",
-      },
     ],
     tags: ["CAD", "Dibujo técnico", "Transmisión"],
     featured: true,
@@ -249,11 +244,6 @@ export const projects: Project[] = [
       {
         image: "projects/parlante-caracol/render-form-06",
         alt: "Render de la carcasa apoyada, vista general",
-      },
-      {
-        image: "projects/parlante-caracol/print-in-progress",
-        alt: "La carcasa imprimiéndose sobre la cama de una impresora Bambu Lab",
-        caption: "Del render a la máquina.",
       },
       {
         image: "projects/parlante-caracol/board-mounted",
@@ -361,9 +351,9 @@ export const projects: Project[] = [
         caption: "La misma pieza en otro acabado.",
       },
       {
-        image: "projects/3d-printing/workshop-finishing",
-        alt: "Mesa de trabajo con marcos dorados y una pieza blanca en proceso de masillado",
-        caption: "Postprocesado: masilla, lijado y pintura.",
+        image: "projects/3d-printing/nike-printing",
+        alt: "La réplica de la Victoria de Samotracia imprimiéndose en una impresora Bambu Lab",
+        caption: "La misma réplica saliendo de la máquina, por partes.",
       },
       {
         image: "projects/3d-printing/shelf-decor",
@@ -373,7 +363,12 @@ export const projects: Project[] = [
       {
         image: "projects/3d-printing/caliper-case-open",
         alt: "Estuche impreso abierto con un calibre en su interior",
-        caption: "Estuche a medida para un calibre.",
+        caption: "Estuche a medida para un calibre, con su alojamiento.",
+      },
+      {
+        image: "projects/3d-printing/caliper-case-closed",
+        alt: "El mismo estuche cerrado, con acabado metálico, sobre una superficie oscura",
+        caption: "Cerrado: la bisagra y el cierre también salen impresos.",
       },
       {
         image: "projects/3d-printing/arch-model-01",
@@ -507,6 +502,12 @@ export const projects: Project[] = [
       {
         image: "projects/furniture/brote-framed-piece",
         alt: "Cuadro enmarcado con semillas y frutos secos sobre una pared de madera",
+        caption: "El cuadro terminado, montado en el local.",
+      },
+      {
+        image: "projects/furniture/brote-workshop",
+        alt: "Mesa de taller con los marcos dorados y una bellota blanca en proceso de masillado",
+        caption: "Las piezas de BROTE en el taller: masilla, lijado y pintura.",
       },
     ],
     tags: ["Mobiliario", "Madera", "Señalética"],

@@ -97,10 +97,6 @@ export const contentPt: ContentBundle = {
           alt: "Desenho técnico de uma junta com circunferências cotadas",
           caption: "Tolerâncias e ajustes em um apoio.",
         },
-        "projects/mechanical-design/part-metal-finish": {
-          alt: "Peça impressa com acabamento metálico sobre uma superfície escura",
-          caption: "Do desenho ao objeto: peça pronta.",
-        },
       },
     },
 
@@ -164,10 +160,6 @@ export const contentPt: ContentBundle = {
         "projects/parlante-caracol/render-form-04": { alt: "Render da carcaça na vertical" },
         "projects/parlante-caracol/render-form-05": { alt: "Render frontal da carcaça" },
         "projects/parlante-caracol/render-form-06": { alt: "Render geral da carcaça apoiada" },
-        "projects/parlante-caracol/print-in-progress": {
-          alt: "A carcaça sendo impressa na mesa de uma impressora Bambu Lab",
-          caption: "Do render à máquina.",
-        },
         "projects/parlante-caracol/board-mounted": {
           alt: "Placa eletrônica e bateria montadas sobre uma base impressa",
           caption: "Base impressa sob medida para a placa e a bateria.",
@@ -254,9 +246,9 @@ export const contentPt: ContentBundle = {
           alt: "Réplica impressa em creme montada sobre uma base vermelha, em ambiente interno",
           caption: "A mesma peça em outro acabamento.",
         },
-        "projects/3d-printing/workshop-finishing": {
-          alt: "Mesa de trabalho com molduras douradas e uma peça branca em masseamento",
-          caption: "Pós-processamento: massa, lixa e pintura.",
+        "projects/3d-printing/nike-printing": {
+          alt: "A réplica da Vitória de Samotrácia sendo impressa em uma impressora Bambu Lab",
+          caption: "A mesma réplica saindo da máquina, em partes.",
         },
         "projects/3d-printing/shelf-decor": {
           alt: "Prateleira com peças decorativas impressas, círculos de cobre e flores secas",
@@ -264,7 +256,11 @@ export const contentPt: ContentBundle = {
         },
         "projects/3d-printing/caliper-case-open": {
           alt: "Estojo impresso aberto com um paquímetro dentro",
-          caption: "Estojo sob medida para um paquímetro.",
+          caption: "Estojo sob medida para um paquímetro, com seu alojamento.",
+        },
+        "projects/3d-printing/caliper-case-closed": {
+          alt: "O mesmo estojo fechado, com acabamento metálico, sobre uma superfície escura",
+          caption: "Fechado: a dobradiça e o fecho também saem impressos.",
         },
         "projects/3d-printing/arch-model-01": {
           alt: "Maquete branca de uma estrutura de vários níveis vista em ângulo",
@@ -373,6 +369,11 @@ export const contentPt: ContentBundle = {
         },
         "projects/furniture/brote-framed-piece": {
           alt: "Quadro emoldurado com sementes e castanhas sobre uma parede de madeira",
+          caption: "O quadro pronto, montado na loja.",
+        },
+        "projects/furniture/brote-workshop": {
+          alt: "Mesa de oficina com as molduras douradas e uma bolota branca em masseamento",
+          caption: "As peças da BROTE na oficina: massa, lixa e pintura.",
         },
       },
     },
