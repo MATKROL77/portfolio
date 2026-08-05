@@ -52,6 +52,8 @@ export function SitePanel({ product }: { product: WebProduct }) {
   const cover = assets[product.cover];
   const demo = demos[product.slug];
   const backoffice = useBackoffice(product);
+  const publicSrc = product.publicEmbedUrl ?? product.publicUrl;
+  const adminSrc = product.adminEmbedUrl ?? product.adminUrl;
 
   const publicFront = tab === "public";
 
@@ -150,7 +152,8 @@ export function SitePanel({ product }: { product: WebProduct }) {
           transition={stackTransition}
         >
           <BrowserWindow
-            url={product.publicUrl}
+            // la barra de direcciones muestra lo que realmente carga el marco
+            url={publicSrc}
             tone="light"
             className="h-full"
             badge={
@@ -161,7 +164,7 @@ export function SitePanel({ product }: { product: WebProduct }) {
           >
             <div className="h-[calc(100%-2.75rem)] w-full">
               <LiveSite
-                url={product.publicUrl}
+                url={publicSrc}
                 cover={cover}
                 alt={`Sitio público de ${product.name}`}
                 embeddable={product.publicEmbeddable}
@@ -186,7 +189,7 @@ export function SitePanel({ product }: { product: WebProduct }) {
           aria-hidden={publicFront}
         >
           <BrowserWindow
-            url={product.adminUrl}
+            url={adminSrc}
             className="h-full"
             badge={
               <WindowBadge tone="copper">{t(backoffice.badgeKey)}</WindowBadge>

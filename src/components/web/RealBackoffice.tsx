@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight, ShieldAlert } from "lucide-react";
+import { useCallback, useEffect, useRef } from "react";
+import { ArrowUpRight, Eye, ShieldAlert } from "lucide-react";
 
 import { demoAccess, hasCredentials } from "@/data/demo-access";
 import type { WebProduct } from "@/data/portfolio";
@@ -8,35 +9,80 @@ import { useT } from "@/i18n/LocaleProvider";
 import { AccessBar } from "./AccessBar";
 
 /**
- * Backoffice real, con el acceso de invitado a la vista.
+ * Backoffice real embebido.
  *
- * Arriba van el usuario y la contraseña con sus botones de copiar; abajo, el
- * panel real embebido, con su propia pantalla de login, para poder entrar sin
- * salir del portfolio. Si el panel prohíbe mostrarse dentro de otra página, se
- * explica y se ofrece abrirlo en una pestaña.
+ * Hay dos formas de entrar, según lo que ofrezca cada sistema:
  *
- * El portfolio nunca completa el formulario ni envía las credenciales: sólo las
- * muestra para que las copie quien esté mirando.
+ *  - `mode: "auto"` — la ruta embebida ya viene con la sesión de invitado
+ *    abierta (MESSA lo resuelve así, con una cookie `SameSite=None`). No se
+ *    publica ninguna credencial. Como esa sesión caduca, el marco se recarga
+ *    cuando la pestaña vuelve a estar visible después de un rato.
+ *  - `mode: "credentials"` — se muestran usuario y contraseña arriba, con
+ *    botón de copiar, y el visitante entra por el formulario del propio panel.
+ *
+ * El portfolio nunca completa el formulario ni envía credenciales.
  */
 export function RealBackoffice({ product }: { product: WebProduct }) {
   const t = useT();
   const access = demoAccess[product.slug];
-  const credentialsReady = hasCredentials(access);
+  const frameRef = useRef<HTMLIFrameElement>(null);
+  const loadedAt = useRef<number>(Date.now());
+
+  const src = product.adminEmbedUrl ?? product.adminUrl;
+  const auto = access.mode === "auto";
+  const showsCredentials = access.mode === "credentials" && access.email.length > 0;
+
+  const refresh = useCallback(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    loadedAt.current = Date.now();
+    // reasignar el src fuerza una carga nueva sin ensuciar el historial
+    frame.src = src;
+  }, [src]);
+
+  // La sesión de invitado caduca. Si alguien deja la pestaña abierta y vuelve
+  // pasado ese tiempo, se recarga el marco para que no aparezca el login.
+  useEffect(() => {
+    if (!auto || !access.sessionMinutes) return;
+    const maxAge = access.sessionMinutes * 60 * 1000;
+
+    const onVisible = () => {
+      if (document.visibilityState !== "visible") return;
+      if (Date.now() - loadedAt.current < maxAge * 0.9) return;
+      refresh();
+    };
+
+    document.addEventListener("visibilitychange", onVisible);
+    return () => document.removeEventListener("visibilitychange", onVisible);
+  }, [auto, access.sessionMinutes, refresh]);
 
   return (
     <div className="flex h-full flex-col bg-[#141110]">
-      {access.email.length > 0 && (
-        <AccessBar access={access} missingPassword={!credentialsReady} />
+      {showsCredentials && (
+        <AccessBar access={access} missingPassword={!hasCredentials(access)} />
+      )}
+
+      {auto && (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 border-b border-line-soft bg-moss/[0.12] px-4 py-2.5">
+          <span className="flex items-center gap-2 text-[0.62rem] font-medium uppercase tracking-[0.14em] text-parchment/85">
+            <Eye className="size-3.5 text-copper" aria-hidden="true" />
+            {t("web.autoAccess")}
+          </span>
+          <span className="text-[0.66rem] leading-relaxed text-sand/60">
+            {t("web.autoAccessNote")}
+          </span>
+        </div>
       )}
 
       {product.adminEmbeddable ? (
         <iframe
-          src={product.adminUrl}
+          ref={frameRef}
+          src={src}
           title={`Backoffice de ${product.name}`}
           loading="lazy"
-          referrerPolicy="no-referrer"
-          // allow-forms es lo que permite enviar el formulario de login
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          // allow-same-origin es indispensable: sin eso el navegador trata al
+          // marco como origen opaco y descarta la cookie de sesión
+          sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
           className="min-h-0 w-full flex-1 border-0 bg-white"
         />
       ) : (

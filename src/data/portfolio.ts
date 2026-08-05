@@ -751,8 +751,13 @@ export type WebProduct = {
   name: string;
   role: string;
   blurb: string;
+  /** dirección canónica, la que abre el botón "Abrir sitio real" */
   publicUrl: string;
+  /** si el iframe carga otra ruta distinta de `publicUrl` */
+  publicEmbedUrl?: string;
   adminUrl: string;
+  /** ruta que carga el iframe del panel; puede traer sesión de invitado */
+  adminEmbedUrl?: string;
   cover: AssetKey;
   accent: string;
   publicEmbeddable: boolean;
@@ -779,11 +784,15 @@ export const webProducts: WebProduct[] = [
     role: "Proyecto propio / diseño y desarrollo integral",
     blurb: "Carta digital y pedido desde la mesa por QR, con acceso para el equipo.",
     publicUrl: "https://messa.matiascolimodio.workers.dev/",
+    // `/vista` es la cara del comensal; `/demo` abre el panel ya logueado con
+    // una sesión de invitado de solo lectura. MESSA autoriza expresamente a
+    // este origen en su cabecera `frame-ancestors`.
+    publicEmbedUrl: "https://messa.matiascolimodio.workers.dev/vista",
     adminUrl: "https://messa.matiascolimodio.workers.dev/admin",
+    adminEmbedUrl: "https://messa.matiascolimodio.workers.dev/demo",
     cover: "projects/messa/site-public",
     accent: "#b58b5d",
-    // MESSA sirve todo el dominio con `frame-ancestors 'none'`, panel incluido
-    publicEmbeddable: false,
-    adminEmbeddable: false,
+    publicEmbeddable: true,
+    adminEmbeddable: true,
   },
 ];

@@ -56,8 +56,9 @@ export function LiveSite({
           title={alt}
           loading="lazy"
           onLoad={() => setLoaded(true)}
-          referrerPolicy="no-referrer"
-          sandbox="allow-scripts allow-same-origin allow-popups"
+          // allow-same-origin es necesario para que el sitio embebido conserve
+          // su cookie de sesión; sin eso el navegador lo trata como origen opaco
+          sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
           className={cn(
             "absolute inset-0 h-full w-full border-0 transition-opacity duration-700",
             loaded ? "opacity-100" : "opacity-0",

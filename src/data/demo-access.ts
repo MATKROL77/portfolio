@@ -34,24 +34,39 @@
 export type DemoAccess = {
   /** si es false, se muestra la réplica local en vez del panel real */
   enabled: boolean;
+  /**
+   * Cómo entra el visitante al panel:
+   *  - "credentials": se le muestran usuario y contraseña para que los copie.
+   *  - "auto": la ruta embebida ya trae la sesión de invitado abierta y no hay
+   *    nada que copiar. Es la opción preferible: no expone ninguna credencial.
+   */
+  mode: "credentials" | "auto";
   email: string;
   password: string;
-  /** nota corta que se muestra junto a las credenciales */
+  /** nota corta que se muestra junto al acceso */
   note?: string;
+  /** minutos que dura la sesión de invitado, si el sitio la limita */
+  sessionMinutes?: number;
 };
 
 export const demoAccess: Record<"brote" | "messa", DemoAccess> = {
   brote: {
     enabled: true,
+    mode: "credentials",
     email: "portfolio@gmail.com",
     // Se carga con `npm run set-access`. No editar a mano.
     password: "",
   },
   messa: {
+    // MESSA resuelve el acceso del lado del servidor: la ruta `/demo` entra
+    // con una sesión de invitado de solo lectura, con su propia cookie
+    // `SameSite=None; Secure` para que sobreviva dentro del iframe. No hace
+    // falta publicar ninguna credencial.
     enabled: true,
-    email: "portfolio@gmail.com",
-    // Se carga con `npm run set-access`. No editar a mano.
+    mode: "auto",
+    email: "",
     password: "",
+    sessionMinutes: 120,
   },
 };
 

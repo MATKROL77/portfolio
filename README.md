@@ -121,29 +121,54 @@ Esta es la parte que más conviene entender antes de tocarla.
 permite. Lo decide el sitio, no este portfolio:
 
 - `broteonline.com` no manda cabeceras que lo impidan → se embebe en vivo.
-- `messa.matiascolimodio.workers.dev` manda `X-Frame-Options: DENY` y
-  `frame-ancestors 'none'` → el navegador bloquea el iframe. Ahí se muestra una
-  captura real del sitio y un aviso explicando por qué, más el botón para
-  abrirlo en una pestaña.
+- `messa.matiascolimodio.workers.dev` autoriza expresamente a este origen:
 
-Si algún día querés que MESSA también se embeba, hay que sacar esas dos
-cabeceras **en el Worker de MESSA**, no acá.
+  ```
+  Content-Security-Policy: frame-ancestors 'self' https://portfolio.matiascolimodio.workers.dev
+  ```
+
+  y ya no manda `X-Frame-Options` (esa cabecera sólo entiende "nadie" o "el
+  mismo dominio", así que si estuviera anularía el permiso).
+
+> **Si el portfolio cambia de dominio**, hay que agregar el nuevo origen a esa
+> lista en el Worker de MESSA o el iframe se bloquea. El permiso es por origen
+> exacto. Por lo mismo, en `localhost` los marcos de MESSA no cargan: sólo
+> funcionan desde el dominio publicado.
 
 El iframe va con `sandbox="allow-scripts allow-same-origin allow-popups"`: se
 puede mirar, no operar. El portfolio nunca hace `POST`, `PUT`, `PATCH` ni
 `DELETE` contra ningún sitio real.
 
-**El backoffice** tiene dos modos, y el que se muestra depende de
-`src/data/demo-access.ts`:
+**El backoffice** tiene tres modos posibles, según lo que ofrezca cada sistema.
+Se configura en `src/data/demo-access.ts`:
 
-1. **Con credenciales cargadas** — se embebe el panel real y arriba aparece una
-   barra con el usuario y la contraseña de la cuenta de invitado, cada uno con
-   su botón de copiar. El visitante copia, entra con el formulario del propio
-   panel y recorre el sistema. El portfolio nunca completa ni envía el
-   formulario: sólo muestra los datos.
-2. **Sin credenciales** (por defecto) — se muestra una réplica local: una
-   maqueta con datos inventados que vive en `src/data/backoffice-demo.ts`, sin
-   conexión con los sistemas reales y sin login.
+1. **`mode: "auto"`** — la mejor opción, y la que usa **MESSA**. El sitio expone
+   una ruta (`/demo`) que entra con una sesión de invitado de solo lectura,
+   creada en el servidor, con su cookie `SameSite=None; Secure` para que
+   sobreviva dentro del iframe. **No se publica ninguna credencial.** El
+   portfolio sólo carga esa ruta.
+
+   Esa sesión caduca (en MESSA, a las 2 h). El componente recarga el marco
+   cuando la pestaña vuelve a estar visible pasado ese tiempo, así nadie se
+   encuentra con la pantalla de login.
+
+2. **`mode: "credentials"`** — lo que usa **BROTE** por ahora. Se muestran
+   usuario y contraseña arriba del panel, con botón de copiar, y el visitante
+   entra por el formulario del propio sistema. El portfolio nunca completa ni
+   envía el formulario. Requiere `npm run set-access` (ver abajo).
+
+3. **`enabled: false`** — se muestra una réplica local: una maqueta con datos
+   inventados en `src/data/backoffice-demo.ts`, sin conexión con nada real.
+
+> El modo `auto` es preferible al de credenciales siempre que se pueda: mueve
+> el control al servidor, donde puede verificarse de verdad, en vez de confiar
+> en una contraseña publicada. Si algún día BROTE suma una ruta equivalente,
+> conviene pasarlo a `auto` y borrar la contraseña con
+> `npm run set-access -- --clear`.
+
+Los iframes van con `sandbox="allow-same-origin allow-scripts allow-forms
+allow-popups"`. `allow-same-origin` no es opcional: sin eso el navegador trata
+al marco como origen opaco y descarta la cookie de sesión.
 
 ### Para activar el acceso al panel real
 

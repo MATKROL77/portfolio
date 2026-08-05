@@ -75,6 +75,9 @@ const es = {
   // Estado transitorio: sólo se ve si todavía no se cargó la contraseña con
   // `npm run set-access`. Una vez cargada, esta línea no aparece nunca más.
   "web.accessPending": "Acceso de invitado en preparación.",
+  "web.autoAccess": "Sesión de invitado abierta",
+  "web.autoAccessNote":
+    "Estás viendo el panel real, ya logueado y en modo solo lectura. No hace falta usuario ni contraseña.",
   "web.openAdmin": "Abrir el panel",
   "web.adminBlocked":
     "El panel no se deja mostrar dentro de otra página, así que se abre en una pestaña nueva con el acceso de invitado.",
@@ -185,6 +188,9 @@ const en: Partial<Record<UiKey, string>> = {
   "web.copy": "Copy",
   "web.copied": "Copied",
   "web.accessPending": "Guest access being set up.",
+  "web.autoAccess": "Guest session open",
+  "web.autoAccessNote":
+    "You are looking at the real panel, already signed in and read-only. No user or password needed.",
   "web.openAdmin": "Open the panel",
   "web.adminBlocked":
     "The panel refuses to be shown inside another page, so it opens in a new tab with the guest access.",
@@ -288,6 +294,9 @@ const pt: Partial<Record<UiKey, string>> = {
   "web.copy": "Copiar",
   "web.copied": "Copiado",
   "web.accessPending": "Acesso de convidado em preparação.",
+  "web.autoAccess": "Sessão de convidado aberta",
+  "web.autoAccessNote":
+    "Você está vendo o painel real, já logado e em modo somente leitura. Não precisa de usuário nem senha.",
   "web.openAdmin": "Abrir o painel",
   "web.adminBlocked":
     "O painel não permite ser exibido dentro de outra página, então abre em uma nova aba com o acesso de convidado.",
