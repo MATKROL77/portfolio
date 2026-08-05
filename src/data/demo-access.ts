@@ -20,8 +20,15 @@
  * Si alguna de las dos no se cumple, es preferible dejar `enabled: false` y
  * mostrar la réplica local, que no toca nada.
  *
- * La contraseña NO está escrita en el repositorio a propósito: completala vos
- * en `password` cuando confirmes las dos condiciones de arriba.
+ * La contraseña no viene escrita en el repositorio: la carga el dueño del
+ * sistema, en un solo paso y sin que quede en el historial de la terminal:
+ *
+ *     npm run set-access          → la pide y la carga en los dos sitios
+ *     npm run set-access -- brote → sólo BROTE
+ *     npm run set-access -- --clear → la borra y vuelve a la réplica local
+ *
+ * Después: `npm run deploy`. A partir de ahí queda visible en el sitio, con su
+ * botón de copiar, para cualquiera que entre.
  */
 
 export type DemoAccess = {
@@ -37,13 +44,13 @@ export const demoAccess: Record<"brote" | "messa", DemoAccess> = {
   brote: {
     enabled: true,
     email: "portfolio@gmail.com",
-    // ← completar con la contraseña de la cuenta de solo lectura
+    // Se carga con `npm run set-access`. No editar a mano.
     password: "",
   },
   messa: {
     enabled: true,
     email: "portfolio@gmail.com",
-    // ← completar con la contraseña de la cuenta de solo lectura
+    // Se carga con `npm run set-access`. No editar a mano.
     password: "",
   },
 };

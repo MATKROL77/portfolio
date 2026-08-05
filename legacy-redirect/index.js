@@ -11,7 +11,7 @@
 
 const DESTINO = "https://portfolio.matiascolimodio.workers.dev";
 
-export default {
+const worker = {
   fetch(request) {
     const url = new URL(request.url);
     const destino = new URL(url.pathname + url.search + url.hash, DESTINO);
@@ -21,3 +21,5 @@ export default {
     return Response.redirect(destino.toString(), 301);
   },
 };
+
+export default worker;

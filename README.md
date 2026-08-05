@@ -147,8 +147,16 @@ puede mirar, no operar. El portfolio nunca hace `POST`, `PUT`, `PATCH` ni
 
 ### Para activar el acceso al panel real
 
-Editá `password` en `src/data/demo-access.ts`. Está vacío a propósito: la
-contraseña no se versiona automáticamente para que sea una decisión consciente.
+```bash
+npm run set-access
+```
+
+Pide la contraseña, la carga en `src/data/demo-access.ts` y no la deja en el
+historial de la terminal. Después, `npm run deploy`. A partir de ahí queda
+visible en el sitio, junto al usuario, con su botón de copiar.
+
+Variantes: `npm run set-access -- brote` para un solo sitio, y
+`npm run set-access -- --clear` para borrarla y volver a la réplica local.
 
 > **Leer antes de completarlo.** Lo que se escriba ahí queda público: el sitio
 > es estático y cualquiera puede abrir el código de la página y leerlo. Esa es

@@ -12,7 +12,8 @@
     "assets": "python scripts/build_assets.py",
     "cv:pdf": "powershell -ExecutionPolicy Bypass -File scripts/cv-pdf.ps1",
     "deploy": "next build && wrangler deploy",
-    "deploy:legacy": "npx wrangler deploy -c legacy-redirect/wrangler.jsonc"
+    "deploy:legacy": "npx wrangler deploy -c legacy-redirect/wrangler.jsonc",
+    "set-access": "node scripts/set-access.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

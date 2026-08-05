@@ -72,8 +72,9 @@ const es = {
     "Cuenta de solo lectura, para que puedas recorrer el panel. Copiá los datos y entrá con el formulario de abajo.",
   "web.copy": "Copiar",
   "web.copied": "Copiado",
-  "web.accessPending":
-    "Podés entrar con este usuario. La contraseña se pide por mail o por WhatsApp.",
+  // Estado transitorio: sólo se ve si todavía no se cargó la contraseña con
+  // `npm run set-access`. Una vez cargada, esta línea no aparece nunca más.
+  "web.accessPending": "Acceso de invitado en preparación.",
   "web.openAdmin": "Abrir el panel",
   "web.adminBlocked":
     "El panel no se deja mostrar dentro de otra página, así que se abre en una pestaña nueva con el acceso de invitado.",
@@ -183,8 +184,7 @@ const en: Partial<Record<UiKey, string>> = {
     "Read-only account, so you can walk through the panel. Copy the details and sign in with the form below.",
   "web.copy": "Copy",
   "web.copied": "Copied",
-  "web.accessPending":
-    "You can sign in with this user. Ask for the password by email or WhatsApp.",
+  "web.accessPending": "Guest access being set up.",
   "web.openAdmin": "Open the panel",
   "web.adminBlocked":
     "The panel refuses to be shown inside another page, so it opens in a new tab with the guest access.",
@@ -287,8 +287,7 @@ const pt: Partial<Record<UiKey, string>> = {
     "Conta somente leitura, para você percorrer o painel. Copie os dados e entre pelo formulário abaixo.",
   "web.copy": "Copiar",
   "web.copied": "Copiado",
-  "web.accessPending":
-    "Você pode entrar com este usuário. A senha se pede por e-mail ou WhatsApp.",
+  "web.accessPending": "Acesso de convidado em preparação.",
   "web.openAdmin": "Abrir o painel",
   "web.adminBlocked":
     "O painel não permite ser exibido dentro de outra página, então abre em uma nova aba com o acesso de convidado.",
