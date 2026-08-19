@@ -72,9 +72,9 @@ export type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     title: "Pasante de proyectos",
-    org: "Open Mobility",
+    org: "OPmobility",
     period: "2026 — presente",
-    body: "Pasantía en curso en el área de proyectos.",
+    body: "Pasantía en curso en el área de proyectos, en una multinacional francesa de autopartes.",
     current: true,
     kind: "empresa",
   },
