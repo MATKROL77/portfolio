@@ -60,6 +60,15 @@ npm run lint
 npm run build
 ```
 
+Si tocaste el CV, regenerá el PDF **antes** del build:
+
+```bash
+npm run cv:pdf   # necesita `npm run dev` corriendo
+```
+
+`npm run build` con el servidor de desarrollo levantado le rompe el `.next` y
+el PDF sale capturando una página de error. Primero el PDF, después el build.
+
 Si tocaste algo visual, verificalo en el navegador antes de cerrar. Hay un
 script de capturas: `powershell -File scripts/shot.ps1 -Url http://localhost:3000 -Out out.png -Width 1440 -Height 900`.
 
