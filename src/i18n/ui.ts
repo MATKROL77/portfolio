@@ -38,6 +38,7 @@ const es = {
   "profile.since": "Desde",
   "profile.venture": "Emprendimiento",
   "profile.award": "Distinción",
+  "profile.now": "Ahora",
   "profile.viewCv": "Ver CV completo",
   "profile.directContact": "Contacto directo",
 
@@ -90,6 +91,7 @@ const es = {
   "cv.eyebrow": "Sobre mí",
   "cv.title": "Currículum",
   "cv.experience": "Experiencia y proyectos",
+  "cv.current": "En curso",
   "cv.education": "Educación",
   "cv.skills": "Habilidades",
   "cv.profile": "Perfil",
@@ -158,6 +160,7 @@ const en: Partial<Record<UiKey, string>> = {
   "profile.since": "Since",
   "profile.venture": "Own venture",
   "profile.award": "Distinction",
+  "profile.now": "Now",
   "profile.viewCv": "See full CV",
   "profile.directContact": "Direct contact",
 
@@ -203,6 +206,7 @@ const en: Partial<Record<UiKey, string>> = {
   "cv.eyebrow": "About",
   "cv.title": "Résumé",
   "cv.experience": "Experience and projects",
+  "cv.current": "Ongoing",
   "cv.education": "Education",
   "cv.skills": "Skills",
   "cv.profile": "Profile",
@@ -264,6 +268,7 @@ const pt: Partial<Record<UiKey, string>> = {
   "profile.since": "Desde",
   "profile.venture": "Negócio próprio",
   "profile.award": "Distinção",
+  "profile.now": "Agora",
   "profile.viewCv": "Ver CV completo",
   "profile.directContact": "Contato direto",
 
@@ -309,6 +314,7 @@ const pt: Partial<Record<UiKey, string>> = {
   "cv.eyebrow": "Sobre mim",
   "cv.title": "Currículo",
   "cv.experience": "Experiência e projetos",
+  "cv.current": "Em curso",
   "cv.education": "Formação",
   "cv.skills": "Habilidades",
   "cv.profile": "Perfil",

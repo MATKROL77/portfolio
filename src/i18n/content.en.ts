@@ -541,11 +541,12 @@ export const contentEn: ContentBundle = {
         "I am a Mechanical Engineering student at UTN, Facultad Regional General Pacheco, with a bilingual secondary education and C1 English. I learn fast, work independently and adapt well to different environments: I combine technical work, design, data analysis, supplier communication, coordination and project support.",
     },
     profileParagraphs: [
-      "I am a Mechanical Engineering student at UTN Facultad Regional General Pacheco, with a bilingual secondary education and C1 English. I work in the band where engineering meets design: I model in CAD, I fabricate, I assemble and, when the project calls for it, I take it to the screen as well.",
+      "I am a Mechanical Engineering student at UTN Facultad Regional General Pacheco, with a bilingual secondary education and C1 English. I currently work as a projects intern at Open Mobility. I move in the band where engineering meets design: I model in CAD, I fabricate, I assemble and, when the project calls for it, I take it to the screen as well.",
       "You can see that in what is here. A linear axis I resolved in CAD, alongside the technical drawing plates that back it. A speaker of mine with a shell-shaped body that ends up housing a driver, a battery and a board on bases I designed to fit, signed KROL. A 2400 mm desk I first dimensioned and then built, and BROTE's dimensional signage mounted on a wall. Replicas, scale models and cases that come out of my 3D printing venture, where I handle quoting, design, production and the client. And two websites online, BROTE and MESSA, with their backoffices.",
       "The common thread is fairly simple: I am interested in the part of the problem where decisions have to be made. What I buy ready-made and what I fabricate, where I split a large piece, how much tolerance a fit can take, how much complexity I load onto the system so I don't load it onto the person using it.",
     ],
     facts: {
+      "Pasante de proyectos, Open Mobility": "Projects intern, Open Mobility",
       "Ing. Mecánica — UTN FRGP": "Mechanical Eng. — UTN FRGP",
       "2025, estudiante activo": "2025, currently enrolled",
       "Impresión 3D, desde 2024": "3D printing, since 2024",
@@ -592,6 +593,12 @@ export const contentEn: ContentBundle = {
       },
     },
     experience: {
+      "Pasante de proyectos": {
+        title: "Projects intern",
+        org: "Open Mobility",
+        period: "2026 — present",
+        body: "Ongoing internship in the projects area.",
+      },
       "Servicio de impresión 3D y diseño personalizado": {
         title: "3D printing and custom design service",
         org: "Own venture",

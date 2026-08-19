@@ -59,6 +59,7 @@ const capabilities = [
 ];
 
 const facts = [
+  { labelKey: "profile.now" as const, value: "Pasante de proyectos, Open Mobility" },
   { labelKey: "profile.education" as const, value: "Ing. Mecánica — UTN FRGP" },
   { labelKey: "profile.since" as const, value: "2025, cursando" },
   { labelKey: "profile.venture" as const, value: "Impresión 3D, desde 2024" },
@@ -67,7 +68,7 @@ const facts = [
 
 /** Párrafos del resumen en español; las traducciones vienen de `useCv`. */
 const paragraphsEs = [
-  "Soy estudiante de Ingeniería Mecánica en la UTN Facultad Regional General Pacheco, con secundario bilingüe e inglés C1. Trabajo en la franja donde la ingeniería se cruza con el diseño: modelo en CAD, fabrico, ensamblo y, cuando el proyecto lo pide, también lo llevo a pantalla.",
+  "Soy estudiante de Ingeniería Mecánica en la UTN Facultad Regional General Pacheco, con secundario bilingüe e inglés C1. Hoy trabajo como pasante de proyectos en Open Mobility. Me muevo en la franja donde la ingeniería se cruza con el diseño: modelo en CAD, fabrico, ensamblo y, cuando el proyecto lo pide, también lo llevo a pantalla.",
   "Eso se ve en lo que hay acá. Un eje lineal que resolví en CAD, junto a las láminas de dibujo técnico que lo sostienen. Un parlante mío con carcasa de caracol que termina alojando parlante, batería y placa sobre bases que diseñé a medida, firmado KROL. Un escritorio de 2400 mm que primero acoté y después construí, y la señalética corpórea de BROTE montada en pared. Réplicas, maquetas y estuches que salen de mi emprendimiento de impresión 3D, donde manejo presupuesto, diseño, producción y cliente. Y dos sitios web en línea, BROTE y MESSA, con sus backoffices.",
   "El hilo común es bastante simple: me interesa la parte del problema donde hay que decidir. Qué compro hecho y qué fabrico, dónde parto una pieza grande, cuánta tolerancia aguanta un encastre, cuánta complejidad le cargo al sistema para no cargársela a la persona que lo usa.",
 ];

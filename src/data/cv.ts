@@ -60,13 +60,30 @@ export type ExperienceItem = {
   body: string;
   bullets?: string[];
   outcome?: string;
+  /** en curso: se destaca con una marca en la ficha */
+  current?: boolean;
+  /**
+   * Para separar el trabajo en una empresa de lo propio y lo academico.
+   * El orden del array ya es el orden en que se muestra.
+   */
+  kind?: "empresa" | "propio" | "academico";
 };
 
 export const experience: ExperienceItem[] = [
   {
+    title: "Pasante de proyectos",
+    org: "Open Mobility",
+    period: "2026 — presente",
+    body: "Pasantía en curso en el área de proyectos.",
+    current: true,
+    kind: "empresa",
+  },
+  {
     title: "Servicio de impresión 3D y diseño personalizado",
     org: "Emprendimiento propio",
     period: "2024 — presente",
+    current: true,
+    kind: "propio",
     body: "Diseño y fabrico piezas, carteles y maquetas para clientes de arquitectura, negocios y uso general. Manejo el proceso completo, de la primera charla a la entrega.",
     bullets: [
       "Presupuesto",
@@ -81,12 +98,14 @@ export const experience: ExperienceItem[] = [
   {
     title: "Competencia de robótica",
     org: "Universidad Austral",
+    kind: "academico",
     body: "Presenté con mi equipo un carro seguidor de líneas. Coordiné tareas y adaptamos el diseño sobre la marcha, con plazos ajustados.",
     outcome: "Salimos segundos.",
   },
   {
     title: "Proyectos técnicos personales en CAD",
     org: "Trabajo propio",
+    kind: "propio",
     body: "Diseño piezas mecánicas funcionales pensando desde el principio en cómo se fabrican, qué normas aplican y cómo se ensamblan.",
     outcome: "Itero cada diseño para que funcione mejor y sea más simple de hacer.",
   },

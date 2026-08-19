@@ -541,11 +541,12 @@ export const contentPt: ContentBundle = {
         "Sou estudante de Engenharia Mecânica na UTN, Faculdade Regional General Pacheco, com ensino médio bilíngue e inglês C1. Aprendo rápido, trabalho com autonomia e me adapto bem a ambientes diferentes: combino tarefas técnicas, design, análise de dados, comunicação com fornecedores, coordenação e suporte de projetos.",
     },
     profileParagraphs: [
-      "Sou estudante de Engenharia Mecânica na UTN Faculdade Regional General Pacheco, com ensino médio bilíngue e inglês C1. Trabalho na faixa onde a engenharia encontra o design: modelo em CAD, fabrico, monto e, quando o projeto pede, também levo para a tela.",
+      "Sou estudante de Engenharia Mecânica na UTN Faculdade Regional General Pacheco, com ensino médio bilíngue e inglês C1. Hoje trabalho como estagiário de projetos na Open Mobility. Me movo na faixa onde a engenharia encontra o design: modelo em CAD, fabrico, monto e, quando o projeto pede, também levo para a tela.",
       "Isso aparece no que há aqui. Um eixo linear que resolvi em CAD, junto às pranchas de desenho técnico que o sustentam. Uma caixa de som minha com carcaça de caracol que termina alojando alto-falante, bateria e placa sobre bases que desenhei sob medida, assinada KROL. Uma escrivaninha de 2400 mm que primeiro cotei e depois construí, e a sinalização em letras caixa da BROTE montada em parede. Réplicas, maquetes e estojos que saem do meu negócio de impressão 3D, em que cuido de orçamento, projeto, produção e cliente. E dois sites no ar, BROTE e MESSA, com seus backoffices.",
       "O fio condutor é bem simples: me interessa a parte do problema em que é preciso decidir. O que compro pronto e o que fabrico, onde divido uma peça grande, quanta tolerância um encaixe aguenta, quanta complexidade coloco no sistema para não colocar na pessoa que o usa.",
     ],
     facts: {
+      "Pasante de proyectos, Open Mobility": "Estagiário de projetos, Open Mobility",
       "Ing. Mecánica — UTN FRGP": "Eng. Mecânica — UTN FRGP",
       "2025, estudiante activo": "2025, cursando",
       "Impresión 3D, desde 2024": "Impressão 3D, desde 2024",
@@ -592,6 +593,12 @@ export const contentPt: ContentBundle = {
       },
     },
     experience: {
+      "Pasante de proyectos": {
+        title: "Estagiário de projetos",
+        org: "Open Mobility",
+        period: "2026 — presente",
+        body: "Estágio em andamento na área de projetos.",
+      },
       "Servicio de impresión 3D y diseño personalizado": {
         title: "Serviço de impressão 3D e design personalizado",
         org: "Negócio próprio",

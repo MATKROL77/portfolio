@@ -2,6 +2,7 @@
 
 import { Download } from "lucide-react";
 
+import { cn } from "@/lib/cn";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useT } from "@/i18n/LocaleProvider";
@@ -37,7 +38,13 @@ export function CurriculumVitae() {
             <RevealGroup className="mt-7 space-y-4">
               {experience.map((item) => (
                 <RevealItem key={item.title}>
-                  <article className="glass p-5 sm:p-6">
+                  <article
+                    className={cn(
+                      "glass p-5 sm:p-6",
+                      // lo que esta en curso se destaca con el filo en cobre
+                      item.current && "border-copper/30",
+                    )}
+                  >
                     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                       <h4 className="font-display text-xl leading-tight text-parchment">
                         {item.title}
@@ -48,7 +55,18 @@ export function CurriculumVitae() {
                         </span>
                       )}
                     </div>
-                    <p className="mt-1 text-sm text-sand/60">{item.org}</p>
+                    <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                      <p className="text-sm text-sand/60">{item.org}</p>
+                      {item.current && (
+                        <span className="inline-flex items-center gap-1.5 rounded-[var(--radius-chip)] border border-copper/40 bg-copper/10 px-2 py-0.5 text-[0.58rem] font-medium uppercase tracking-[0.14em] text-copper">
+                          <span
+                            className="size-1.5 rounded-full bg-copper"
+                            aria-hidden="true"
+                          />
+                          {t("cv.current")}
+                        </span>
+                      )}
+                    </div>
                     <p className="prose-editorial mt-4">{item.body}</p>
 
                     {item.bullets && (
