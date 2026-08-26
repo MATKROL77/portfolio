@@ -32,7 +32,7 @@ const sansUi = Inter({
 const siteUrl = "https://portfolio.matiascolimodio.workers.dev";
 const title = "Matías Colimodio — Engineering, Design & Fabrication";
 const description =
-  "Portfolio de Matías Colimodio: ingeniería mecánica, diseño técnico, CAD, prototipado, impresión 3D y productos digitales.";
+  "Portfolio de Matías Colimodio: diseño mecánico y CAD en Fusion 360 y Solid Edge, validación de piezas, impresión 3D y trato directo con el cliente.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -46,9 +46,14 @@ export const metadata: Metadata = {
   creator: profile.name,
   keywords: [
     "ingeniería mecánica",
+    "diseño mecánico",
     "diseño industrial",
     "CAD",
     "Fusion 360",
+    "Solid Edge",
+    "preventa técnica",
+    "application engineering",
+    "diseño de producto",
     "impresión 3D",
     "prototipado",
     "diseño de mobiliario",

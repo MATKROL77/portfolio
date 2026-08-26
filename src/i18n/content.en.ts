@@ -8,7 +8,7 @@ export const contentEn: ContentBundle = {
       category: "Engineering",
       description: "A motorised linear axis modelled in CAD, plus technical drawing plates.",
       summary:
-        "Here I put together two things that for me go hand in hand: the full model of a linear axis driven by a lead screw and a stepper motor, and the technical drawing plates I made during my degree. They are two sides of the same craft: defining a part in three dimensions and knowing how to communicate it in two.",
+        "Here I put together two things that for me go hand in hand: the full model in Fusion 360 and Solid Edge of a linear axis driven by a lead screw and a stepper motor, and the technical drawing plates I made during my degree. They are two sides of the same craft: defining a part in three dimensions and knowing how to communicate it in two.",
       role: "Design and modelling",
       problem:
         "I needed to turn rotation into precise, repeatable linear travel, with a structure I could build from extrusion and off-the-shelf components.",
@@ -42,6 +42,11 @@ export const contentEn: ContentBundle = {
         { label: "Drive", value: "Stepper motor" },
         { label: "Software", value: "Fusion 360 / Solid Edge" },
         { label: "Output", value: "Assembly, sections and exploded view" },
+        {
+          label: "Decision",
+          value:
+            "I fixed the off-the-shelf components first and adapted the structure to them, not the other way round.",
+        },
       ],
       gallery: {
         "projects/mechanical-design/linear-axis-iso": {
@@ -105,7 +110,7 @@ export const contentEn: ContentBundle = {
       category: "Product",
       description: "A speaker with a printed organic shell and electronics mounted on custom bases.",
       summary:
-        "A project of mine that starts as a shape and ends as a product. The outer shell is a snail-shell geometry I modelled and then printed; inside, I solved the mounting of a speaker, a battery and its board on custom-printed bases, with magnets, a charging port and a switch. The parts are signed KROL, the mark I put on what I make.",
+        "A project of mine that starts as a shape and ends as a product. The outer shell is a snail-shell geometry I modelled in Fusion 360 and Blender and then printed; inside, I solved the mounting of a speaker, a battery and its board on custom-printed bases, with magnets, a charging port and a switch. The parts are signed KROL, the mark I put on what I make.",
       role: "Own project: design, modelling, printing and assembly",
       year: "2024 — present",
       problem:
@@ -114,7 +119,7 @@ export const contentEn: ContentBundle = {
         "It ended up as an object with an identity of its own, signed into the geometry, with the electronics housed on bases I designed specifically for them.",
       reflection:
         "Separating the outer shell from the internal bases is what unblocked the project for me: I can iterate the electronics without reprinting the large part, which is the one that eats all my machine time.",
-      tools: ["Blender", "Fusion 360", "FDM 3D printing"],
+      tools: ["Fusion 360", "Blender", "FDM 3D printing"],
       materials: ["PLA", "Neodymium magnet", "LiPo battery"],
       tags: ["Product", "Electronics", "3D printing"],
       process: [
@@ -140,6 +145,11 @@ export const contentEn: ContentBundle = {
         { label: "Closing", value: "Neodymium magnets" },
         { label: "Power", value: "Rechargeable battery" },
         { label: "Signature", value: "KROL, engraved into the part" },
+        {
+          label: "Decision",
+          value:
+            "I separated the outer shell from the inner bases: I can iterate the electronics without reprinting the big part.",
+        },
       ],
       gallery: {
         "projects/parlante-caracol/render-branded": {
@@ -199,15 +209,15 @@ export const contentEn: ContentBundle = {
     "3d-printing": {
       title: "3D printing & prototyping",
       category: "Fabrication",
-      description: "My own service: parts, replicas, scale models and custom cases.",
+      description: "My own business: from the client's request to the delivered part.",
       summary:
-        "My 3D printing and custom design venture. I make parts, signage, replicas and scale models for architecture clients, businesses and general use, and I run the whole process: quoting, CAD design, production, manufacturing planning and client communication. I have gone up to full-scale models of 1.20 m.",
-      role: "Own venture",
+        "My 3D printing and custom design venture, and my first real commercial experience. I make parts, signage, replicas and scale models for architecture clients, businesses and general use. What I deliver here is not a model: it is a finished job. I listen to what the client needs, translate it into something manufacturable, quote it with its lead time, design it in Fusion 360, produce it and deliver it. I have gone up to full-scale models of 1.20 m.",
+      role: "Own venture: client, CAD and production",
       year: "2024 — present",
       problem:
         "Every job reaches me different: a decorative replica, a custom case, an architectural model. What repeats is the underlying problem: taking an idea or someone else's file to a physical part that works out on time, on cost and on finish.",
       result:
-        "I have delivered parts for architecture, shops and general use, including full-scale models up to 1.20 m solved in sections.",
+        "I have delivered parts for architecture, shops and general use, including full-scale models up to 1.20 m solved in sections and short runs of 20 to 30 identical pieces for a seasonal date.",
       reflection:
         "Printing is the easy part. The real work is deciding how I split a large piece, where the joints will land and how much hand finishing it needs so the client sees a product and not a print.",
       tools: ["Fusion 360", "Blender", "FDM 3D printing", "Post-processing"],
@@ -234,8 +244,13 @@ export const contentEn: ContentBundle = {
       specs: [
         { label: "Technology", value: "FDM" },
         { label: "Maximum scale", value: "Up to 1.20 m in sections" },
-        { label: "Scope", value: "Design, production and finishing" },
+        { label: "Scope", value: "Quoting, design, production and delivery" },
         { label: "Since", value: "2024" },
+        {
+          label: "Decision",
+          value:
+            "Price and lead time come from how I split the piece and how I orient it, not from its size.",
+        },
       ],
       gallery: {
         "projects/3d-printing/nike-outdoor-alt": {
@@ -283,7 +298,7 @@ export const contentEn: ContentBundle = {
       category: "Furniture",
       description: "A desk in wood and steel, a drawer unit and dimensional signage.",
       summary:
-        "Object design I took through to construction. A 2400 x 700 x 800 mm desk in wood with a steel structure, which I first resolved in CAD with its dimensions and then built; a drawer unit and a divided panel; and BROTE's dimensional signage, which I made and installed on a wall, on concrete and outdoors.",
+        "Object design I took through to construction. A 2400 x 700 x 800 mm desk in wood with a steel structure, which I first resolved in Fusion 360 with its dimensions and then built; a drawer unit and a divided panel; and BROTE's dimensional signage, which I made and installed on a wall, on concrete and outdoors.",
       role: "Design and fabrication",
       problem:
         "A large desk has to be stable, fit through a door and be assembled on site. All three are decided in the design, not in the workshop. Signage put the same question to me at a different scale: a dimensional letter has to hold itself up, mount straight and read well under the light of the place.",
@@ -317,6 +332,11 @@ export const contentEn: ContentBundle = {
         { label: "Drawer unit", value: "600 x 600 x 560 mm" },
         { label: "Materials", value: "Wood and steel" },
         { label: "Status", value: "Built" },
+        {
+          label: "Decision",
+          value:
+            "A steel frame with a wooden top: the joint between the two materials is where the rigidity is won.",
+        },
       ],
       gallery: {
         "projects/furniture/desk-built": {
@@ -383,7 +403,7 @@ export const contentEn: ContentBundle = {
       category: "Visualisation",
       description: "Seating, lighting and organic modelling studies resolved as images.",
       summary:
-        "3D visualisation: scenes where I am not trying to manufacture but to understand and to show. Studies of a tubular-frame armchair, of a stacked-ring lamp and of the living room that holds them, plus organic modelling for anatomical reference. Here lighting, materials and framing are the work, not the accompaniment.",
+        "3D visualisation in Blender and Fusion 360: scenes where I am not trying to manufacture but to understand and to show. Studies of a tubular-frame armchair, of a stacked-ring lamp and of the living room that holds them, plus organic modelling for anatomical reference. Here lighting, materials and framing are the work, not the accompaniment.",
       role: "Modelling and rendering",
       problem:
         "An image has to explain an object before it exists. It is not enough for me that it looks nice: it has to read — what material it is, how it rests, where the light comes from.",
@@ -416,6 +436,11 @@ export const contentEn: ContentBundle = {
         { label: "Software", value: "Blender / Fusion 360" },
         { label: "Focus", value: "Product and scene" },
         { label: "Output", value: "Still image" },
+        {
+          label: "Decision",
+          value:
+            "I model to the level of detail the camera will see, and define materials by how they return light, not by colour.",
+        },
       ],
       gallery: {
         "projects/renders/armchair-detail": {
@@ -457,14 +482,14 @@ export const contentEn: ContentBundle = {
       category: "Website",
       description: "A natural food e-commerce, with a storefront and an admin panel.",
       summary:
-        "I collaborated on BROTE's digital product: an online shop for natural and organic products, with a catalogue, a customer club, recipes and a cart, plus the backoffice the business uses to manage all of it without touching code.",
-      role: "Collaborator / design and development of the digital product",
+        "A business with a physical shop that needed to sell online. I collaborated on the whole product: the store for natural and organic products, with a catalogue, a customer club, recipes and a cart, plus the backoffice the business uses to manage all of it on its own, without touching code and without calling me. They use it every day.",
+      role: "Collaborator / from the product to the running business",
       problem:
         "A brand that exists in a physical shop and needed to sell online, with a panel the people running the business could use without technical help.",
       result: "The storefront went into production and the panel is in daily use by the business.",
       reflection:
         "The panel is the part nobody sees and the one that decides whether the site stays alive. If adding a product is awkward, in two weeks the catalogue is stale.",
-      tools: ["UI design", "Web development", "Cloudflare Workers"],
+      tools: ["Product design", "UI design", "Web development", "Cloudflare Workers"],
       tags: ["Web", "E-commerce", "Backoffice"],
       process: [
         {
@@ -484,6 +509,11 @@ export const contentEn: ContentBundle = {
         { label: "Role", value: "Collaborator" },
         { label: "Scope", value: "Storefront and backoffice" },
         { label: "Status", value: "In production" },
+        {
+          label: "Decision",
+          value:
+            "I put the backoffice first: if adding a product is awkward, the catalogue is out of date in two weeks.",
+        },
       ],
     },
 
@@ -492,14 +522,14 @@ export const contentEn: ContentBundle = {
       category: "Website",
       description: "My own product for restaurants: digital menu, QR ordering and panel.",
       summary:
-        "A project of mine, designed and developed end to end. MESSA is a restaurant's digital face: presentation, menu, ordering from the table by scanning a QR code, and a customer account, with a team login to run the service. I resolved all of it, from the data model to the interface.",
-      role: "Own project / end-to-end design and development",
+        "A product of my own, built as a product rather than as a commission. MESSA is a restaurant's digital face: presentation, menu, ordering from the table by scanning a QR code, and a customer account, with a team login to run the service. I resolved all of it, from the data model to the interface, and it is online to be walked through in full.",
+      role: "Own product / from the idea to a product online",
       problem:
         "A restaurant needs the order to start before the waiter arrives, without making the guest install anything or create an account just to look at the menu.",
       result: "It went online, with both the public site and the backoffice running.",
       reflection:
         "Building the whole thing forced me to decide where the complexity goes. It is almost always better for the system to carry it than the person using it at nine at night with a full room.",
-      tools: ["UX/UI design", "Web development", "Cloudflare Workers"],
+      tools: ["Product design", "UX/UI design", "Web development", "Cloudflare Workers"],
       tags: ["Web", "Product", "UX/UI"],
       process: [
         {
@@ -519,36 +549,41 @@ export const contentEn: ContentBundle = {
         { label: "Role", value: "End-to-end design and development" },
         { label: "Scope", value: "Complete product" },
         { label: "Status", value: "Online" },
+        {
+          label: "Decision",
+          value:
+            "I put the complexity in the system, not in the person running it at nine at night.",
+        },
       ],
     },
   },
 
   webProducts: {
     brote: {
-      role: "Collaborator / design and development of the digital product",
-      blurb: "An online shop for natural products, with its admin panel.",
+      role: "Collaborator / from the product to the running business",
+      blurb: "An online shop for natural products the business runs on its own, with its admin panel.",
     },
     messa: {
-      role: "Own project / end-to-end design and development",
-      blurb: "Digital menu and ordering from the table by QR, with a team login.",
+      role: "Own product / from the idea to a product online",
+      blurb: "A product of my own: digital menu and ordering from the table by QR, with a team login.",
     },
   },
 
   cv: {
     profile: {
-      headline: "I design, calculate and build ideas you can touch.",
+      headline: "I design in CAD, I build, and I deal with the client end to end.",
       summary:
-        "I am a Mechanical Engineering student at UTN, Facultad Regional General Pacheco, with a bilingual secondary education and C1 English. I learn fast, work independently and adapt well to different environments: I combine technical work, design, data analysis, supplier communication, coordination and project support.",
+        "Mechanical design and CAD in Fusion 360 and Solid Edge, with commercial experience of my own: since 2024 I have run my 3D printing and custom design service, where I scope the request, quote it, design it, produce it and deliver it. I am a Mechanical Engineering student at UTN, Facultad Regional General Pacheco, I have C1 English and I currently work as a projects intern at OPmobility, where I validate parts in 3D, follow project progress and work across the plant, engineering and finance. I am equally comfortable in front of the 3D model and in front of the person who asked for it.",
     },
     profileParagraphs: [
-      "I am a Mechanical Engineering student at UTN Facultad Regional General Pacheco, with a bilingual secondary education and C1 English. I currently work as a projects intern at OPmobility, a French multinational auto parts supplier. I move in the band where engineering meets design: I model in CAD, I fabricate, I assemble and, when the project calls for it, I take it to the screen as well.",
-      "You can see that in what is here. A linear axis I resolved in CAD, alongside the technical drawing plates that back it. A speaker of mine with a shell-shaped body that ends up housing a driver, a battery and a board on bases I designed to fit, signed KROL. A 2400 mm desk I first dimensioned and then built, and BROTE's dimensional signage mounted on a wall. Replicas, scale models and cases that come out of my 3D printing venture, where I handle quoting, design, production and the client. And two websites online, BROTE and MESSA, with their backoffices.",
-      "The common thread is fairly simple: I am interested in the part of the problem where decisions have to be made. What I buy ready-made and what I fabricate, where I split a large piece, how much tolerance a fit can take, how much complexity I load onto the system so I don't load it onto the person using it.",
+      "I model in Fusion 360 and Solid Edge, produce standard drawings and take parts through to manufacturing. I am a Mechanical Engineering student at UTN Facultad Regional General Pacheco, I have C1 English and I currently work as a projects intern at OPmobility, a French multinational auto parts supplier, where I validate parts in 3D, follow the progress of the projects and move between the plant, engineering and finance. Since 2024 I have also run my own 3D printing and custom design service: there the work does not start at the model, it starts at the conversation with the client and ends at delivery.",
+      "You can see that in what is here. A linear axis I resolved in Fusion 360 and Solid Edge, alongside the technical drawing plates that back it. A speaker of mine with a shell-shaped body that ends up housing a driver, a battery and a board on bases I designed to fit, signed KROL. A 2400 mm desk I first dimensioned and then built, and BROTE's dimensional signage mounted on a wall. Replicas, scale models and cases that come out of my 3D printing venture, where I handle scoping, quoting, design, production and delivery. And two digital products online, BROTE and MESSA, with their backoffices.",
+      "The common thread is fairly simple: I am interested in the part of the problem where decisions have to be made, and in being able to explain that decision. What I buy ready-made and what I fabricate, where I split a large piece, how much tolerance a fit can take, what I promise a client and by when. A well-resolved model that nobody can defend is not worth much.",
     ],
     facts: {
       "Pasante de proyectos, OPmobility": "Projects intern, OPmobility",
       "Ing. Mecánica — UTN FRGP": "Mechanical Eng. — UTN FRGP",
-      "2025, estudiante activo": "2025, currently enrolled",
+      "2025, cursando": "2025, currently enrolled",
       "Impresión 3D, desde 2024": "3D printing, since 2024",
       "2.º puesto, robótica U. Austral": "2nd place, robotics, U. Austral",
     },
@@ -559,7 +594,7 @@ export const contentEn: ContentBundle = {
       },
       "CAD y oficina técnica": {
         title: "CAD and drawing office",
-        body: "I model in Fusion 360 and Solid Edge, and produce standard drawings with their sections and dimensions. Basic metrology.",
+        body: "I model in Fusion 360 and Solid Edge, and produce standard drawings with their sections and dimensions. I validate parts in 3D, prepare sections and captures for work instructions, and measure with callipers.",
       },
       "Fabricación digital": {
         title: "Digital fabrication",
@@ -576,6 +611,10 @@ export const contentEn: ContentBundle = {
       "Producto digital": {
         title: "Digital product",
         body: "I design and develop sites and backoffices, from the data model to the interface the business uses every day.",
+      },
+      "Cliente y preventa técnica": {
+        title: "Client work and technical presales",
+        body: "I scope what the client needs, translate it into something manufacturable and quote it with its lead time. It is what I do every day in my own 3D printing service.",
       },
     },
     education: {
@@ -597,22 +636,33 @@ export const contentEn: ContentBundle = {
         title: "Projects intern",
         org: "OPmobility",
         period: "2026 — present",
-        body: "Ongoing internship in the projects area, at a French multinational auto parts supplier.",
+        body: "Internship in the projects area of a French multinational auto parts supplier. I keep my finger on the project: in the meetings I am the one asking where each item stands, checking that it is actually being done and rescheduling whatever will not make the date. I review parts in 3D to validate them, produce sections and captures for the work instructions (SWI), go down to the plant to measure with callipers, and move the paperwork: delivery notes, invoice orders and their handover to finance.",
+        bullets: [
+          "Project follow-up",
+          "Part validation in 3D",
+          "Sections and captures for SWI",
+          "Measuring with callipers",
+          "Delivery notes and invoice orders",
+          "Cross-department liaison",
+          "KEOPS",
+        ],
       },
       "Servicio de impresión 3D y diseño personalizado": {
         title: "3D printing and custom design service",
         org: "Own venture",
         period: "2024 — present",
-        body: "I design and make parts, signage and scale models for architecture clients, businesses and general use. I run the whole process, from the first conversation to delivery.",
+        body: "My own business: I design and make parts, signage and scale models for architecture clients, shops and general use. I run the full cycle and I am the only face the client sees: I scope what they need, quote it with its lead time, design it in Fusion 360, plan the production and deliver it.",
         bullets: [
-          "Quoting",
-          "CAD design",
-          "Production",
-          "Client communication",
+          "Scoping with the client",
+          "Quoting and estimating",
+          "CAD design (Fusion 360)",
           "Manufacturing planning",
+          "Production",
+          "Delivery and follow-up",
           "Technical problem solving",
         ],
-        outcome: "I have gone up to full-scale models of 1.20 m.",
+        outcome:
+          "I have gone up to full-scale models of 1.20 m, and short runs of 20 to 30 identical pieces for a seasonal date.",
       },
       "Competencia de robótica": {
         title: "Robotics competition",
@@ -628,15 +678,29 @@ export const contentEn: ContentBundle = {
       },
     },
     skills: {
-      "Diseño técnico": {
-        area: "Technical design",
+      "CAD y diseño técnico": {
+        area: "CAD and technical design",
         items: [
           "Fusion 360",
           "Solid Edge",
-          "Blender",
+          "Shapr3D",
+          "Standard 2D drawings",
           "3D modelling",
           "Assemblies",
+          "Blender",
+          "Nomad Sculpt",
           "Prototyping with 3D printing",
+        ],
+      },
+      "Cliente y comercial": {
+        area: "Client and commercial",
+        items: [
+          "Scoping needs",
+          "Quoting and estimating",
+          "Client communication",
+          "Manufacturing planning",
+          "Project follow-up",
+          "Technical problem solving",
         ],
       },
       "Análisis y datos": {
@@ -675,7 +739,9 @@ export const contentEn: ContentBundle = {
         area: "Drawing office",
         items: [
           "Reading 2D/3D drawings",
-          "Basic metrology",
+          "Part validation in 3D",
+          "Sections and captures for SWI",
+          "Basic metrology and callipers",
           "Following up jobs and suppliers",
         ],
       },

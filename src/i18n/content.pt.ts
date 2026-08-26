@@ -8,7 +8,7 @@ export const contentPt: ContentBundle = {
       category: "Engenharia",
       description: "Eixo linear motorizado modelado em CAD e pranchas de desenho técnico.",
       summary:
-        "Aqui junto duas coisas que para mim andam juntas: a modelagem completa de um eixo linear acionado por fuso e motor de passo, e as pranchas de desenho técnico que fiz durante a faculdade. São as duas faces do mesmo ofício: definir uma peça em três dimensões e saber comunicá-la em duas.",
+        "Aqui junto duas coisas que para mim andam juntas: a modelagem completa em Fusion 360 e Solid Edge de um eixo linear acionado por fuso e motor de passo, e as pranchas de desenho técnico que fiz durante a faculdade. São as duas faces do mesmo ofício: definir uma peça em três dimensões e saber comunicá-la em duas.",
       role: "Projeto e modelagem",
       problem:
         "Eu precisava converter um movimento de rotação em deslocamento linear preciso e repetível, com uma estrutura que desse para fabricar com perfis e componentes de prateleira.",
@@ -42,6 +42,11 @@ export const contentPt: ContentBundle = {
         { label: "Acionamento", value: "Motor de passo" },
         { label: "Software", value: "Fusion 360 / Solid Edge" },
         { label: "Saída", value: "Conjunto, cortes e explodida" },
+        {
+          label: "Decisão",
+          value:
+            "Fixei primeiro os componentes de catálogo e adaptei a estrutura a eles, não o contrário.",
+        },
       ],
       gallery: {
         "projects/mechanical-design/linear-axis-iso": {
@@ -105,7 +110,7 @@ export const contentPt: ContentBundle = {
       category: "Produto",
       description: "Caixa de som com carcaça orgânica impressa e eletrônica montada sob medida.",
       summary:
-        "Um objeto meu que começa como forma e termina como produto. A carcaça externa é uma geometria de caracol que modelei e depois imprimi; dentro, resolvi a montagem de um alto-falante, uma bateria e sua placa sobre bases impressas sob medida, com ímãs, porta de carga e interruptor. As peças são assinadas KROL, a marca com que assino o que fabrico.",
+        "Um objeto meu que começa como forma e termina como produto. A carcaça externa é uma geometria de caracol que modelei em Fusion 360 e Blender e depois imprimi; dentro, resolvi a montagem de um alto-falante, uma bateria e sua placa sobre bases impressas sob medida, com ímãs, porta de carga e interruptor. As peças são assinadas KROL, a marca com que assino o que fabrico.",
       role: "Projeto próprio: design, modelagem, impressão e montagem",
       year: "2024 — presente",
       problem:
@@ -114,7 +119,7 @@ export const contentPt: ContentBundle = {
         "Ficou um objeto com identidade própria, assinado na geometria, com a eletrônica alojada em bases que desenhei especificamente para ela.",
       reflection:
         "Separar a forma externa das bases internas foi o que destravou o projeto para mim: posso iterar a eletrônica sem reimprimir a peça grande, que é a que consome todo o meu tempo de máquina.",
-      tools: ["Blender", "Fusion 360", "Impressão 3D FDM"],
+      tools: ["Fusion 360", "Blender", "Impressão 3D FDM"],
       materials: ["PLA", "Ímã de neodímio", "Bateria LiPo"],
       tags: ["Produto", "Eletrônica", "Impressão 3D"],
       process: [
@@ -140,6 +145,11 @@ export const contentPt: ContentBundle = {
         { label: "Fechamento", value: "Ímãs de neodímio" },
         { label: "Alimentação", value: "Bateria recarregável" },
         { label: "Assinatura", value: "KROL, gravada na peça" },
+        {
+          label: "Decisão",
+          value:
+            "Separei a carcaça externa das bases internas: itero a eletrônica sem reimprimir a peça grande.",
+        },
       ],
       gallery: {
         "projects/parlante-caracol/render-branded": {
@@ -199,15 +209,15 @@ export const contentPt: ContentBundle = {
     "3d-printing": {
       title: "Impressão 3D e prototipagem",
       category: "Fabricação",
-      description: "Serviço próprio: peças, réplicas, maquetes e estojos sob medida.",
+      description: "Meu negócio: do pedido do cliente à peça entregue.",
       summary:
-        "Meu negócio de impressão 3D e design personalizado. Faço peças, placas, réplicas e maquetes para clientes de arquitetura, comércios e uso geral, e cuido de todo o processo: orçamento, projeto CAD, produção, planejamento de fabricação e comunicação com o cliente. Já cheguei a modelos em escala real de até 1,20 m.",
-      role: "Negócio próprio",
+        "Meu negócio de impressão 3D e design personalizado, e minha primeira experiência comercial de verdade. Faço peças, placas, réplicas e maquetes para clientes de arquitetura, comércios e uso geral. Aqui não entrego um modelo: entrego um trabalho fechado. Escuto o que o cliente precisa, traduzo para algo fabricável, orço com o prazo, projeto no Fusion 360, produzo e entrego. Já cheguei a modelos em escala real de até 1,20 m.",
+      role: "Negócio próprio: cliente, CAD e produção",
       year: "2024 — presente",
       problem:
         "Cada pedido me chega diferente: uma réplica decorativa, um estojo sob medida, uma maquete de arquitetura. O que se repete é o problema de fundo: levar uma ideia ou um arquivo alheio a uma peça física que feche em prazo, custo e acabamento.",
       result:
-        "Entreguei peças para arquitetura, comércios e uso geral, incluindo modelos em escala real de até 1,20 m resolvidos em partes.",
+        "Entreguei peças para arquitetura, comércios e uso geral, incluindo modelos em escala real de até 1,20 m resolvidos em partes e séries curtas de 20 a 30 peças iguais para uma data comercial.",
       reflection:
         "A impressão é a parte fácil. O trabalho real está em decidir como divido uma peça grande, onde ficarão as emendas e quanto acabamento manual ela precisa para o cliente ver um produto e não um print.",
       tools: ["Fusion 360", "Blender", "Impressão 3D FDM", "Pós-processamento"],
@@ -234,8 +244,13 @@ export const contentPt: ContentBundle = {
       specs: [
         { label: "Tecnologia", value: "FDM" },
         { label: "Escala máxima", value: "Até 1,20 m em partes" },
-        { label: "Escopo", value: "Projeto, produção e acabamento" },
+        { label: "Escopo", value: "Orçamento, projeto, produção e entrega" },
         { label: "Desde", value: "2024" },
+        {
+          label: "Decisão",
+          value:
+            "O preço e o prazo saem de como divido a peça e de como a oriento, não do tamanho.",
+        },
       ],
       gallery: {
         "projects/3d-printing/nike-outdoor-alt": {
@@ -283,7 +298,7 @@ export const contentPt: ContentBundle = {
       category: "Mobiliário",
       description: "Escrivaninha em madeira e ferro, gaveteiro e letras caixa.",
       summary:
-        "Design de objetos que levei até a construção. Uma escrivaninha de 2400 x 700 x 800 mm em madeira com estrutura metálica, que resolvi primeiro em CAD com suas medidas e depois fabriquei; um gaveteiro e um painel dividido; e a sinalização em letras caixa da BROTE, que fabriquei e instalei em parede, sobre concreto e ao ar livre.",
+        "Design de objetos que levei até a construção. Uma escrivaninha de 2400 x 700 x 800 mm em madeira com estrutura metálica, que resolvi primeiro no Fusion 360 com suas medidas e depois fabriquei; um gaveteiro e um painel dividido; e a sinalização em letras caixa da BROTE, que fabriquei e instalei em parede, sobre concreto e ao ar livre.",
       role: "Projeto e fabricação",
       problem:
         "Uma escrivaninha grande precisa ser estável, passar por uma porta e poder ser montada no local. As três coisas se decidem no projeto, não na oficina. A sinalização me colocou a mesma questão em outra escala: uma letra caixa precisa se sustentar, ser montada no prumo e ler bem com a luz do lugar.",
@@ -317,6 +332,11 @@ export const contentPt: ContentBundle = {
         { label: "Gaveteiro", value: "600 x 600 x 560 mm" },
         { label: "Materiais", value: "Madeira e ferro" },
         { label: "Estado", value: "Fabricado" },
+        {
+          label: "Decisão",
+          value:
+            "Estrutura metálica com tampo de madeira: a união entre os dois materiais é onde se ganha a rigidez.",
+        },
       ],
       gallery: {
         "projects/furniture/desk-built": {
@@ -383,7 +403,7 @@ export const contentPt: ContentBundle = {
       category: "Visualização",
       description: "Estudos de assento, iluminação e modelagem orgânica resolvidos como imagem.",
       summary:
-        "Visualização 3D: cenas em que não busco fabricar, e sim entender e mostrar. Estudos de uma poltrona de estrutura tubular, de uma luminária de anéis e da sala que os contém, além de modelagem orgânica de referência anatômica. Aqui a iluminação, os materiais e o enquadramento são o trabalho, não o acompanhamento.",
+        "Visualização 3D em Blender e Fusion 360: cenas em que não busco fabricar, e sim entender e mostrar. Estudos de uma poltrona de estrutura tubular, de uma luminária de anéis e da sala que os contém, além de modelagem orgânica de referência anatômica. Aqui a iluminação, os materiais e o enquadramento são o trabalho, não o acompanhamento.",
       role: "Modelagem e render",
       problem:
         "Uma imagem precisa explicar um objeto antes de ele existir. Não me basta que fique bonito: tem que se entender que material é, como apoia e de onde vem a luz.",
@@ -416,6 +436,11 @@ export const contentPt: ContentBundle = {
         { label: "Software", value: "Blender / Fusion 360" },
         { label: "Foco", value: "Produto e cena" },
         { label: "Saída", value: "Imagem estática" },
+        {
+          label: "Decisão",
+          value:
+            "Modelo com o detalhe que a câmera vai ver e defino materiais por como devolvem a luz, não por cor.",
+        },
       ],
       gallery: {
         "projects/renders/armchair-detail": {
@@ -457,14 +482,14 @@ export const contentPt: ContentBundle = {
       category: "Site",
       description: "E-commerce de alimentos naturais, com loja e painel de administração.",
       summary:
-        "Colaborei no produto digital da BROTE: uma loja on-line de produtos naturais e orgânicos, com catálogo, clube de clientes, receitas e carrinho, além do backoffice com que o negócio gerencia tudo isso sem mexer em código.",
-      role: "Colaborador / design e desenvolvimento do produto digital",
+        "Um negócio com loja física que precisava vender on-line. Colaborei no produto inteiro: a loja de produtos naturais e orgânicos, com catálogo, clube de clientes, receitas e carrinho, além do backoffice com que o negócio gerencia tudo isso sozinho, sem mexer em código e sem me chamar. Hoje usam todos os dias.",
+      role: "Colaborador / do produto à operação do negócio",
       problem:
         "Uma marca que existe em uma loja física e precisava vender on-line, com um painel que as pessoas do negócio conseguissem usar sem ajuda técnica.",
       result: "A loja ficou em produção e o painel em uso diário pelo negócio.",
       reflection:
         "O painel é a parte que ninguém vê e a que decide se o site continua vivo. Se cadastrar um produto é incômodo, em duas semanas o catálogo está velho.",
-      tools: ["Design de UI", "Desenvolvimento web", "Cloudflare Workers"],
+      tools: ["Design de produto", "Design de UI", "Desenvolvimento web", "Cloudflare Workers"],
       tags: ["Web", "E-commerce", "Backoffice"],
       process: [
         {
@@ -484,6 +509,11 @@ export const contentPt: ContentBundle = {
         { label: "Função", value: "Colaborador" },
         { label: "Escopo", value: "Loja e backoffice" },
         { label: "Estado", value: "Em produção" },
+        {
+          label: "Decisão",
+          value:
+            "Priorizei o backoffice: se cadastrar um produto é incômodo, em duas semanas o catálogo está velho.",
+        },
       ],
     },
 
@@ -492,14 +522,14 @@ export const contentPt: ContentBundle = {
       category: "Site",
       description: "Produto próprio para restaurantes: cardápio digital, pedido por QR e painel.",
       summary:
-        "Um projeto meu, de design e desenvolvimento integral. MESSA é a cara digital de um restaurante: apresentação, cardápio, pedido na mesa pelo QR code e conta de cliente, com um acesso de equipe para operar o serviço. Resolvi tudo, do modelo de dados à interface.",
-      role: "Projeto próprio / design e desenvolvimento integral",
+        "Um produto meu, pensado como produto e não como encomenda. MESSA é a cara digital de um restaurante: apresentação, cardápio, pedido na mesa pelo QR code e conta de cliente, com um acesso de equipe para operar o serviço. Resolvi tudo, do modelo de dados à interface, e ficou no ar para percorrer por completo.",
+      role: "Produto próprio / da ideia ao produto no ar",
       problem:
         "Um restaurante precisa que o pedido comece antes do garçom chegar, sem obrigar o cliente a instalar nada nem criar conta só para ver o cardápio.",
       result: "Ficou no ar, com o site público e o backoffice funcionando.",
       reflection:
         "Fazer tudo me obrigou a decidir onde colocar a complexidade. Quase sempre é melhor que o sistema a carregue, e não a pessoa que usa às nove da noite com o salão cheio.",
-      tools: ["Design UX/UI", "Desenvolvimento web", "Cloudflare Workers"],
+      tools: ["Design de produto", "Design UX/UI", "Desenvolvimento web", "Cloudflare Workers"],
       tags: ["Web", "Produto", "UX/UI"],
       process: [
         {
@@ -519,36 +549,41 @@ export const contentPt: ContentBundle = {
         { label: "Função", value: "Design e desenvolvimento integral" },
         { label: "Escopo", value: "Produto completo" },
         { label: "Estado", value: "No ar" },
+        {
+          label: "Decisão",
+          value:
+            "Coloquei a complexidade no sistema e não na pessoa que o opera às nove da noite.",
+        },
       ],
     },
   },
 
   webProducts: {
     brote: {
-      role: "Colaborador / design e desenvolvimento do produto digital",
-      blurb: "Loja on-line de produtos naturais, com seu painel de administração.",
+      role: "Colaborador / do produto à operação do negócio",
+      blurb: "Loja on-line de produtos naturais que o negócio opera sozinho, com seu painel de administração.",
     },
     messa: {
-      role: "Projeto próprio / design e desenvolvimento integral",
-      blurb: "Cardápio digital e pedido na mesa por QR, com acesso para a equipe.",
+      role: "Produto próprio / da ideia ao produto no ar",
+      blurb: "Produto próprio: cardápio digital e pedido na mesa por QR, com acesso para a equipe.",
     },
   },
 
   cv: {
     profile: {
-      headline: "Projeto, calculo e fabrico ideias que dá para tocar.",
+      headline: "Projeto em CAD, fabrico e trato com o cliente de ponta a ponta.",
       summary:
-        "Sou estudante de Engenharia Mecânica na UTN, Faculdade Regional General Pacheco, com ensino médio bilíngue e inglês C1. Aprendo rápido, trabalho com autonomia e me adapto bem a ambientes diferentes: combino tarefas técnicas, design, análise de dados, comunicação com fornecedores, coordenação e suporte de projetos.",
+        "Projeto mecânico e CAD em Fusion 360 e Solid Edge, com experiência comercial própria: desde 2024 toco meu serviço de impressão 3D e design personalizado, em que levanto o pedido, orço, projeto, produzo e entrego. Sou estudante de Engenharia Mecânica na UTN, Faculdade Regional General Pacheco, tenho inglês C1 e hoje faço um estágio de projetos na OPmobility, onde valido peças em 3D, acompanho o avanço do projeto e trabalho entre a planta, a engenharia e o financeiro. Fico igualmente à vontade diante do modelo 3D e diante da pessoa que o pediu.",
     },
     profileParagraphs: [
-      "Sou estudante de Engenharia Mecânica na UTN Faculdade Regional General Pacheco, com ensino médio bilíngue e inglês C1. Hoje trabalho como estagiário de projetos na OPmobility, uma multinacional francesa de autopeças. Me movo na faixa onde a engenharia encontra o design: modelo em CAD, fabrico, monto e, quando o projeto pede, também levo para a tela.",
-      "Isso aparece no que há aqui. Um eixo linear que resolvi em CAD, junto às pranchas de desenho técnico que o sustentam. Uma caixa de som minha com carcaça de caracol que termina alojando alto-falante, bateria e placa sobre bases que desenhei sob medida, assinada KROL. Uma escrivaninha de 2400 mm que primeiro cotei e depois construí, e a sinalização em letras caixa da BROTE montada em parede. Réplicas, maquetes e estojos que saem do meu negócio de impressão 3D, em que cuido de orçamento, projeto, produção e cliente. E dois sites no ar, BROTE e MESSA, com seus backoffices.",
-      "O fio condutor é bem simples: me interessa a parte do problema em que é preciso decidir. O que compro pronto e o que fabrico, onde divido uma peça grande, quanta tolerância um encaixe aguenta, quanta complexidade coloco no sistema para não colocar na pessoa que o usa.",
+      "Modelo em Fusion 360 e Solid Edge, tiro desenhos normalizados e levo as peças até a fabricação. Sou estudante de Engenharia Mecânica na UTN Faculdade Regional General Pacheco, tenho inglês C1 e hoje trabalho como estagiário de projetos na OPmobility, uma multinacional francesa de autopeças, onde valido peças em 3D, acompanho o avanço dos projetos e circulo entre a planta, a engenharia e o financeiro. Desde 2024 tenho também meu próprio serviço de impressão 3D e design personalizado: ali o trabalho não começa no modelo, começa na conversa com o cliente e termina na entrega.",
+      "Isso aparece no que há aqui. Um eixo linear que resolvi em Fusion 360 e Solid Edge, junto às pranchas de desenho técnico que o sustentam. Uma caixa de som minha com carcaça de caracol que termina alojando alto-falante, bateria e placa sobre bases que desenhei sob medida, assinada KROL. Uma escrivaninha de 2400 mm que primeiro cotei e depois construí, e a sinalização em letras caixa da BROTE montada em parede. Réplicas, maquetes e estojos que saem do meu negócio de impressão 3D, em que cuido de levantamento, orçamento, projeto, produção e entrega. E dois produtos digitais no ar, BROTE e MESSA, com seus backoffices.",
+      "O fio condutor é bem simples: me interessa a parte do problema em que é preciso decidir, e me interessa saber explicar essa decisão. O que compro pronto e o que fabrico, onde divido uma peça grande, quanta tolerância um encaixe aguenta, o que se promete a um cliente e em que prazo. Um modelo bem resolvido que ninguém sabe defender não serve de muito.",
     ],
     facts: {
       "Pasante de proyectos, OPmobility": "Estagiário de projetos, OPmobility",
       "Ing. Mecánica — UTN FRGP": "Eng. Mecânica — UTN FRGP",
-      "2025, estudiante activo": "2025, cursando",
+      "2025, cursando": "2025, cursando",
       "Impresión 3D, desde 2024": "Impressão 3D, desde 2024",
       "2.º puesto, robótica U. Austral": "2.º lugar, robótica U. Austral",
     },
@@ -559,7 +594,7 @@ export const contentPt: ContentBundle = {
       },
       "CAD y oficina técnica": {
         title: "CAD e escritório técnico",
-        body: "Modelo em Fusion 360 e Solid Edge, e tiro desenhos normalizados com seus cortes e cotas. Metrologia básica.",
+        body: "Modelo em Fusion 360 e Solid Edge, e tiro desenhos normalizados com seus cortes e cotas. Valido peças em 3D, preparo cortes e capturas para instruções de trabalho e meço com paquímetro.",
       },
       "Fabricación digital": {
         title: "Fabricação digital",
@@ -576,6 +611,10 @@ export const contentPt: ContentBundle = {
       "Producto digital": {
         title: "Produto digital",
         body: "Projeto e desenvolvo sites e backoffices, do modelo de dados à interface que o negócio usa todos os dias.",
+      },
+      "Cliente y preventa técnica": {
+        title: "Cliente e pré-venda técnica",
+        body: "Levanto o que o cliente precisa, traduzo para algo fabricável e orço com o prazo. É o que faço todos os dias no meu próprio serviço de impressão 3D.",
       },
     },
     education: {
@@ -597,22 +636,33 @@ export const contentPt: ContentBundle = {
         title: "Estagiário de projetos",
         org: "OPmobility",
         period: "2026 — presente",
-        body: "Estágio em andamento na área de projetos, em uma multinacional francesa de autopeças.",
+        body: "Estágio na área de projetos de uma multinacional francesa de autopeças. Acompanho o pulso do projeto: nas reuniões sou quem pergunta em que pé está cada coisa, verifica se está sendo feito e reprograma o que não chega na data. Reviso peças em 3D para validá-las, faço cortes e capturas para as instruções de trabalho (SWI), vou à planta medir com paquímetro e movimento a documentação: remessas, ordens de faturamento e a passagem ao financeiro.",
+        bullets: [
+          "Acompanhamento de projetos",
+          "Validação de peças em 3D",
+          "Cortes e capturas para SWI",
+          "Medição com paquímetro",
+          "Remessas e ordens de faturamento",
+          "Interlocução entre áreas",
+          "KEOPS",
+        ],
       },
       "Servicio de impresión 3D y diseño personalizado": {
         title: "Serviço de impressão 3D e design personalizado",
         org: "Negócio próprio",
         period: "2024 — presente",
-        body: "Projeto e fabrico peças, placas e maquetes para clientes de arquitetura, comércios e uso geral. Conduzo o processo completo, da primeira conversa à entrega.",
+        body: "Meu próprio negócio: projeto e fabrico peças, placas e maquetes para clientes de arquitetura, comércios e uso geral. Conduzo o ciclo completo e sou a única cara visível diante do cliente: levanto o que precisa, orço com o prazo, projeto no Fusion 360, planejo a produção e entrego.",
         bullets: [
-          "Orçamento",
-          "Projeto CAD",
-          "Produção",
-          "Comunicação com o cliente",
+          "Levantamento com o cliente",
+          "Orçamento e cotação",
+          "Projeto CAD (Fusion 360)",
           "Planejamento de fabricação",
+          "Produção",
+          "Entrega e acompanhamento",
           "Resolução de problemas técnicos",
         ],
-        outcome: "Já cheguei a modelos em escala real de até 1,20 m.",
+        outcome:
+          "Já cheguei a modelos em escala real de até 1,20 m, e a séries curtas de 20 a 30 peças iguais para uma data comercial.",
       },
       "Competencia de robótica": {
         title: "Competição de robótica",
@@ -628,15 +678,29 @@ export const contentPt: ContentBundle = {
       },
     },
     skills: {
-      "Diseño técnico": {
-        area: "Projeto técnico",
+      "CAD y diseño técnico": {
+        area: "CAD e projeto técnico",
         items: [
           "Fusion 360",
           "Solid Edge",
-          "Blender",
+          "Shapr3D",
+          "Desenhos normalizados 2D",
           "Modelagem 3D",
           "Montagens",
+          "Blender",
+          "Nomad Sculpt",
           "Prototipagem com impressão 3D",
+        ],
+      },
+      "Cliente y comercial": {
+        area: "Cliente e comercial",
+        items: [
+          "Levantamento de necessidades",
+          "Orçamento e cotação",
+          "Comunicação com o cliente",
+          "Planejamento de fabricação",
+          "Acompanhamento de projetos",
+          "Resolução de problemas técnicos",
         ],
       },
       "Análisis y datos": {
@@ -675,7 +739,9 @@ export const contentPt: ContentBundle = {
         area: "Escritório técnico",
         items: [
           "Leitura de desenhos 2D/3D",
-          "Metrologia básica",
+          "Validação de peças em 3D",
+          "Cortes e capturas para SWI",
+          "Metrologia básica e paquímetro",
           "Acompanhamento de trabalhos e fornecedores",
         ],
       },

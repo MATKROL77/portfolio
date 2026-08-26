@@ -18,7 +18,7 @@ const es = {
 
   "hero.claim": "Solving problems. Building things that last.",
   "hero.role": "Engineer & Designer",
-  "hero.roleLines": "Ingeniería mecánica|Diseño de producto|Fabricación digital",
+  "hero.roleLines": "Fusion 360 · Solid Edge|Diseño mecánico y de producto|Del relevamiento a la entrega",
   "hero.viewProfile": "Ver perfil completo",
   "hero.openCase": "Abrir caso",
   "hero.swipeHint": "Deslizá para ver los proyectos",
@@ -48,7 +48,7 @@ const es = {
     "Cada ficha abre un caso con el problema, el proceso y el resultado. Lo conceptual está marcado como tal.",
 
   "web.eyebrow": "Web products",
-  "web.title": "Dos productos digitales en línea",
+  "web.title": "Dos productos que llevé de la idea a producción",
   "web.intro":
     "Los sitios se muestran en vivo cuando el propio sitio lo permite, y el backoffice con una réplica de demostración incluida en este portfolio: sin usuario, sin contraseña y sin ninguna conexión con los sistemas en producción.",
   "web.openReal": "Abrir sitio real",
@@ -102,7 +102,7 @@ const es = {
   "contact.eyebrow": "Contacto",
   "contact.title": "LET’S BUILD SOMETHING USEFUL.",
   "contact.intro":
-    "Estoy interesado en proyectos donde la ingeniería, el diseño y la tecnología puedan convertirse en soluciones reales.",
+    "Busco un puesto donde el criterio técnico y el trato con el cliente vayan juntos: preventa técnica y application engineering sobre CAD, o diseño mecánico y desarrollo de producto. Trabajo en Fusion 360 y Solid Edge, tengo inglés C1 y estoy en Buenos Aires. Me interesa remoto o híbrido, y arranco presencial si el puesto lo pide.",
   "contact.whatsapp": "WhatsApp",
   "contact.email": "Email",
   "contact.downloadCv": "Descargar CV",
@@ -141,7 +141,7 @@ const en: Partial<Record<UiKey, string>> = {
   "nav.language": "Language",
   "nav.skipToContent": "Skip to content",
 
-  "hero.roleLines": "Mechanical engineering|Product design|Digital fabrication",
+  "hero.roleLines": "Fusion 360 · Solid Edge|Mechanical & product design|From brief to delivery",
   "hero.viewProfile": "See full profile",
   "hero.openCase": "Open case",
   "hero.swipeHint": "Swipe to browse the projects",
@@ -169,7 +169,7 @@ const en: Partial<Record<UiKey, string>> = {
   "index.intro":
     "Each card opens a case with the problem, the process and the result. Anything conceptual is labelled as such.",
 
-  "web.title": "Two digital products, live",
+  "web.title": "Two products I took from idea to production",
   "web.intro":
     "Each site is embedded live when the site itself allows it, and the backoffice is a demo replica built into this portfolio: no user, no password and no connection to the production systems.",
   "web.openReal": "Open the real site",
@@ -216,7 +216,7 @@ const en: Partial<Record<UiKey, string>> = {
 
   "contact.eyebrow": "Contact",
   "contact.intro":
-    "I am interested in projects where engineering, design and technology can turn into real solutions.",
+    "I am looking for a role where technical judgement and client-facing work go together: technical presales and application engineering around CAD, or mechanical design and product development. I work in Fusion 360 and Solid Edge, I have C1 English and I am based in Buenos Aires. I am after remote or hybrid, and I am happy to start on site if the role needs it.",
   "contact.downloadCv": "Download CV",
   "contact.whatsappMessage":
     "Hi Matías, I saw your portfolio and I would like to talk about a project.",
@@ -249,7 +249,7 @@ const pt: Partial<Record<UiKey, string>> = {
   "nav.language": "Idioma",
   "nav.skipToContent": "Ir para o conteúdo",
 
-  "hero.roleLines": "Engenharia mecânica|Design de produto|Fabricação digital",
+  "hero.roleLines": "Fusion 360 · Solid Edge|Projeto mecânico e de produto|Do briefing à entrega",
   "hero.viewProfile": "Ver perfil completo",
   "hero.openCase": "Abrir caso",
   "hero.swipeHint": "Deslize para ver os projetos",
@@ -277,7 +277,7 @@ const pt: Partial<Record<UiKey, string>> = {
   "index.intro":
     "Cada cartão abre um caso com o problema, o processo e o resultado. O que é conceitual está marcado como tal.",
 
-  "web.title": "Dois produtos digitais no ar",
+  "web.title": "Dois produtos que levei da ideia à produção",
   "web.intro":
     "Os sites aparecem ao vivo quando o próprio site permite, e o backoffice é uma réplica de demonstração incluída neste portfólio: sem usuário, sem senha e sem nenhuma conexão com os sistemas em produção.",
   "web.openReal": "Abrir o site real",
@@ -324,7 +324,7 @@ const pt: Partial<Record<UiKey, string>> = {
 
   "contact.eyebrow": "Contato",
   "contact.intro":
-    "Tenho interesse em projetos onde engenharia, design e tecnologia possam virar soluções reais.",
+    "Procuro uma posição onde o critério técnico e o contato com o cliente andem juntos: pré-venda técnica e application engineering sobre CAD, ou projeto mecânico e desenvolvimento de produto. Trabalho em Fusion 360 e Solid Edge, tenho inglês C1 e moro em Buenos Aires. Tenho interesse em remoto ou híbrido, e começo presencial se a vaga precisar.",
   "contact.downloadCv": "Baixar CV",
   "contact.whatsappMessage":
     "Olá Matías, vi seu portfólio e gostaria de conversar sobre um projeto.",

@@ -5,7 +5,7 @@ import { CvView } from "@/components/about/CvView";
 
 export const metadata: Metadata = {
   title: "CV",
-  description: `Currículum de ${profile.name}: ingeniería mecánica, diseño técnico, CAD, impresión 3D y productos digitales.`,
+  description: `Currículum de ${profile.name}: diseño mecánico y CAD en Fusion 360 y Solid Edge, seguimiento de proyectos, impresión 3D y trato con el cliente.`,
   alternates: { canonical: "/cv" },
 };
 

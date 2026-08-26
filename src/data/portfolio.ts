@@ -79,7 +79,7 @@ export const projects: Project[] = [
     description:
       "Eje lineal motorizado modelado en CAD y láminas de dibujo técnico.",
     summary:
-      "Acá junto dos cosas que para mí van de la mano: el modelado completo de un eje lineal accionado por husillo y motor paso a paso, y las láminas de dibujo técnico que hice durante la carrera. Son las dos caras del mismo oficio: definir una pieza en tres dimensiones y saber comunicarla en dos.",
+      "Acá junto dos cosas que para mí van de la mano: el modelado completo en Fusion 360 y Solid Edge de un eje lineal accionado por husillo y motor paso a paso, y las láminas de dibujo técnico que hice durante la carrera. Son las dos caras del mismo oficio: definir una pieza en tres dimensiones y saber comunicarla en dos.",
     role: "Diseño y modelado",
     year: "2025",
     tools: ["Fusion 360", "Solid Edge", "Dibujo técnico normalizado"],
@@ -191,6 +191,11 @@ export const projects: Project[] = [
       { label: "Accionamiento", value: "Motor paso a paso" },
       { label: "Software", value: "Fusion 360 / Solid Edge" },
       { label: "Salida", value: "Conjunto, cortes y despiece" },
+      {
+        label: "Decisión",
+        value:
+          "Fijé primero los componentes de catálogo y adapté la estructura a ellos, no al revés.",
+      },
     ],
   },
 
@@ -204,10 +209,10 @@ export const projects: Project[] = [
     description:
       "Parlante con carcasa orgánica impresa y electrónica montada a medida.",
     summary:
-      "Un objeto mío que empieza como forma y termina como producto. La carcasa exterior es una geometría de caracol que modelé y después imprimí; adentro resolví el montaje de un parlante, una batería y su placa sobre bases impresas a medida, con imanes, puerto de carga e interruptor. Las piezas van firmadas KROL, que es la marca con la que firmo lo que fabrico.",
+      "Un objeto mío que empieza como forma y termina como producto. La carcasa exterior es una geometría de caracol que modelé en Fusion 360 y Blender y después imprimí; adentro resolví el montaje de un parlante, una batería y su placa sobre bases impresas a medida, con imanes, puerto de carga e interruptor. Las piezas van firmadas KROL, que es la marca con la que firmo lo que fabrico.",
     role: "Proyecto propio: diseño, modelado, impresión y montaje",
     year: "2024 — presente",
-    tools: ["Blender", "Fusion 360", "Impresión 3D FDM"],
+    tools: ["Fusion 360", "Blender", "Impresión 3D FDM"],
     materials: ["PLA", "Imán de neodimio", "Batería LiPo"],
     heroImage: "projects/parlante-caracol/dock-with-phone",
     gallery: [
@@ -320,6 +325,11 @@ export const projects: Project[] = [
       { label: "Cierre", value: "Imanes de neodimio" },
       { label: "Alimentación", value: "Batería recargable" },
       { label: "Firma", value: "KROL, grabada en la pieza" },
+      {
+        label: "Decisión",
+        value:
+          "Separé la carcasa exterior de las bases internas: itero la electrónica sin reimprimir la pieza grande.",
+      },
     ],
   },
 
@@ -331,10 +341,10 @@ export const projects: Project[] = [
     category: "Fabricación",
     status: "real",
     description:
-      "Servicio propio: piezas, réplicas, maquetas y estuches a medida.",
+      "Mi negocio: del pedido del cliente a la pieza entregada.",
     summary:
-      "Mi emprendimiento de impresión 3D y diseño personalizado. Hago piezas, carteles, réplicas y maquetas para clientes de arquitectura, negocios y uso general, y llevo el proceso completo: presupuesto, diseño CAD, producción, planificación de fabricación y comunicación con el cliente. Llegué a hacer modelos a escala real de hasta 1,20 m.",
-    role: "Emprendimiento propio",
+      "Mi emprendimiento de impresión 3D y diseño personalizado, y mi primera experiencia comercial real. Hago piezas, carteles, réplicas y maquetas para clientes de arquitectura, negocios y uso general. Acá no entrego un modelo: entrego un trabajo cerrado. Escucho qué necesita el cliente, lo traduzco a algo fabricable, lo cotizo con su plazo, lo diseño en Fusion 360, lo produzco y lo entrego. Llegué a hacer modelos a escala real de hasta 1,20 m.",
+    role: "Emprendimiento propio: cliente, CAD y producción",
     year: "2024 — presente",
     tools: ["Fusion 360", "Blender", "Impresión 3D FDM", "Postprocesado"],
     materials: ["PLA", "Resina", "Pintura y masilla"],
@@ -411,14 +421,19 @@ export const projects: Project[] = [
       },
     ],
     result:
-      "Entregué piezas para arquitectura, comercios y uso general, incluidos modelos a escala real de hasta 1,20 m resueltos por partes.",
+      "Entregué piezas para arquitectura, comercios y uso general, incluidos modelos a escala real de hasta 1,20 m resueltos por partes y series cortas de 20 a 30 piezas iguales para una fecha comercial.",
     reflection:
       "La impresión es la parte fácil. El trabajo real está en decidir cómo parto una pieza grande, dónde van a quedar las uniones y cuánta terminación manual necesita para que el cliente vea un producto y no un print.",
     specs: [
       { label: "Tecnología", value: "FDM" },
       { label: "Escala máxima", value: "Hasta 1,20 m por partes" },
-      { label: "Alcance", value: "Diseño, producción y terminación" },
+      { label: "Alcance", value: "Cotización, diseño, producción y entrega" },
       { label: "Desde", value: "2024" },
+      {
+        label: "Decisión",
+        value:
+          "El precio y el plazo salen de cómo parto la pieza y cómo la oriento, no del tamaño.",
+      },
     ],
   },
 
@@ -432,7 +447,7 @@ export const projects: Project[] = [
     description:
       "Escritorio en madera y hierro, módulo de cajones y señalética corpórea.",
     summary:
-      "Diseño de objetos que llevé hasta la construcción. Un escritorio de 2400 x 700 x 800 mm en madera y estructura metálica, que resolví primero en CAD con sus medidas y después fabriqué; un módulo de cajones y un panel de divisiones; y la señalética corpórea de BROTE, que fabriqué y monté en pared, sobre concreto y en exterior.",
+      "Diseño de objetos que llevé hasta la construcción. Un escritorio de 2400 x 700 x 800 mm en madera y estructura metálica, que resolví primero en Fusion 360 con sus medidas y después fabriqué; un módulo de cajones y un panel de divisiones; y la señalética corpórea de BROTE, que fabriqué y monté en pared, sobre concreto y en exterior.",
     role: "Diseño y fabricación",
     tools: ["Fusion 360", "Blender", "Fabricación digital"],
     materials: ["Madera", "Hierro", "Melamina"],
@@ -541,6 +556,11 @@ export const projects: Project[] = [
       { label: "Módulo cajones", value: "600 x 600 x 560 mm" },
       { label: "Materiales", value: "Madera y hierro" },
       { label: "Estado", value: "Fabricado" },
+      {
+        label: "Decisión",
+        value:
+          "Bastidor metálico con tablero de madera: la unión entre los dos materiales es donde se gana la rigidez.",
+      },
     ],
   },
 
@@ -554,7 +574,7 @@ export const projects: Project[] = [
     description:
       "Estudios de asiento, iluminación y modelado orgánico resueltos como imagen.",
     summary:
-      "Visualización 3D: escenas donde no busco fabricar sino entender y mostrar. Estudios de un sillón de estructura tubular, de una lámpara de anillos y de la sala que los contiene, más modelado orgánico de referencia anatómica. Acá la iluminación, los materiales y el encuadre son el trabajo, no el acompañamiento.",
+      "Visualización 3D en Blender y Fusion 360: escenas donde no busco fabricar sino entender y mostrar. Estudios de un sillón de estructura tubular, de una lámpara de anillos y de la sala que los contiene, más modelado orgánico de referencia anatómica. Acá la iluminación, los materiales y el encuadre son el trabajo, no el acompañamiento.",
     role: "Modelado y render",
     tools: ["Blender", "Fusion 360", "Render"],
     materials: ["Tapizado", "Acero tubular", "Madera"],
@@ -631,6 +651,11 @@ export const projects: Project[] = [
       { label: "Software", value: "Blender / Fusion 360" },
       { label: "Enfoque", value: "Producto y escena" },
       { label: "Salida", value: "Imagen fija" },
+      {
+        label: "Decisión",
+        value:
+          "Modelo con el detalle que la cámara va a ver y defino materiales por cómo devuelven la luz, no por color.",
+      },
     ],
   },
 
@@ -644,9 +669,9 @@ export const projects: Project[] = [
     description:
       "E-commerce de alimentos naturales, con tienda y panel de administración.",
     summary:
-      "Colaboré en el producto digital de BROTE: una tienda en línea de productos naturales y orgánicos, con catálogo, club de clientes, recetas y carrito, más el backoffice desde el que el negocio gestiona todo eso sin tocar código.",
-    role: "Colaborador / diseño y desarrollo del producto digital",
-    tools: ["Diseño UI", "Desarrollo web", "Cloudflare Workers"],
+      "Un negocio con local físico que necesitaba vender en línea. Colaboré en el producto entero: la tienda de productos naturales y orgánicos, con catálogo, club de clientes, recetas y carrito, más el backoffice desde el que el negocio gestiona todo eso solo, sin tocar código y sin llamarme. Hoy lo usan todos los días.",
+    role: "Colaborador / del producto a la operación del negocio",
+    tools: ["Diseño de producto", "Diseño UI", "Desarrollo web", "Cloudflare Workers"],
     heroImage: "projects/brote/site-public",
     interactive: "web-brote",
     gallery: [],
@@ -676,6 +701,11 @@ export const projects: Project[] = [
       { label: "Rol", value: "Colaborador" },
       { label: "Alcance", value: "Tienda y backoffice" },
       { label: "Estado", value: "En producción" },
+      {
+        label: "Decisión",
+        value:
+          "Prioricé el backoffice: si cargar un producto es incómodo, en dos semanas el catálogo está viejo.",
+      },
     ],
   },
 
@@ -689,9 +719,9 @@ export const projects: Project[] = [
     description:
       "Producto propio para restaurantes: carta digital, pedido por QR y panel.",
     summary:
-      "Proyecto mío, de diseño y desarrollo integral. MESSA es la cara digital de un restaurante: presentación, carta, pedido desde la mesa escaneando un QR y cuenta de cliente, con un acceso de equipo para operar el servicio. Lo resolví entero, del modelo de datos a la interfaz.",
-    role: "Proyecto propio / diseño y desarrollo integral",
-    tools: ["Diseño UX/UI", "Desarrollo web", "Cloudflare Workers"],
+      "Un producto propio, pensado como producto y no como encargo. MESSA es la cara digital de un restaurante: presentación, carta, pedido desde la mesa escaneando un QR y cuenta de cliente, con un acceso de equipo para operar el servicio. Lo resolví entero, del modelo de datos a la interfaz, y quedó en línea para recorrerlo completo.",
+    role: "Producto propio / de la idea al producto en línea",
+    tools: ["Diseño de producto", "Diseño UX/UI", "Desarrollo web", "Cloudflare Workers"],
     heroImage: "projects/messa/site-public",
     interactive: "web-messa",
     gallery: [],
@@ -720,6 +750,11 @@ export const projects: Project[] = [
       { label: "Rol", value: "Diseño y desarrollo integral" },
       { label: "Alcance", value: "Producto completo" },
       { label: "Estado", value: "En línea" },
+      {
+        label: "Decisión",
+        value:
+          "Puse la complejidad en el sistema y no en la persona que lo opera a las nueve de la noche.",
+      },
     ],
   },
 ];
@@ -769,8 +804,8 @@ export const webProducts: WebProduct[] = [
   {
     slug: "brote",
     name: "BROTE",
-    role: "Colaborador / diseño y desarrollo del producto digital",
-    blurb: "Tienda en línea de productos naturales, con su panel de administración.",
+    role: "Colaborador / del producto a la operación del negocio",
+    blurb: "Tienda en línea de productos naturales que el negocio opera solo, con su panel de administración.",
     publicUrl: "https://broteonline.com/",
     adminUrl: "https://brote-admin.matiascolimodio.workers.dev/admin",
     cover: "projects/brote/site-public",
@@ -781,8 +816,8 @@ export const webProducts: WebProduct[] = [
   {
     slug: "messa",
     name: "MESSA",
-    role: "Proyecto propio / diseño y desarrollo integral",
-    blurb: "Carta digital y pedido desde la mesa por QR, con acceso para el equipo.",
+    role: "Producto propio / de la idea al producto en línea",
+    blurb: "Producto propio: carta digital y pedido desde la mesa por QR, con acceso para el equipo.",
     publicUrl: "https://messa.matiascolimodio.workers.dev/",
     // `/vista` es la cara del comensal; `/demo` abre el panel ya logueado con
     // una sesión de invitado de solo lectura. MESSA autoriza expresamente a

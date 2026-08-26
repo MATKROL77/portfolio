@@ -7,6 +7,7 @@ import {
   Boxes,
   CircuitBoard,
   Compass,
+  Handshake,
   Languages,
   MapPin,
   MonitorSmartphone,
@@ -34,7 +35,7 @@ const capabilities = [
   {
     icon: Ruler,
     title: "CAD y oficina técnica",
-    body: "Modelo en Fusion 360 y Solid Edge, y saco planos normalizados con sus cortes y acotaciones. Metrología básica.",
+    body: "Modelo en Fusion 360 y Solid Edge, y saco planos normalizados con sus cortes y acotaciones. Valido piezas en 3D, preparo cortes y capturas para instructivos y mido con calibre.",
   },
   {
     icon: Printer,
@@ -56,6 +57,11 @@ const capabilities = [
     title: "Producto digital",
     body: "Diseño y desarrollo sitios y backoffices, del modelo de datos a la interfaz que el negocio usa todos los días.",
   },
+  {
+    icon: Handshake,
+    title: "Cliente y preventa técnica",
+    body: "Relevo lo que necesita el cliente, lo traduzco a algo fabricable y lo cotizo con su plazo. Es lo que hago todos los días en mi propio servicio de impresión 3D.",
+  },
 ];
 
 const facts = [
@@ -68,9 +74,9 @@ const facts = [
 
 /** Párrafos del resumen en español; las traducciones vienen de `useCv`. */
 const paragraphsEs = [
-  "Soy estudiante de Ingeniería Mecánica en la UTN Facultad Regional General Pacheco, con secundario bilingüe e inglés C1. Hoy trabajo como pasante de proyectos en OPmobility, una multinacional francesa de autopartes. Me muevo en la franja donde la ingeniería se cruza con el diseño: modelo en CAD, fabrico, ensamblo y, cuando el proyecto lo pide, también lo llevo a pantalla.",
-  "Eso se ve en lo que hay acá. Un eje lineal que resolví en CAD, junto a las láminas de dibujo técnico que lo sostienen. Un parlante mío con carcasa de caracol que termina alojando parlante, batería y placa sobre bases que diseñé a medida, firmado KROL. Un escritorio de 2400 mm que primero acoté y después construí, y la señalética corpórea de BROTE montada en pared. Réplicas, maquetas y estuches que salen de mi emprendimiento de impresión 3D, donde manejo presupuesto, diseño, producción y cliente. Y dos sitios web en línea, BROTE y MESSA, con sus backoffices.",
-  "El hilo común es bastante simple: me interesa la parte del problema donde hay que decidir. Qué compro hecho y qué fabrico, dónde parto una pieza grande, cuánta tolerancia aguanta un encastre, cuánta complejidad le cargo al sistema para no cargársela a la persona que lo usa.",
+  "Modelo en Fusion 360 y Solid Edge, saco planos normalizados y llevo las piezas hasta la fabricación. Estudio Ingeniería Mecánica en la UTN Facultad Regional General Pacheco, tengo inglés C1 y hoy trabajo como pasante de proyectos en OPmobility, una multinacional francesa de autopartes, donde valido piezas en 3D, sigo el avance de los proyectos y me muevo entre planta, ingeniería y finanzas. Desde 2024 tengo además mi propio servicio de impresión 3D y diseño personalizado: ahí el trabajo no empieza en el modelo, empieza en la charla con el cliente y termina en la entrega.",
+  "Eso se ve en lo que hay acá. Un eje lineal que resolví en Fusion 360 y Solid Edge, junto a las láminas de dibujo técnico que lo sostienen. Un parlante mío con carcasa de caracol que termina alojando parlante, batería y placa sobre bases que diseñé a medida, firmado KROL. Un escritorio de 2400 mm que primero acoté y después construí, y la señalética corpórea de BROTE montada en pared. Réplicas, maquetas y estuches que salen de mi emprendimiento de impresión 3D, donde manejo relevamiento, presupuesto, diseño, producción y entrega. Y dos productos digitales en línea, BROTE y MESSA, con sus backoffices.",
+  "El hilo común es bastante simple: me interesa la parte del problema donde hay que decidir, y me interesa poder explicar esa decisión. Qué compro hecho y qué fabrico, dónde parto una pieza grande, cuánta tolerancia aguanta un encastre, qué se le promete a un cliente y en qué plazo. Un modelo bien resuelto que nadie sabe defender no sirve de mucho.",
 ];
 
 export function ProfileSummary() {
