@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     "Solid Edge",
     "preventa técnica",
     "application engineering",
+    "SAP",
     "diseño de producto",
     "impresión 3D",
     "prototipado",

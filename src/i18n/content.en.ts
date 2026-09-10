@@ -636,7 +636,7 @@ export const contentEn: ContentBundle = {
         title: "Projects intern",
         org: "OPmobility",
         period: "2026 — present",
-        body: "Internship in the projects area of a French multinational auto parts supplier. I keep my finger on the project: in the meetings I am the one asking where each item stands, checking that it is actually being done and rescheduling whatever will not make the date. I review parts in 3D to validate them, produce sections and captures for the work instructions (SWI), go down to the plant to measure with callipers, and move the paperwork: delivery notes, invoice orders and their handover to finance.",
+        body: "Internship in the projects area of a French multinational auto parts supplier. I keep my finger on the project: in the meetings I am the one asking where each item stands, checking that it is actually being done and rescheduling whatever will not make the date. I review parts in 3D to validate them, produce sections and captures for the work instructions (SWI), go down to the plant to measure with callipers, and move the paperwork through SAP and KEOPS: delivery notes, invoice orders and their handover to finance.",
         bullets: [
           "Project follow-up",
           "Part validation in 3D",
@@ -644,6 +644,7 @@ export const contentEn: ContentBundle = {
           "Measuring with callipers",
           "Delivery notes and invoice orders",
           "Cross-department liaison",
+          "SAP",
           "KEOPS",
         ],
       },
@@ -743,6 +744,8 @@ export const contentEn: ContentBundle = {
           "Sections and captures for SWI",
           "Basic metrology and callipers",
           "Following up jobs and suppliers",
+          "SAP",
+          "KEOPS",
         ],
       },
       Idiomas: {

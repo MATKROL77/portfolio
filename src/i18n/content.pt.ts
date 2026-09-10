@@ -636,7 +636,7 @@ export const contentPt: ContentBundle = {
         title: "Estagiário de projetos",
         org: "OPmobility",
         period: "2026 — presente",
-        body: "Estágio na área de projetos de uma multinacional francesa de autopeças. Acompanho o pulso do projeto: nas reuniões sou quem pergunta em que pé está cada coisa, verifica se está sendo feito e reprograma o que não chega na data. Reviso peças em 3D para validá-las, faço cortes e capturas para as instruções de trabalho (SWI), vou à planta medir com paquímetro e movimento a documentação: remessas, ordens de faturamento e a passagem ao financeiro.",
+        body: "Estágio na área de projetos de uma multinacional francesa de autopeças. Acompanho o pulso do projeto: nas reuniões sou quem pergunta em que pé está cada coisa, verifica se está sendo feito e reprograma o que não chega na data. Reviso peças em 3D para validá-las, faço cortes e capturas para as instruções de trabalho (SWI), vou à planta medir com paquímetro e movimento a documentação em SAP e KEOPS: remessas, ordens de faturamento e a passagem ao financeiro.",
         bullets: [
           "Acompanhamento de projetos",
           "Validação de peças em 3D",
@@ -644,6 +644,7 @@ export const contentPt: ContentBundle = {
           "Medição com paquímetro",
           "Remessas e ordens de faturamento",
           "Interlocução entre áreas",
+          "SAP",
           "KEOPS",
         ],
       },
@@ -743,6 +744,8 @@ export const contentPt: ContentBundle = {
           "Cortes e capturas para SWI",
           "Metrologia básica e paquímetro",
           "Acompanhamento de trabalhos e fornecedores",
+          "SAP",
+          "KEOPS",
         ],
       },
       Idiomas: {

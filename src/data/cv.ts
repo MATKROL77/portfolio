@@ -74,7 +74,7 @@ export const experience: ExperienceItem[] = [
     title: "Pasante de proyectos",
     org: "OPmobility",
     period: "2026 — presente",
-    body: "Pasantía en el área de proyectos de una multinacional francesa de autopartes. Le sigo el pulso al proyecto: en las reuniones soy el que pregunta en qué estado está cada cosa, verifica que se esté haciendo y reprograma lo que no llega a fecha. Reviso las piezas en 3D para validarlas, hago cortes y capturas para los instructivos de trabajo (SWI), voy a planta a medir con calibre y muevo la documentación: remitos, órdenes de factura y su pase a finanzas.",
+    body: "Pasantía en el área de proyectos de una multinacional francesa de autopartes. Le sigo el pulso al proyecto: en las reuniones soy el que pregunta en qué estado está cada cosa, verifica que se esté haciendo y reprograma lo que no llega a fecha. Reviso las piezas en 3D para validarlas, hago cortes y capturas para los instructivos de trabajo (SWI), voy a planta a medir con calibre y muevo la documentación en SAP y KEOPS: remitos, órdenes de factura y su pase a finanzas.",
     bullets: [
       "Seguimiento de proyectos",
       "Validación de piezas en 3D",
@@ -82,6 +82,7 @@ export const experience: ExperienceItem[] = [
       "Medición con calibre",
       "Remitos y órdenes de factura",
       "Interlocución entre áreas",
+      "SAP",
       "KEOPS",
     ],
     current: true,
@@ -198,6 +199,8 @@ export const skills: SkillGroup[] = [
       "Cortes y capturas para SWI",
       "Metrología básica y calibre",
       "Seguimiento de trabajos y proveedores",
+      "SAP",
+      "KEOPS",
     ],
   },
   {
