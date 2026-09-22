@@ -2,8 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useId, useMemo, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import {
+  animate,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { assets } from "@/data/assets.generated";
@@ -18,44 +33,183 @@ type DeckItem =
   | { kind: "profile"; key: string }
   | { kind: "project"; key: string; project: Project };
 
-/** Cuánto se degrada una tarjeta según su distancia a la activa. */
-function depthStyle(offset: number, reduced: boolean) {
-  const distance = Math.min(Math.abs(offset), 4);
-  const sign = Math.sign(offset);
+/* ==========================================================================
+   El anillo
 
-  if (reduced) {
-    // sin perspectiva ni desenfoque: sólo separación y opacidad
-    return {
-      x: `${offset * 62}%`,
-      scale: distance === 0 ? 1 : 0.86,
-      rotateY: 0,
-      z: 0,
-      opacity: distance === 0 ? 1 : distance > 2 ? 0 : 0.45,
-      filter: "blur(0px)",
-    };
-  }
+   La baraja era una fila: fichas en linea y, en las puntas, la pregunta de
+   siempre — que hace una ficha cuando se le acaba el bloque. Un anillo no la
+   hace. No tiene primera ni ultima, asi que el arrastre nunca se termina ni
+   rebota, y lo mas lejos que llega una ficha es el radio.
 
-  // todas las tarjetas miden lo mismo: la activa crece por escala, así el
-  // desplazamiento en % sigue siendo comparable entre fichas
-  const scaleByDistance = [1.12, 0.92, 0.82, 0.74, 0.7];
+   `turn` es una posicion angular continua, no un indice: el arrastre la mueve
+   de a fracciones y al soltar aterriza en el entero mas cercano. Que la ficha
+   del frente se achique y se vaya al fondo mientras entra la siguiente sale de
+   la geometria, no de una animacion puesta encima.
 
-  return {
-    // la primera vecina se separa lo suficiente como para no quedar debajo de
-    // la activa; las siguientes se acercan entre sí y dan sensación de fuga
-    x: `${sign * (distance === 0 ? 0 : 86 + (distance - 1) * 28)}%`,
-    scale: scaleByDistance[distance],
-    rotateY: -sign * (distance === 0 ? 0 : 23 + (distance - 1) * 3),
-    z: -distance * 160,
-    opacity: distance > 3 ? 0 : 1 - distance * 0.13,
-    filter: `blur(${distance === 0 ? 0 : 1.4 + (distance - 1) * 1.5}px)`,
-  };
-}
+   La idea, las formulas y el criterio son del bloque Carousel de Bencho
+   (github.com/lorenzo04us/Bencho, MIT). Aca esta reescrito sobre los
+   componentes, las curvas y las fichas que el sitio ya tenia.
+========================================================================== */
 
-/** Distancia mínima entre dos posiciones de un anillo de `n` elementos. */
+const TAU = Math.PI * 2;
+
+const RING = {
+  /** hasta donde llega el anillo: radio en px, atado al ancho del marco */
+  orbitRatio: 0.38,
+  orbitMin: 260,
+  orbitMax: 520,
+  /** cuanto mas chica se ve la ficha del fondo */
+  backScale: 0.52,
+  /** y cuanto crece la del frente, para que mande sobre las vecinas */
+  frontScale: 1.12,
+  /**
+   * El fondo del anillo sube. La escala sola dice "mas chica", que se lee como
+   * mas lejos o como literalmente mas chica; una ficha que ademas se eleva
+   * mientras se aleja esta yendo al fondo sin lugar a dudas, porque es lo que
+   * hace un anillo mirado desde un poco arriba.
+   */
+  lift: 24,
+  /** px de arrastre por ficha */
+  pull: 210,
+  /** cuanto se hunde la ficha bajo el cursor, en grados */
+  sink: 9,
+};
+
+/** Con cuanta calma aterriza un envion. */
+const SETTLE = {
+  type: "spring",
+  stiffness: 110,
+  damping: 20,
+  mass: 0.9,
+} as const;
+
+/** Distancia minima entre dos posiciones de un anillo de `n` elementos. */
 function ringOffset(i: number, active: number, n: number) {
   let offset = (((i - active) % n) + n) % n; // 0..n-1
   if (offset > n / 2) offset -= n; // -n/2..n/2
   return offset;
+}
+
+/* --------------------------------------------------------------------------
+   Una posicion del anillo.
+
+   Tres movimientos, tres elementos, una transformacion cada uno: el hueco
+   lleva el anillo, el flotador la deriva y la ficha la inclinacion. Un solo
+   nodo escrito por tres manos —un arrastre, unos keyframes y un par de
+   resortes— siempre pierde una.
+-------------------------------------------------------------------------- */
+function RingSlot({
+  index,
+  count,
+  turn,
+  orbit,
+  reduced,
+  children,
+}: {
+  index: number;
+  count: number;
+  turn: MotionValue<number>;
+  orbit: number;
+  reduced: boolean;
+  children: React.ReactNode;
+}) {
+  // El angulo no se toma modulo nada. Envolver `turn` a 0..360 manda la ficha
+  // por el camino largo apenas cruza la costura, que es el unico error visible
+  // que este arreglo puede tener.
+  const angle = useTransform(turn, (v) => (index - v) * (TAU / count));
+  /** 1 adelante, 0 atras */
+  const face = useTransform(angle, (th) => (Math.cos(th) + 1) / 2);
+
+  const x = useTransform(angle, (th) => Math.sin(th) * orbit);
+  const y = useTransform(face, (f) => -(1 - f) * RING.lift);
+  const scale = useTransform(
+    face,
+    (f) => RING.backScale + (RING.frontScale - RING.backScale) * f,
+  );
+  // La opacidad y el desenfoque caen mas rapido que `face`: sin eso, media
+  // docena de fichas a medio camino se amontonan en el centro del anillo y la
+  // del frente deja de mandar.
+  const opacity = useTransform(face, (f) => 0.1 + 0.9 * Math.pow(f, 1.9));
+  const filter = useTransform(
+    face,
+    (f) => `blur(${(Math.pow(1 - f, 1.3) * 5).toFixed(2)}px)`,
+  );
+  // Aca todo es 2D —escala y desplazamiento, no translateZ— asi que nada se
+  // ordena solo y una ficha pintaria sobre la que tiene adelante. `face` ya
+  // sabe cual esta mas cerca.
+  const zIndex = useTransform(face, (f) => Math.round(f * 100));
+
+  return (
+    // La capa de afuera centra la ficha con clases y la de adentro la anima.
+    // Si el centrado y la animacion viven en el mismo elemento, `x` pisa a
+    // `translateX` —son el mismo valor en Framer Motion— y todas las fichas
+    // terminan apiladas en el centro.
+    <motion.div
+      style={{ zIndex }}
+      className="absolute left-1/2 top-1/2 w-[clamp(17.5rem,25vw,22rem)] -translate-x-1/2 -translate-y-1/2"
+    >
+      <motion.div
+        style={
+          reduced ? { x, scale, opacity } : { x, y, scale, opacity, filter }
+        }
+      >
+        <div
+          className={reduced ? undefined : "deck-float"}
+          style={reduced ? undefined : { animationDelay: `${index * -1.7}s` }}
+        >
+          {children}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   La ficha se hunde, no se levanta.
+
+   Toda tarjeta con inclinacion rota HACIA el cursor; esta se va abajo suyo.
+   Un signo menos, y es la diferencia entre una superficie que se te muestra y
+   una que estas tocando.
+-------------------------------------------------------------------------- */
+function TiltCard({
+  reduced,
+  children,
+}: {
+  reduced: boolean;
+  children: React.ReactNode;
+}) {
+  const spring = { stiffness: 220, damping: 18, mass: 0.5 };
+  const rotateX = useSpring(0, spring);
+  const rotateY = useSpring(0, spring);
+
+  const onMove = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (reduced) return;
+      const r = e.currentTarget.getBoundingClientRect();
+      const nx = ((e.clientX - r.left) / r.width) * 2 - 1;
+      const ny = ((e.clientY - r.top) / r.height) * 2 - 1;
+      rotateX.set(-ny * RING.sink);
+      rotateY.set(nx * RING.sink);
+    },
+    [reduced, rotateX, rotateY],
+  );
+
+  const reset = useCallback(() => {
+    rotateX.set(0);
+    rotateY.set(0);
+  }, [rotateX, rotateY]);
+
+  if (reduced) return <>{children}</>;
+
+  return (
+    <motion.div
+      onPointerMove={onMove}
+      onPointerLeave={reset}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+    >
+      {children}
+    </motion.div>
+  );
 }
 
 export function ProjectDeck() {
@@ -74,51 +228,125 @@ export function ProjectDeck() {
   );
 
   const reduced = useReducedMotion() ?? false;
-  // el índice no se acota: la baraja es un anillo, así que puede crecer o
-  // bajar indefinidamente y el resto se calcula con módulo
-  const [active, setActive] = useState(0); // arranca en la ficha de perfil
-  const containerRef = useRef<HTMLDivElement>(null);
-  const dragState = useRef<{ startX: number; moved: boolean } | null>(null);
+  const count = items.length;
+
+  // Posicion angular continua. No se acota ni se envuelve: el anillo puede
+  // girar indefinidamente en cualquiera de los dos sentidos.
+  const turn = useMotionValue(0);
+  const [current, setCurrent] = useState(0);
+
+  // Ultimo destino pedido. Los pasos se cuentan contra esto y no contra la
+  // posicion en vuelo: si no, apretar la flecha varias veces seguidas redondea
+  // un valor que todavia se esta moviendo y se pierden pasos por el camino.
+  const target = useRef(0);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const [orbit, setOrbit] = useState(RING.orbitMin);
+  const drag = useRef<{ id: number; x: number; turn: number; live: boolean } | null>(
+    null,
+  );
   const headingId = useId();
 
-  const count = items.length;
-  const current = ((active % count) + count) % count;
-  const go = useCallback((next: number) => setActive(next), []);
+  // el radio sigue al ancho del marco, para que las vecinas no se coman a la
+  // ficha del frente en pantallas angostas
+  useEffect(() => {
+    const el = frameRef.current;
+    if (!el) return;
+    const measure = () =>
+      setOrbit(
+        Math.min(
+          RING.orbitMax,
+          Math.max(RING.orbitMin, el.clientWidth * RING.orbitRatio),
+        ),
+      );
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // el indice redondeado es lo que leen el contador, los puntos y el lector de
+  // pantalla; la geometria sigue usando el valor continuo
+  useEffect(() => {
+    const sync = (v: number) => {
+      const i = ((Math.round(v) % count) + count) % count;
+      setCurrent((prev) => (prev === i ? prev : i));
+    };
+    sync(turn.get());
+    return turn.on("change", sync);
+  }, [turn, count]);
+
+  const settle = useCallback(
+    (to: number) => {
+      target.current = to;
+      animate(turn, to, reduced ? { duration: 0.2 } : SETTLE);
+    },
+    [turn, reduced],
+  );
+
+  const step = useCallback(
+    (delta: number) => settle(target.current + delta),
+    [settle],
+  );
+
+  /** Va a una ficha concreta por el lado mas corto del anillo. */
+  const goTo = useCallback(
+    (i: number) => {
+      const from = ((target.current % count) + count) % count;
+      settle(target.current + ringOffset(i, from, count));
+    },
+    [count, settle],
+  );
 
   const onKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       if (e.key === "ArrowRight") {
         e.preventDefault();
-        go(active + 1);
+        step(1);
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
-        go(active - 1);
+        step(-1);
       } else if (e.key === "Home") {
         e.preventDefault();
-        go(active - current);
+        goTo(0);
       }
     },
-    [active, current, go],
+    [goTo, step],
   );
 
-  // arrastre con el puntero: no bloquea el scroll vertical de la página
+  // Arrastre continuo: el anillo sigue al puntero en vez de saltar por umbral.
+  // No bloquea el scroll vertical de la pagina.
   const onPointerDown = (e: React.PointerEvent) => {
     if (e.pointerType === "touch") return;
-    dragState.current = { startX: e.clientX, moved: false };
+    drag.current = { id: e.pointerId, x: e.clientX, turn: turn.get(), live: false };
   };
 
-  const onPointerMove = (e: React.PointerEvent) => {
-    const st = dragState.current;
-    if (!st) return;
-    const dx = e.clientX - st.startX;
-    if (Math.abs(dx) > 90) {
-      go(active + (dx < 0 ? 1 : -1));
-      dragState.current = { startX: e.clientX, moved: true };
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const st = drag.current;
+    if (!st || st.id !== e.pointerId) return;
+    const dx = e.clientX - st.x;
+
+    // La captura se toma recien cuando el puntero se movio de verdad: asi un
+    // clic sobre una ficha del fondo sigue siendo un clic y la trae al frente.
+    // Una vez tomada, los eventos dejan de mirar sobre que hijo esta el
+    // puntero, que es lo que cortaba el arrastre a los pocos pixeles.
+    if (!st.live) {
+      if (Math.abs(dx) < 4) return;
+      st.live = true;
+      e.currentTarget.setPointerCapture(e.pointerId);
     }
+
+    turn.set(st.turn - dx / RING.pull);
   };
 
-  const endDrag = () => {
-    dragState.current = null;
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    const st = drag.current;
+    if (!st) return;
+    drag.current = null;
+    if (!st.live) return; // fue un clic, no un arrastre
+    if (e.currentTarget.hasPointerCapture(st.id)) {
+      e.currentTarget.releasePointerCapture(st.id);
+    }
+    settle(Math.round(turn.get()));
   };
 
   const activeItem = items[current];
@@ -128,10 +356,10 @@ export function ProjectDeck() {
   return (
     <div className="relative">
       {/* ---------------------------------------------------------------
-          Desktop / tablet: baraja con profundidad
+          Desktop / tablet: el anillo
       --------------------------------------------------------------- */}
       <div
-        ref={containerRef}
+        ref={frameRef}
         role="group"
         aria-roledescription="galería de proyectos"
         aria-label="Proyectos destacados"
@@ -141,7 +369,7 @@ export function ProjectDeck() {
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
-        onPointerLeave={endDrag}
+        onPointerCancel={endDrag}
         className="relative hidden h-[clamp(30rem,52vw,38rem)] cursor-grab select-none items-center justify-center [perspective:2200px] active:cursor-grabbing md:flex"
       >
         <p id={headingId} className="sr-only">
@@ -149,38 +377,24 @@ export function ProjectDeck() {
         </p>
 
         <div className="relative h-full w-full [transform-style:preserve-3d]">
-          {items.map((item, i) => {
-            const offset = ringOffset(i, current, count);
-            const isActive = offset === 0;
-            const style = depthStyle(offset, reduced);
-
-            return (
-              // Dos capas a propósito: la de afuera centra la ficha y la de
-              // adentro anima. Si el centrado y la animación viven en el mismo
-              // elemento, `x` pisa a `translateX` (son el mismo valor en Framer
-              // Motion) y todas las fichas terminan apiladas en el centro.
-              <div
-                key={item.key}
-                className="absolute left-1/2 top-1/2 w-[clamp(17.5rem,25vw,22rem)] -translate-x-1/2 -translate-y-1/2 [transform-style:preserve-3d]"
-                style={{
-                  zIndex: 50 - Math.abs(offset),
-                  pointerEvents: Math.abs(offset) > 3 ? "none" : "auto",
-                }}
-              >
-                <motion.div
-                  className="[transform-style:preserve-3d]"
-                  animate={style}
-                  transition={reduced ? transitions.quick : transitions.deck}
-                >
-                  <DeckCard
-                    item={item}
-                    isActive={isActive}
-                    onSelect={() => go(active + offset)}
-                  />
-                </motion.div>
-              </div>
-            );
-          })}
+          {items.map((item, i) => (
+            <RingSlot
+              key={item.key}
+              index={i}
+              count={count}
+              turn={turn}
+              orbit={orbit}
+              reduced={reduced}
+            >
+              <TiltCard reduced={reduced}>
+                <DeckCard
+                  item={item}
+                  isActive={i === current}
+                  onSelect={() => goTo(i)}
+                />
+              </TiltCard>
+            </RingSlot>
+          ))}
         </div>
 
         {/* contador, arriba a la derecha, como en un visor */}
@@ -206,7 +420,7 @@ export function ProjectDeck() {
       <div className="mt-6 hidden items-center justify-center gap-7 md:flex">
         <button
           type="button"
-          onClick={() => go(active - 1)}
+          onClick={() => step(-1)}
           aria-label={t("hero.prev")}
           className="p-2 text-sand transition-colors hover:text-copper"
         >
@@ -218,7 +432,7 @@ export function ProjectDeck() {
             <button
               key={item.key}
               type="button"
-              onClick={() => go(active + ringOffset(i, current, count))}
+              onClick={() => goTo(i)}
               aria-label={`Ir a ${
                 item.kind === "profile" ? profile.name : item.project.title
               }`}
@@ -239,7 +453,7 @@ export function ProjectDeck() {
 
         <button
           type="button"
-          onClick={() => go(active + 1)}
+          onClick={() => step(1)}
           aria-label={t("hero.next")}
           className="p-2 text-sand transition-colors hover:text-copper"
         >

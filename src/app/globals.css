@@ -353,6 +353,30 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Deriva en reposo de las fichas del anillo del hero.
+
+   Vive en su propio elemento a proposito. La capa de arriba la coloca el
+   arrastre y la de abajo la inclina el puntero: un mismo nodo no puede
+   tener tres autores sin que uno pise a los otros.
+
+   El bloque de `prefers-reduced-motion` de mas abajo ya la apaga.
+--------------------------------------------------------------------------- */
+@keyframes deck-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -9px, 0);
+  }
+}
+
+.deck-float {
+  animation: deck-float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------------------------
    Impresion: el CV sale en papel claro y legible, sin el fondo oscuro ni los
    elementos de navegacion. Es la misma hoja que genera `npm run cv:pdf`.
 --------------------------------------------------------------------------- */
