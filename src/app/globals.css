@@ -377,6 +377,18 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Las imagenes son parte de la pagina, no archivos sueltos.
+
+   Por defecto el navegador deja arrastrar cualquier imagen fuera de la
+   pagina, y en el anillo del hero eso compite con el arrastre propio: apretas
+   sobre una portada para girar y terminas arrastrando el archivo. El atributo
+   `draggable={false}` de las fichas cubre a Firefox, que ignora esta regla.
+--------------------------------------------------------------------------- */
+img {
+  -webkit-user-drag: none;
+}
+
+/* ---------------------------------------------------------------------------
    Faro del selector de idioma.
 
    El sitio abre en ingles, asi que a un visitante hispanohablante hay que

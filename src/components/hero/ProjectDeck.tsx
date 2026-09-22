@@ -6,6 +6,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -241,9 +242,12 @@ export function ProjectDeck() {
   const target = useRef(0);
   const frameRef = useRef<HTMLDivElement>(null);
   const [orbit, setOrbit] = useState(RING.orbitMin);
-  const drag = useRef<{ id: number; x: number; turn: number; live: boolean } | null>(
-    null,
-  );
+  const drag = useRef<{
+    id: number;
+    x: number;
+    turn: number;
+    live: boolean;
+  } | null>(null);
   const headingId = useId();
 
   // el radio sigue al ancho del marco, para que las vecinas no se coman a la
@@ -317,7 +321,12 @@ export function ProjectDeck() {
   // No bloquea el scroll vertical de la pagina.
   const onPointerDown = (e: React.PointerEvent) => {
     if (e.pointerType === "touch") return;
-    drag.current = { id: e.pointerId, x: e.clientX, turn: turn.get(), live: false };
+    drag.current = {
+      id: e.pointerId,
+      x: e.clientX,
+      turn: turn.get(),
+      live: false,
+    };
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -496,7 +505,9 @@ type DeckCardProps = {
 
 function DeckCard({ item, isActive, onSelect, compact }: DeckCardProps) {
   if (item.kind === "profile") {
-    return <ProfileCard isActive={isActive} onSelect={onSelect} compact={compact} />;
+    return (
+      <ProfileCard isActive={isActive} onSelect={onSelect} compact={compact} />
+    );
   }
   return (
     <ProjectCard
@@ -508,44 +519,118 @@ function DeckCard({ item, isActive, onSelect, compact }: DeckCardProps) {
   );
 }
 
+/**
+ * El detalle de la ficha: se abre y se cierra sin saltos.
+ *
+ * Antes se montaba y se desmontaba de golpe, y la ficha crecia 94 px en un
+ * solo cuadro justo mientras el anillo giraba suave. El ojo veia el salto, no
+ * el giro.
+ *
+ * La altura se mide aca con `scrollHeight` y no se deja en manos de una
+ * animacion a `height: auto`. Esas miden con `getBoundingClientRect`, que
+ * viene con la escala del anillo encima: adentro de una ficha agrandada 1.10
+ * medían 177 px donde habia 161, animaban hasta ahi y al terminar se
+ * desinflaban 16 px de golpe. `scrollHeight` es espacio de layout, asi que la
+ * escala del padre deja de importar.
+ *
+ * Tampoco sirve el truco de grilla `0fr` a `1fr`: no interpola en pixeles
+ * —cualquier fraccion mayor que cero ya resuelve a la altura del contenido—,
+ * asi que la duracion que uno escribe no es la que se ve.
+ *
+ * Cerrado sigue estando en el DOM, asi que va `inert`: sin eso el enlace de
+ * adentro seguiria recibiendo foco con el tabulador estando invisible.
+ */
+function Detail({
+  open,
+  children,
+}: {
+  open: boolean;
+  children: React.ReactNode;
+}) {
+  const inner = useRef<HTMLDivElement>(null);
+  const [full, setFull] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    const el = inner.current;
+    if (!el) return;
+    const measure = () => setFull(el.scrollHeight);
+    measure();
+    // el contenido cambia de alto al cambiar de idioma
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      inert={!open}
+      aria-hidden={!open}
+      className="overflow-hidden transition-[height] duration-[560ms] ease-[cubic-bezier(0.65,0,0.35,1)]"
+      style={{ height: open ? (full ?? "auto") : 0 }}
+    >
+      <div
+        ref={inner}
+        className="transition-opacity"
+        // al abrir, el texto entra cuando ya hay lugar; al cerrar se va
+        // primero, para no verlo aplastarse
+        style={{
+          opacity: open ? 1 : 0,
+          transitionDuration: open ? "420ms" : "160ms",
+          transitionDelay: open ? "170ms" : "0ms",
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function CardShell({
   children,
   isActive,
   onSelect,
   interactive,
+  label,
 }: {
   children: React.ReactNode;
   isActive: boolean;
   onSelect: () => void;
   interactive: boolean;
+  label: string;
 }) {
-  const className = cn(
-    "relative w-full overflow-hidden text-left transition-shadow duration-700",
-    isActive ? "glass-strong" : "glass",
-  );
-
-  // velo sobre las fichas que no están activas: refuerza la jerarquía sin
-  // depender sólo del desenfoque
-  const scrim = !isActive && (
-    <span
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 z-10 rounded-[var(--radius-card)] bg-ink/40"
-    />
-  );
-
-  if (interactive && !isActive) {
-    return (
-      <button type="button" onClick={onSelect} className={cn(className, "block")}>
-        {children}
-        {scrim}
-      </button>
-    );
-  }
-
   return (
-    <div className={className}>
+    // Siempre el mismo elemento. Antes era un `button` mientras la ficha
+    // estaba atras y un `div` cuando llegaba al frente, y ese cambio
+    // desmontaba la ficha entera en cada giro: la imagen volvia a montarse y
+    // cualquier animacion de adentro arrancaba de cero. La zona de clic vive
+    // ahora en una capa aparte, que aparece y desaparece sin arrastrar al
+    // resto.
+    <div
+      className={cn(
+        "relative w-full overflow-hidden text-left transition-[border-color,box-shadow] duration-700",
+        isActive ? "glass-strong" : "glass",
+      )}
+    >
       {children}
-      {scrim}
+
+      {/* velo sobre las fichas que no estan al frente: refuerza la jerarquia
+          sin depender solo del desenfoque */}
+      <span
+        aria-hidden="true"
+        className={cn(
+          "pointer-events-none absolute inset-0 z-10 rounded-[var(--radius-card)] bg-ink/40 transition-opacity duration-700",
+          isActive ? "opacity-0" : "opacity-100",
+        )}
+      />
+
+      {interactive && !isActive && (
+        <button
+          type="button"
+          onClick={onSelect}
+          aria-label={label}
+          className="absolute inset-0 z-20"
+        />
+      )}
     </div>
   );
 }
@@ -564,7 +649,12 @@ function ProfileCard({
   const roleLines = t("hero.roleLines").split("|");
 
   return (
-    <CardShell isActive={isActive} onSelect={onSelect} interactive={!compact}>
+    <CardShell
+      isActive={isActive}
+      onSelect={onSelect}
+      interactive={!compact}
+      label={`Ir a ${profile.name}`}
+    >
       <div className="relative aspect-[3/4] overflow-hidden rounded-[var(--radius-card)]">
         <Image
           src={portrait.src}
@@ -574,6 +664,9 @@ function ProfileCard({
           placeholder="blur"
           blurDataURL={portrait.blurDataURL}
           className="object-cover object-top"
+          // la imagen es parte de la ficha, no un archivo suelto: sin esto el
+          // navegador arranca su propio arrastre y le roba el del anillo
+          draggable={false}
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
@@ -586,7 +679,7 @@ function ProfileCard({
               <li key={line}>{line}</li>
             ))}
           </ul>
-          {isActive && (
+          <Detail open={isActive}>
             <Link
               href="/#about"
               className="link-underline mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-copper"
@@ -594,7 +687,7 @@ function ProfileCard({
               {t("hero.viewProfile")}
               <ArrowUpRight className="size-3.5" aria-hidden="true" />
             </Link>
-          )}
+          </Detail>
         </div>
       </div>
     </CardShell>
@@ -614,10 +707,16 @@ function ProjectCard({
 }) {
   const t = useT();
   const img = assets[project.heroImage];
-  const showDetail = isActive || compact;
+  // `compact` es opcional, y `Detail` necesita un booleano de verdad
+  const showDetail = isActive || compact === true;
 
   return (
-    <CardShell isActive={isActive} onSelect={onSelect} interactive={!compact}>
+    <CardShell
+      isActive={isActive}
+      onSelect={onSelect}
+      interactive={!compact}
+      label={`Ir a ${project.title}`}
+    >
       {/* trama de plano técnico de fondo */}
       <div
         className="blueprint absolute inset-0 rounded-[var(--radius-card)] opacity-60"
@@ -636,11 +735,13 @@ function ProjectCard({
           {project.title}
         </h3>
 
-        {showDetail && (
-          <p className="mt-1.5 text-xs leading-relaxed text-sand/70">
+        <Detail open={showDetail}>
+          {/* relleno y no margen: el margen del primer hijo se escapa del
+              bloque al medirlo y la altura final no coincide con la medida */}
+          <p className="pt-1.5 text-xs leading-relaxed text-sand/70">
             {project.description}
           </p>
-        )}
+        </Detail>
 
         <div
           className={cn(
@@ -660,6 +761,7 @@ function ProjectCard({
                 ? "object-contain p-3 drop-shadow-[0_18px_28px_rgba(0,0,0,0.65)]"
                 : "object-cover",
             )}
+            draggable={false}
           />
           {project.status === "concept" && (
             <span className="absolute left-3 top-3 rounded-[var(--radius-chip)] border border-copper/45 bg-ink/80 px-2.5 py-1 text-[0.6rem] font-medium uppercase tracking-[0.16em] text-copper backdrop-blur-sm">
@@ -668,36 +770,39 @@ function ProjectCard({
           )}
         </div>
 
-        {showDetail && (
-          <>
-            <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5">
-              {project.year && <Spec label={t("spec.year")} value={project.year} />}
-              <Spec label={t("spec.type")} value={project.category} />
-              <Spec label={t("spec.tools")} value={project.tools.slice(0, 2).join(", ")} />
-              {project.materials && (
-                <Spec
-                  label={t("spec.materials")}
-                  value={project.materials.slice(0, 2).join(", ")}
-                />
-              )}
-            </dl>
+        <Detail open={showDetail}>
+          <dl className="grid grid-cols-2 gap-x-4 gap-y-2.5 pt-4">
+            {project.year && (
+              <Spec label={t("spec.year")} value={project.year} />
+            )}
+            <Spec label={t("spec.type")} value={project.category} />
+            <Spec
+              label={t("spec.tools")}
+              value={project.tools.slice(0, 2).join(", ")}
+            />
+            {project.materials && (
+              <Spec
+                label={t("spec.materials")}
+                value={project.materials.slice(0, 2).join(", ")}
+              />
+            )}
+          </dl>
 
-            <div className="mt-5 border-t border-line-soft pt-4">
-              <Link
-                href={`/work/${project.slug}`}
-                className="group flex items-center justify-between gap-3"
-              >
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-parchment transition-colors group-hover:text-copper">
-                  {t("hero.openCase")}
-                </span>
-                <ArrowRight
-                  className="size-4 text-copper transition-transform duration-500 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
-            </div>
-          </>
-        )}
+          <div className="mt-5 border-t border-line-soft pt-4">
+            <Link
+              href={`/work/${project.slug}`}
+              className="group flex items-center justify-between gap-3"
+            >
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-parchment transition-colors group-hover:text-copper">
+                {t("hero.openCase")}
+              </span>
+              <ArrowRight
+                className="size-4 text-copper transition-transform duration-500 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </div>
+        </Detail>
       </div>
     </CardShell>
   );
