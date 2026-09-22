@@ -12,7 +12,6 @@ import {
 import {
   LOCALE_STORAGE_KEY,
   defaultLocale,
-  detectLocale,
   isLocale,
   localeMeta,
   type Locale,
@@ -30,20 +29,21 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 /**
  * Estado de idioma del sitio.
  *
- * El servidor siempre renderiza en español, que es el idioma fuente: así el
- * HTML inicial es válido y los buscadores ven contenido real. Al montar, el
- * cliente aplica la preferencia guardada o la del navegador.
+ * El sitio abre en inglés y el servidor ya renderiza así, para que no haya un
+ * parpadeo de un idioma al otro. Al montar, el cliente sólo aplica la
+ * preferencia guardada si el visitante eligió alguna vez; el idioma del
+ * navegador no se consulta (ver `config.ts`).
  */
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(defaultLocale);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (isLocale(stored)) {
-      setLocaleState(stored);
-      return;
+    try {
+      const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+      if (isLocale(stored)) setLocaleState(stored);
+    } catch {
+      // almacenamiento bloqueado: se queda en el idioma con el que abre
     }
-    setLocaleState(detectLocale(navigator.languages ?? [navigator.language]));
   }, []);
 
   // mantiene el atributo lang del documento en sincronía con el idioma elegido

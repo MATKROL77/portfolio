@@ -96,8 +96,10 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // El sitio abre en inglés; el proveedor ajusta `lang` al montar si el
+  // visitante tiene otro idioma guardado.
   return (
-    <html lang="es" className={`${displayFont.variable} ${sansUi.variable}`}>
+    <html lang="en" className={`${displayFont.variable} ${sansUi.variable}`}>
       <body className="min-h-dvh antialiased">
         {/* salto directo al contenido para navegación por teclado */}
         <a

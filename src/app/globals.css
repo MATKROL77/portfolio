@@ -377,6 +377,34 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Faro del selector de idioma.
+
+   El sitio abre en ingles, asi que a un visitante hispanohablante hay que
+   decirle que puede cambiarlo, y decirselo sin que tenga que buscarlo. Late
+   tres veces y se apaga: una luz que no se apaga deja de ser un aviso y pasa
+   a ser un estorbo.
+
+   Solo aparece si nunca eligio idioma. Al que ya eligio no hay nada que
+   avisarle. El bloque de `prefers-reduced-motion` de mas abajo la apaga.
+--------------------------------------------------------------------------- */
+@keyframes lang-beacon {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(181, 139, 93, 0);
+  }
+  45% {
+    box-shadow:
+      0 0 0 5px rgba(181, 139, 93, 0.16),
+      0 0 20px 3px rgba(181, 139, 93, 0.42);
+  }
+}
+
+.lang-beacon {
+  animation: lang-beacon 1.8s ease-in-out 3;
+  border-radius: var(--radius-chip);
+}
+
+/* ---------------------------------------------------------------------------
    Cursor liquido.
 
    La clase la pone el propio componente, y recien cuando la bola ya esta en

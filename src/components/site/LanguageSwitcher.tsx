@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { Check, Globe } from "lucide-react";
 
-import { localeMeta, locales } from "@/i18n/config";
+import { LOCALE_STORAGE_KEY, localeMeta, locales } from "@/i18n/config";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/cn";
 
@@ -11,8 +11,25 @@ import { cn } from "@/lib/cn";
 export function LanguageSwitcher({ className }: { className?: string }) {
   const { locale, setLocale, t } = useLocale();
   const [open, setOpen] = useState(false);
+  const [beacon, setBeacon] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const menuId = useId();
+
+  // El sitio abre en inglés: al que nunca eligió idioma hay que avisarle que
+  // puede cambiarlo. Late tres veces y se apaga sola; si el visitante abre el
+  // selector antes, ya se dio cuenta y no hace falta seguir.
+  useEffect(() => {
+    let stored: string | null = null;
+    try {
+      stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+    } catch {
+      // almacenamiento bloqueado: se avisa igual, no cuesta nada
+    }
+    if (stored) return;
+    setBeacon(true);
+    const off = window.setTimeout(() => setBeacon(false), 5600);
+    return () => window.clearTimeout(off);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -40,8 +57,16 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         aria-expanded={open}
         aria-controls={menuId}
         aria-label={`${t("nav.language")}: ${localeMeta[locale].label}`}
-        onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 rounded-[var(--radius-chip)] border border-line-soft px-3 py-1.5 text-sand/80 transition-colors hover:border-copper/40 hover:text-copper"
+        onClick={() => {
+          setBeacon(false);
+          setOpen((v) => !v);
+        }}
+        className={cn(
+          "flex items-center gap-2 rounded-[var(--radius-chip)] border px-3 py-1.5 transition-colors hover:border-copper/40 hover:text-copper",
+          beacon
+            ? "lang-beacon border-copper/55 text-copper"
+            : "border-line-soft text-sand/80",
+        )}
       >
         <Globe className="size-3.5" aria-hidden="true" strokeWidth={1.6} />
         <span className="text-[0.65rem] font-medium uppercase tracking-[0.16em]">
