@@ -111,6 +111,7 @@ const es = {
   "contact.emailSubject": "Proyecto — desde el portfolio",
 
   "case.allProjects": "Todos los proyectos",
+  "case.progress": "Avance de lectura",
   "case.problem": "El problema",
   "case.process": "El proceso",
   "case.result": "El resultado",
@@ -223,6 +224,7 @@ const en: Partial<Record<UiKey, string>> = {
   "contact.emailSubject": "Project — from the portfolio",
 
   "case.allProjects": "All projects",
+  "case.progress": "Reading progress",
   "case.problem": "The problem",
   "case.process": "The process",
   "case.result": "The result",
@@ -331,6 +333,7 @@ const pt: Partial<Record<UiKey, string>> = {
   "contact.emailSubject": "Projeto — pelo portfólio",
 
   "case.allProjects": "Todos os projetos",
+  "case.progress": "Progresso de leitura",
   "case.problem": "O problema",
   "case.process": "O processo",
   "case.result": "O resultado",

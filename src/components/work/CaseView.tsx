@@ -10,6 +10,7 @@ import { useT } from "@/i18n/LocaleProvider";
 import { useProjects, useWebProducts } from "@/i18n/useContent";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/Reveal";
 import { CaseGallery } from "@/components/work/CaseGallery";
+import { ReadingScrubber } from "@/components/work/ReadingScrubber";
 import { SitePanel } from "@/components/web/SitePanel";
 
 /**
@@ -31,6 +32,8 @@ export function CaseView({ slug }: { slug: string }) {
 
   return (
     <article className="pb-24 pt-28 md:pt-32">
+      <ReadingScrubber />
+
       {/* --- cabecera ---------------------------------------------------- */}
       <header className="shell">
         <Reveal>
