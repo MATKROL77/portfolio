@@ -6,6 +6,7 @@ import { ArrowUpRight, Expand, Layers, X } from "lucide-react";
 
 import { assets } from "@/data/assets.generated";
 import { broteDemo, messaDemo } from "@/data/backoffice-demo";
+import { LiquidToggle } from "@/components/site/LiquidToggle";
 import { demoAccess, showsRealBackoffice } from "@/data/demo-access";
 import type { WebProduct } from "@/data/portfolio";
 import { cn } from "@/lib/cn";
@@ -97,33 +98,26 @@ export function SitePanel({ product }: { product: WebProduct }) {
       </div>
 
       {/* --- pestañas ---------------------------------------------------- */}
-      <div
-        role="tablist"
-        aria-label={`Vistas de ${product.name}`}
-        className="mt-6 flex flex-wrap gap-1.5"
-      >
-        {[
-          { id: "public" as Tab, label: t("web.publicSite") },
-          { id: "admin" as Tab, label: t("web.backoffice") },
-        ].map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            role="tab"
-            id={`${baseId}-tab-${item.id}`}
-            aria-selected={tab === item.id}
-            aria-controls={`${baseId}-panel-${item.id}`}
-            onClick={() => setTab(item.id)}
-            className={cn(
-              "rounded-[var(--radius-chip)] border px-4 py-1.5 text-[0.65rem] font-medium uppercase tracking-[0.16em] transition-colors duration-300",
-              tab === item.id
-                ? "border-copper/50 bg-copper/15 text-copper"
-                : "border-line-soft text-sand/65 hover:border-line hover:text-parchment",
-            )}
-          >
-            {item.label}
-          </button>
-        ))}
+      <div className="mt-6 flex flex-wrap items-center gap-1.5">
+        <LiquidToggle<Tab>
+          ariaLabel={`Vistas de ${product.name}`}
+          value={tab}
+          onChange={setTab}
+          options={[
+            {
+              id: "public",
+              label: t("web.publicSite"),
+              tabId: `${baseId}-tab-public`,
+              panelId: `${baseId}-panel-public`,
+            },
+            {
+              id: "admin",
+              label: t("web.backoffice"),
+              tabId: `${baseId}-tab-admin`,
+              panelId: `${baseId}-panel-admin`,
+            },
+          ]}
+        />
 
         {!publicFront && (
           <span className="ml-auto flex items-center gap-2 self-center text-[0.65rem] uppercase tracking-[0.14em] text-sand/50">
