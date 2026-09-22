@@ -573,10 +573,10 @@ export const contentPt: ContentBundle = {
     profile: {
       headline: "Projeto em CAD, fabrico e trato com o cliente de ponta a ponta.",
       summary:
-        "Projeto mecânico e CAD em Fusion 360 e Solid Edge, com experiência comercial própria: desde 2024 toco meu serviço de impressão 3D e design personalizado, em que levanto o pedido, orço, projeto, produzo e entrego. Sou estudante de Engenharia Mecânica na UTN, Faculdade Regional General Pacheco, tenho inglês C1 e hoje faço um estágio de projetos na OPmobility, onde valido peças em 3D, acompanho o avanço do projeto e trabalho entre a planta, a engenharia e o financeiro. Fico igualmente à vontade diante do modelo 3D e diante da pessoa que o pediu.",
+        "Projeto mecânico e CAD em Fusion 360 e Solid Edge, com experiência comercial própria: desde 2024 toco meu serviço de impressão 3D e design personalizado, em que levanto o pedido, orço, projeto, produzo e entrego. Sou estudante de Engenharia Mecânica na UTN, Faculdade Regional General Pacheco, tenho inglês C1 e hoje faço um estágio de projetos na OPmobility, onde analiso peças injetadas que saem fora de tolerância, valido em 3D, acompanho o avanço do projeto e trabalho entre a planta, a engenharia e o financeiro. Fico igualmente à vontade diante do modelo 3D e diante da pessoa que o pediu.",
     },
     profileParagraphs: [
-      "Modelo em Fusion 360 e Solid Edge, tiro desenhos normalizados e levo as peças até a fabricação. Sou estudante de Engenharia Mecânica na UTN Faculdade Regional General Pacheco, tenho inglês C1 e hoje trabalho como estagiário de projetos na OPmobility, uma multinacional francesa de autopeças, onde valido peças em 3D, acompanho o avanço dos projetos e circulo entre a planta, a engenharia e o financeiro. Desde 2024 tenho também meu próprio serviço de impressão 3D e design personalizado: ali o trabalho não começa no modelo, começa na conversa com o cliente e termina na entrega.",
+      "Modelo em Fusion 360 e Solid Edge, tiro desenhos normalizados e levo as peças até a fabricação. Sou estudante de Engenharia Mecânica na UTN Faculdade Regional General Pacheco, tenho inglês C1 e hoje trabalho como estagiário de projetos na OPmobility, uma multinacional francesa de autopeças, onde analiso peças injetadas que saem fora de tolerância, valido em 3D, acompanho o avanço dos projetos e circulo entre a planta, a engenharia e o financeiro. Desde 2024 tenho também meu próprio serviço de impressão 3D e design personalizado: ali o trabalho não começa no modelo, começa na conversa com o cliente e termina na entrega.",
       "Isso aparece no que há aqui. Um eixo linear que resolvi em Fusion 360 e Solid Edge, junto às pranchas de desenho técnico que o sustentam. Uma caixa de som minha com carcaça de caracol que termina alojando alto-falante, bateria e placa sobre bases que desenhei sob medida, assinada KROL. Uma escrivaninha de 2400 mm que primeiro cotei e depois construí, e a sinalização em letras caixa da BROTE montada em parede. Réplicas, maquetes e estojos que saem do meu negócio de impressão 3D, em que cuido de levantamento, orçamento, projeto, produção e entrega. E dois produtos digitais no ar, BROTE e MESSA, com seus backoffices.",
       "O fio condutor é bem simples: me interessa a parte do problema em que é preciso decidir, e me interessa saber explicar essa decisão. O que compro pronto e o que fabrico, onde divido uma peça grande, quanta tolerância um encaixe aguenta, o que se promete a um cliente e em que prazo. Um modelo bem resolvido que ninguém sabe defender não serve de muito.",
     ],
@@ -612,6 +612,10 @@ export const contentPt: ContentBundle = {
         title: "Produto digital",
         body: "Projeto e desenvolvo sites e backoffices, do modelo de dados à interface que o negócio usa todos os dias.",
       },
+      "Análisis de producto": {
+        title: "Análise de produto",
+        body: "Quando uma peça injetada sai fora de tolerância, procuro de onde vem o desvio e defino o protótipo com que a correção é testada.",
+      },
       "Cliente y preventa técnica": {
         title: "Cliente e pré-venda técnica",
         body: "Levanto o que o cliente precisa, traduzo para algo fabricável e orço com o prazo. É o que faço todos os dias no meu próprio serviço de impressão 3D.",
@@ -636,9 +640,12 @@ export const contentPt: ContentBundle = {
         title: "Estagiário de projetos",
         org: "OPmobility",
         period: "2026 — presente",
-        body: "Estágio na área de projetos de uma multinacional francesa de autopeças. Acompanho o pulso do projeto: nas reuniões sou quem pergunta em que pé está cada coisa, verifica se está sendo feito e reprograma o que não chega na data. Reviso peças em 3D para validá-las, faço cortes e capturas para as instruções de trabalho (SWI), vou à planta medir com paquímetro e movimento a documentação em SAP e KEOPS: remessas, ordens de faturamento e a passagem ao financeiro.",
+        body: "Estágio na área de projetos de uma multinacional francesa de autopeças. Acompanho o pulso do projeto: nas reuniões sou quem pergunta em que pé está cada coisa, verifica se está sendo feito e reprograma o que não chega na data. Reviso peças em 3D para validá-las, faço cortes e capturas para as instruções de trabalho (SWI), vou à planta medir com paquímetro e movimento a documentação em SAP e KEOPS: remessas, ordens de faturamento e a passagem ao financeiro. Quando uma peça injetada sai com desvios dimensionais, analiso de onde vem o desvio e, junto com um colega mais experiente, montamos o protótipo com que testamos a correção.",
         bullets: [
           "Acompanhamento de projetos",
+          "Análise de produto",
+          "Desvios dimensionais em injeção",
+          "Protótipos de validação",
           "Validação de peças em 3D",
           "Cortes e capturas para SWI",
           "Medição com paquímetro",
@@ -652,11 +659,12 @@ export const contentPt: ContentBundle = {
         title: "Serviço de impressão 3D e design personalizado",
         org: "Negócio próprio",
         period: "2024 — presente",
-        body: "Meu próprio negócio: projeto e fabrico peças, placas e maquetes para clientes de arquitetura, comércios e uso geral. Conduzo o ciclo completo e sou a única cara visível diante do cliente: levanto o que precisa, orço com o prazo, projeto no Fusion 360, planejo a produção e entrego.",
+        body: "Meu próprio negócio: projeto e fabrico peças, placas e maquetes para clientes de arquitetura, comércios e uso geral. Conduzo o ciclo completo e sou a única cara visível diante do cliente: levanto o que precisa, orço com o prazo, projeto no Fusion 360, planejo a produção e entrego. Quando um trabalho tem um problema antes de produzir, sou eu quem define o protótipo: o que precisa ser testado, em que material e em que escala.",
         bullets: [
           "Levantamento com o cliente",
           "Orçamento e cotação",
           "Projeto CAD (Fusion 360)",
+          "Prototipagem para validar",
           "Planejamento de fabricação",
           "Produção",
           "Entrega e acompanhamento",
@@ -743,6 +751,8 @@ export const contentPt: ContentBundle = {
           "Validação de peças em 3D",
           "Cortes e capturas para SWI",
           "Metrologia básica e paquímetro",
+          "Análise de defeitos de injeção",
+          "Prototipagem de validação",
           "Acompanhamento de trabalhos e fornecedores",
           "SAP",
           "KEOPS",

@@ -573,10 +573,10 @@ export const contentEn: ContentBundle = {
     profile: {
       headline: "I design in CAD, I build, and I deal with the client end to end.",
       summary:
-        "Mechanical design and CAD in Fusion 360 and Solid Edge, with commercial experience of my own: since 2024 I have run my 3D printing and custom design service, where I scope the request, quote it, design it, produce it and deliver it. I am a Mechanical Engineering student at UTN, Facultad Regional General Pacheco, I have C1 English and I currently work as a projects intern at OPmobility, where I validate parts in 3D, follow project progress and work across the plant, engineering and finance. I am equally comfortable in front of the 3D model and in front of the person who asked for it.",
+        "Mechanical design and CAD in Fusion 360 and Solid Edge, with commercial experience of my own: since 2024 I have run my 3D printing and custom design service, where I scope the request, quote it, design it, produce it and deliver it. I am a Mechanical Engineering student at UTN, Facultad Regional General Pacheco, I have C1 English and I currently work as a projects intern at OPmobility, where I analyse injected parts that come out of tolerance, validate in 3D, follow project progress and work across the plant, engineering and finance. I am equally comfortable in front of the 3D model and in front of the person who asked for it.",
     },
     profileParagraphs: [
-      "I model in Fusion 360 and Solid Edge, produce standard drawings and take parts through to manufacturing. I am a Mechanical Engineering student at UTN Facultad Regional General Pacheco, I have C1 English and I currently work as a projects intern at OPmobility, a French multinational auto parts supplier, where I validate parts in 3D, follow the progress of the projects and move between the plant, engineering and finance. Since 2024 I have also run my own 3D printing and custom design service: there the work does not start at the model, it starts at the conversation with the client and ends at delivery.",
+      "I model in Fusion 360 and Solid Edge, produce standard drawings and take parts through to manufacturing. I am a Mechanical Engineering student at UTN Facultad Regional General Pacheco, I have C1 English and I currently work as a projects intern at OPmobility, a French multinational auto parts supplier, where I analyse injected parts that come out of tolerance, validate in 3D, follow the progress of the projects and move between the plant, engineering and finance. Since 2024 I have also run my own 3D printing and custom design service: there the work does not start at the model, it starts at the conversation with the client and ends at delivery.",
       "You can see that in what is here. A linear axis I resolved in Fusion 360 and Solid Edge, alongside the technical drawing plates that back it. A speaker of mine with a shell-shaped body that ends up housing a driver, a battery and a board on bases I designed to fit, signed KROL. A 2400 mm desk I first dimensioned and then built, and BROTE's dimensional signage mounted on a wall. Replicas, scale models and cases that come out of my 3D printing venture, where I handle scoping, quoting, design, production and delivery. And two digital products online, BROTE and MESSA, with their backoffices.",
       "The common thread is fairly simple: I am interested in the part of the problem where decisions have to be made, and in being able to explain that decision. What I buy ready-made and what I fabricate, where I split a large piece, how much tolerance a fit can take, what I promise a client and by when. A well-resolved model that nobody can defend is not worth much.",
     ],
@@ -612,6 +612,10 @@ export const contentEn: ContentBundle = {
         title: "Digital product",
         body: "I design and develop sites and backoffices, from the data model to the interface the business uses every day.",
       },
+      "Análisis de producto": {
+        title: "Product analysis",
+        body: "When an injected part comes out of tolerance, I work out where the deviation comes from and define the prototype the correction is tested with.",
+      },
       "Cliente y preventa técnica": {
         title: "Client work and technical presales",
         body: "I scope what the client needs, translate it into something manufacturable and quote it with its lead time. It is what I do every day in my own 3D printing service.",
@@ -636,9 +640,12 @@ export const contentEn: ContentBundle = {
         title: "Projects intern",
         org: "OPmobility",
         period: "2026 — present",
-        body: "Internship in the projects area of a French multinational auto parts supplier. I keep my finger on the project: in the meetings I am the one asking where each item stands, checking that it is actually being done and rescheduling whatever will not make the date. I review parts in 3D to validate them, produce sections and captures for the work instructions (SWI), go down to the plant to measure with callipers, and move the paperwork through SAP and KEOPS: delivery notes, invoice orders and their handover to finance.",
+        body: "Internship in the projects area of a French multinational auto parts supplier. I keep my finger on the project: in the meetings I am the one asking where each item stands, checking that it is actually being done and rescheduling whatever will not make the date. I review parts in 3D to validate them, produce sections and captures for the work instructions (SWI), go down to the plant to measure with callipers, and move the paperwork through SAP and KEOPS: delivery notes, invoice orders and their handover to finance. When an injected part comes out with dimensional deviations, I work out where the deviation comes from and, together with a more experienced colleague, we build the prototype we test the correction with.",
         bullets: [
           "Project follow-up",
+          "Product analysis",
+          "Dimensional deviations in injection moulding",
+          "Validation prototypes",
           "Part validation in 3D",
           "Sections and captures for SWI",
           "Measuring with callipers",
@@ -652,11 +659,12 @@ export const contentEn: ContentBundle = {
         title: "3D printing and custom design service",
         org: "Own venture",
         period: "2024 — present",
-        body: "My own business: I design and make parts, signage and scale models for architecture clients, shops and general use. I run the full cycle and I am the only face the client sees: I scope what they need, quote it with its lead time, design it in Fusion 360, plan the production and deliver it.",
+        body: "My own business: I design and make parts, signage and scale models for architecture clients, shops and general use. I run the full cycle and I am the only face the client sees: I scope what they need, quote it with its lead time, design it in Fusion 360, plan the production and deliver it. When a job has a problem before production, I define the prototype myself: what has to be tested, in what material and at what scale.",
         bullets: [
           "Scoping with the client",
           "Quoting and estimating",
           "CAD design (Fusion 360)",
+          "Prototyping to validate",
           "Manufacturing planning",
           "Production",
           "Delivery and follow-up",
@@ -743,6 +751,8 @@ export const contentEn: ContentBundle = {
           "Part validation in 3D",
           "Sections and captures for SWI",
           "Basic metrology and callipers",
+          "Injection moulding defect analysis",
+          "Validation prototyping",
           "Following up jobs and suppliers",
           "SAP",
           "KEOPS",

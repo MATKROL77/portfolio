@@ -54,6 +54,8 @@ export const metadata: Metadata = {
     "preventa técnica",
     "application engineering",
     "SAP",
+    "inyección de plásticos",
+    "análisis de producto",
     "diseño de producto",
     "impresión 3D",
     "prototipado",
