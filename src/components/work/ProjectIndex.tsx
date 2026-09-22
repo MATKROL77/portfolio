@@ -2,19 +2,65 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useCallback, useMemo, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import { assets } from "@/data/assets.generated";
+import { skills } from "@/data/cv";
 import { cn } from "@/lib/cn";
+import { Checklist, type ChecklistItem } from "@/components/site/Checklist";
 import { RevealGroup, RevealItem } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useT } from "@/i18n/LocaleProvider";
 import { useProjects } from "@/i18n/useContent";
 
-/** Índice completo de proyectos, debajo de la galería del hero. */
+/**
+ * Índice completo de proyectos, debajo de la galería del hero.
+ *
+ * El filtro por herramienta sale de los propios datos: no hay una lista de
+ * categorías escrita a mano en ningún lado. Entra una herramienta si aparece
+ * en dos proyectos o más, o si está declarada como habilidad en el CV.
+ *
+ * Esa segunda condición existe por Solid Edge: aparece en un solo proyecto, y
+ * es justo la que alguien que busca un perfil de CAD va a querer tildar. Un
+ * filtro que deja afuera el término que la gente busca no sirve de nada.
+ *
+ * Sin nada marcado se ven todos. Marcando varias se ven los que usan
+ * cualquiera de ellas, que para siete proyectos es más útil que exigirlas
+ * todas juntas.
+ */
 export function ProjectIndex() {
   const t = useT();
   const projects = useProjects();
+  const [picked, setPicked] = useState<ReadonlySet<string>>(new Set());
+
+  const tools = useMemo<ChecklistItem[]>(() => {
+    const tally = new Map<string, number>();
+    for (const p of projects) {
+      for (const tool of p.tools) tally.set(tool, (tally.get(tool) ?? 0) + 1);
+    }
+    const declared = new Set(skills.flatMap((group) => group.items));
+    return [...tally.entries()]
+      .filter(([tool, n]) => n > 1 || declared.has(tool))
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([id, n]) => ({ id, label: id, count: n }));
+  }, [projects]);
+
+  const shown = useMemo(
+    () =>
+      picked.size === 0
+        ? projects
+        : projects.filter((p) => p.tools.some((tool) => picked.has(tool))),
+    [picked, projects],
+  );
+
+  const toggle = useCallback((id: string) => {
+    setPicked((prev) => {
+      const next = new Set(prev);
+      if (!next.delete(id)) next.add(id);
+      return next;
+    });
+  }, []);
 
   return (
     <section id="index" className="section-y relative scroll-mt-24">
@@ -25,8 +71,29 @@ export function ProjectIndex() {
           intro={t("index.intro")}
         />
 
-        <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-2 md:mt-14 md:gap-5 lg:grid-cols-3">
-          {projects.map((project) => {
+        <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-3 md:mt-10">
+          <Checklist
+            items={tools}
+            selected={picked}
+            onToggle={toggle}
+            legend={t("index.filterLegend")}
+          />
+          {picked.size > 0 && (
+            <button
+              type="button"
+              onClick={() => setPicked(new Set())}
+              className="link-underline text-[0.7rem] font-medium uppercase tracking-[0.14em] text-sand/60 transition-colors hover:text-copper"
+            >
+              {t("index.filterClear")}
+            </button>
+          )}
+        </div>
+
+        <RevealGroup
+          key={shown.map((p) => p.slug).join()}
+          className="mt-8 grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3"
+        >
+          {shown.map((project) => {
             const img = assets[project.heroImage];
             return (
               <RevealItem key={project.slug} className="h-full">

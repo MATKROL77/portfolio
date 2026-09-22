@@ -43,6 +43,8 @@ const es = {
   "profile.directContact": "Contacto directo",
 
   "index.eyebrow": "Archivo",
+  "index.filterLegend": "Filtrar por herramienta",
+  "index.filterClear": "Ver todos",
   "index.title": "Todo el trabajo, en orden",
   "index.intro":
     "Cada ficha abre un caso con el problema, el proceso y el resultado. Lo conceptual está marcado como tal.",
@@ -166,6 +168,8 @@ const en: Partial<Record<UiKey, string>> = {
   "profile.directContact": "Direct contact",
 
   "index.eyebrow": "Archive",
+  "index.filterLegend": "Filter by tool",
+  "index.filterClear": "Show all",
   "index.title": "All the work, in order",
   "index.intro":
     "Each card opens a case with the problem, the process and the result. Anything conceptual is labelled as such.",
@@ -275,6 +279,8 @@ const pt: Partial<Record<UiKey, string>> = {
   "profile.directContact": "Contato direto",
 
   "index.eyebrow": "Arquivo",
+  "index.filterLegend": "Filtrar por ferramenta",
+  "index.filterClear": "Ver todos",
   "index.title": "Todo o trabalho, em ordem",
   "index.intro":
     "Cada cartão abre um caso com o problema, o processo e o resultado. O que é conceitual está marcado como tal.",
