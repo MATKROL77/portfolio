@@ -377,6 +377,30 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Cursor liquido.
+
+   La clase la pone el propio componente, y recien cuando la bola ya esta en
+   pantalla: si el JavaScript no corre, si el visitante viene con el dedo o si
+   pidio menos movimiento, el cursor nativo se queda donde estaba.
+
+   Los campos de texto y los marcos conservan el suyo. Dentro de un `iframe`
+   manda la pagina de adentro, y en un campo de texto la barrita en I dice
+   donde va a caer lo que escribas: eso no se reemplaza por una bola.
+--------------------------------------------------------------------------- */
+.liquid-cursor,
+.liquid-cursor * {
+  cursor: none;
+}
+
+.liquid-cursor input,
+.liquid-cursor textarea,
+.liquid-cursor select,
+.liquid-cursor iframe,
+.liquid-cursor [contenteditable="true"] {
+  cursor: auto;
+}
+
+/* ---------------------------------------------------------------------------
    Impresion: el CV sale en papel claro y legible, sin el fondo oscuro ni los
    elementos de navegacion. Es la misma hoja que genera `npm run cv:pdf`.
 --------------------------------------------------------------------------- */
