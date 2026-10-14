@@ -795,6 +795,20 @@ export type WebProduct = {
   adminEmbedUrl?: string;
   cover: AssetKey;
   accent: string;
+  /**
+   * El clima de la seccion de ese producto.
+   *
+   * Cada proyecto trae su propio color y la pagina se viste con el mientras
+   * dura su tramo: `wash` tiñe el fondo de la franja, `accent` manda en la
+   * linea, el rotulo y los botones. Los valores salen de las piezas reales de
+   * cada marca, no de una paleta inventada.
+   */
+  theme: {
+    /** color con el que se tiñe el fondo de la franja */
+    wash: string;
+    /** un rotulo corto que resume el clima, para la propia seccion */
+    mood: string;
+  };
   publicEmbeddable: boolean;
   /** si el panel de administración se deja mostrar dentro de un iframe */
   adminEmbeddable: boolean;
@@ -809,7 +823,8 @@ export const webProducts: WebProduct[] = [
     publicUrl: "https://broteonline.com/",
     adminUrl: "https://brote-admin.matiascolimodio.workers.dev/admin",
     cover: "projects/brote/site-public",
-    accent: "#53614c",
+    accent: "#8ca37d",
+    theme: { wash: "#2b3326", mood: "Natural, en calma" },
     publicEmbeddable: true,
     adminEmbeddable: true,
   },
@@ -826,7 +841,8 @@ export const webProducts: WebProduct[] = [
     adminUrl: "https://messa.matiascolimodio.workers.dev/admin",
     adminEmbedUrl: "https://messa.matiascolimodio.workers.dev/demo",
     cover: "projects/messa/site-public",
-    accent: "#b58b5d",
+    accent: "#f2c230",
+    theme: { wash: "#45210f", mood: "Servicio, a toda hora" },
     publicEmbeddable: true,
     adminEmbeddable: true,
   },

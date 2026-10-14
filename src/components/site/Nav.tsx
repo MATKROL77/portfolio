@@ -13,7 +13,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const sections: { href: string; key: UiKey }[] = [
   { href: "/#selected-work", key: "nav.selectedWork" },
-  { href: "/#web-products", key: "nav.webProducts" },
+  { href: "/web", key: "nav.webProducts" },
   { href: "/#process", key: "nav.process" },
   { href: "/#about", key: "nav.about" },
   { href: "/#contact", key: "nav.contact" },

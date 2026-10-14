@@ -44,7 +44,19 @@ function useBackoffice(product: WebProduct) {
  *    accesible, sin credenciales y sin ninguna request a los sistemas reales.
  *  - Ningún control de esta sección puede modificar nada en producción.
  */
-export function SitePanel({ product }: { product: WebProduct }) {
+/**
+ * `titled` dice si el panel pone su propio titulo. En la vista web la seccion
+ * ya trae el nombre del proyecto en grande con su color, asi que el panel lo
+ * apaga y se queda solo con los controles: de lo contrario el nombre, el rol y
+ * la descripcion aparecen dos veces, una arriba de la otra.
+ */
+export function SitePanel({
+  product,
+  titled = true,
+}: {
+  product: WebProduct;
+  titled?: boolean;
+}) {
   const t = useT();
   const [tab, setTab] = useState<Tab>("public");
   const [expanded, setExpanded] = useState(false);
@@ -62,43 +74,56 @@ export function SitePanel({ product }: { product: WebProduct }) {
     ? { duration: 0.2 }
     : { type: "spring" as const, stiffness: 210, damping: 28 };
 
+  // Los mismos dos controles, en dos lugares distintos: arriba a la derecha
+  // cuando el panel trae su titulo, y en la fila del interruptor cuando no,
+  // asi no queda media fila vacia esperando un titulo que no va a venir.
+  const actions = (
+    <>
+      <a
+        href={product.publicUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn justify-center"
+      >
+        {t("web.openReal")}
+        <ArrowUpRight className="size-4" aria-hidden="true" />
+      </a>
+      <button
+        type="button"
+        onClick={() => setExpanded(true)}
+        className="btn justify-center"
+      >
+        {t("web.expand")}
+        <Expand className="size-4" aria-hidden="true" />
+      </button>
+    </>
+  );
+
   return (
     <div className="glass-strong overflow-hidden p-4 sm:p-5 md:p-7">
       {/* --- encabezado ------------------------------------------------- */}
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h3 className="font-display text-3xl leading-none text-parchment">
-            {product.name}
-          </h3>
-          <p className="mt-2 max-w-md text-sm leading-relaxed text-sand/70">
-            {product.blurb}
-          </p>
-          <p className="eyebrow mt-3">{product.role}</p>
+      {titled && (
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h3 className="font-display text-3xl leading-none text-parchment">
+              {product.name}
+            </h3>
+            <p className="mt-2 max-w-md text-sm leading-relaxed text-sand/70">
+              {product.blurb}
+            </p>
+            <p className="eyebrow mt-3">{product.role}</p>
+          </div>
+          <div className="flex shrink-0 flex-col gap-2.5">{actions}</div>
         </div>
-
-        <div className="flex shrink-0 flex-col gap-2.5">
-          <a
-            href={product.publicUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn justify-center"
-          >
-            {t("web.openReal")}
-            <ArrowUpRight className="size-4" aria-hidden="true" />
-          </a>
-          <button
-            type="button"
-            onClick={() => setExpanded(true)}
-            className="btn justify-center"
-          >
-            {t("web.expand")}
-            <Expand className="size-4" aria-hidden="true" />
-          </button>
-        </div>
-      </div>
+      )}
 
       {/* --- pestañas ---------------------------------------------------- */}
-      <div className="mt-6 flex flex-wrap items-center gap-1.5">
+      <div
+        className={cn(
+          "flex flex-wrap items-center gap-x-3 gap-y-2.5",
+          titled ? "mt-6" : "mt-0",
+        )}
+      >
         <LiquidToggle<Tab>
           ariaLabel={`Vistas de ${product.name}`}
           value={tab}
@@ -120,11 +145,13 @@ export function SitePanel({ product }: { product: WebProduct }) {
         />
 
         {!publicFront && (
-          <span className="ml-auto flex items-center gap-2 self-center text-[0.65rem] uppercase tracking-[0.14em] text-sand/50">
+          <span className="flex items-center gap-2 self-center text-[0.65rem] uppercase tracking-[0.14em] text-sand/50">
             <Layers className="size-3.5" aria-hidden="true" />
             {t("web.backstage")}
           </span>
         )}
+
+        {!titled && <div className="ml-auto flex gap-2.5">{actions}</div>}
       </div>
 
       {/* --- pila de ventanas --------------------------------------------
