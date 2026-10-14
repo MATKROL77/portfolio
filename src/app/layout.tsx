@@ -4,7 +4,6 @@ import { Inter, Inter_Tight } from "next/font/google";
 import { AmbientBackdrop } from "@/components/site/AmbientBackdrop";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
-import { LiquidCursor } from "@/components/site/LiquidCursor";
 import { LocaleProvider } from "@/i18n/LocaleProvider";
 import { profile } from "@/data/cv";
 
@@ -111,7 +110,6 @@ export default function RootLayout({
 
         <LocaleProvider>
           <AmbientBackdrop />
-          <LiquidCursor />
           <Nav />
           <main id="contenido">{children}</main>
           <Footer />
