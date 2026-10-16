@@ -569,6 +569,44 @@ export const contentEn: ContentBundle = {
     },
   },
 
+  webWorks: {
+    inelec: {
+      role: "Design and development",
+      claim: "An industrial workshop, with the face its work deserves.",
+      blurb:
+        "Full repair of rural and distribution transformers, in Mercedes, Buenos Aires province. A sober, technical site where every section answers a question the industrial client asks before picking up the phone.",
+      highlights: [
+        "Services",
+        "Process",
+        "The team",
+        "Testing",
+        "Quote",
+        "Contact",
+        "Spanish and English",
+      ],
+      mood: "Industrial, precise",
+    },
+    "farmacia-gualtieri": {
+      role: "AI automation",
+      claim: "WhatsApp with AI that answers for you.",
+      blurb:
+        "A pharmacy gets the same question a hundred times a day: do you have this medicine. The WhatsApp line answers on its own, at any hour, and only hands over to a person when it has to.",
+      highlights: [
+        "Answers around the clock",
+        "Stock questions",
+        "Hands over to a person",
+      ],
+      mood: "Open around the clock",
+      chat: [
+        {
+          from: "client" as const,
+          text: "Hi, I wanted to ask whether you have the following medicine in stock:",
+        },
+      ],
+      note: "The conversation is the one from the ad: the message a customer opens the chat with, and the line replying.",
+    },
+  },
+
   cv: {
     profile: {
       headline: "I design in CAD, I build, and I deal with the client end to end.",

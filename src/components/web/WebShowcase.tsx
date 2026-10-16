@@ -1,14 +1,15 @@
 "use client";
 
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import { Reveal } from "@/components/site/Reveal";
 import { useT } from "@/i18n/LocaleProvider";
-import { useWebProducts } from "@/i18n/useContent";
+import { useWebProducts, useWebWorks } from "@/i18n/useContent";
+import { ChatPreview } from "./ChatPreview";
 import { SitePanel } from "./SitePanel";
 
 /**
- * Los productos web, uno debajo del otro.
+ * Los trabajos web, uno debajo del otro.
  *
  * Antes vivian en una grilla de dos columnas: cada vista previa entraba en
  * media pantalla y habia que entrecerrar los ojos para leer la interfaz. Ahora
@@ -19,72 +20,185 @@ import { SitePanel } from "./SitePanel";
  * el color de la marca y la linea, el rotulo y los botones toman su acento. El
  * tiñe entra y sale con un degradado, asi que el tramo siguiente empieza
  * limpio en vez de cortar de golpe.
+ *
+ * No todos se muestran igual, porque no todos son lo mismo: los que son un
+ * sitio con panel van con el navegador en vivo, y los que no —una linea de
+ * WhatsApp que contesta sola— van con lo que de verdad son.
  */
+
+function Band({
+  id,
+  wash,
+  mark,
+  mood,
+  name,
+  role,
+  children,
+}: {
+  id: string;
+  wash: string;
+  mark: string;
+  mood: string;
+  name: string;
+  role: string;
+  children: ReactNode;
+}) {
+  return (
+    <section
+      id={id}
+      aria-labelledby={`web-${id}`}
+      className="relative scroll-mt-24 py-14 md:py-20"
+      style={{ "--wash": wash, "--mark": mark } as CSSProperties}
+    >
+      {/* la franja del proyecto: entra y sale con degradado */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,var(--wash)_12%,var(--wash)_88%,transparent_100%)]"
+      />
+
+      <div className="shell relative">
+        <Reveal>
+          <div className="flex items-center gap-4">
+            <span
+              className="h-px w-8"
+              style={{ background: "var(--mark)" }}
+              aria-hidden="true"
+            />
+            <span
+              className="text-[0.62rem] font-medium uppercase tracking-[0.2em]"
+              style={{ color: "var(--mark)" }}
+            >
+              {mood}
+            </span>
+          </div>
+
+          <h3
+            id={`web-${id}`}
+            className="mt-5 font-display text-[clamp(2.2rem,5vw,3.6rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-parchment"
+          >
+            {name}
+          </h3>
+
+          <p className="mt-3 text-sm uppercase tracking-[0.14em] text-sand/60">
+            {role}
+          </p>
+        </Reveal>
+
+        {children}
+      </div>
+    </section>
+  );
+}
+
 export function WebShowcase() {
   const t = useT();
   const products = useWebProducts();
+  const works = useWebWorks();
 
   return (
     <div className="mt-10 md:mt-14">
       {products.map((product) => (
-        <section
+        <Band
           key={product.slug}
           id={product.slug}
-          aria-labelledby={`web-${product.slug}`}
-          className="relative scroll-mt-24 py-14 md:py-20"
-          style={
-            {
-              "--wash": product.theme.wash,
-              "--mark": product.accent,
-            } as CSSProperties
-          }
+          wash={product.theme.wash}
+          mark={product.accent}
+          mood={product.theme.mood}
+          name={product.name}
+          role={product.role}
         >
-          {/* la franja del proyecto: entra y sale con degradado */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,var(--wash)_12%,var(--wash)_88%,transparent_100%)]"
-          />
-
-          <div className="shell relative">
-            <Reveal>
-              <div className="flex items-center gap-4">
-                <span
-                  className="h-px w-8"
-                  style={{ background: "var(--mark)" }}
-                  aria-hidden="true"
-                />
-                <span
-                  className="text-[0.62rem] font-medium uppercase tracking-[0.2em]"
-                  style={{ color: "var(--mark)" }}
-                >
-                  {product.theme.mood}
-                </span>
-              </div>
-
-              <h3
-                id={`web-${product.slug}`}
-                className="mt-5 font-display text-[clamp(2.2rem,5vw,3.6rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-parchment"
-              >
-                {product.name}
-              </h3>
-
-              <p className="mt-3 text-sm uppercase tracking-[0.14em] text-sand/60">
-                {product.role}
-              </p>
-
-              <p className="prose-editorial mt-5 max-w-2xl">{product.blurb}</p>
-            </Reveal>
-
-            <Reveal className="mt-10">
-              <SitePanel product={product} titled={false} />
-            </Reveal>
-          </div>
-        </section>
+          <Reveal>
+            <p className="prose-editorial mt-5 max-w-2xl">{product.blurb}</p>
+          </Reveal>
+          <Reveal className="mt-10">
+            <SitePanel product={product} titled={false} />
+          </Reveal>
+        </Band>
       ))}
 
-      <p className="shell mt-6 text-xs leading-relaxed text-sand/45">
+      <p className="shell text-xs leading-relaxed text-sand/45">
         {t("web.replicaNote")}
       </p>
+
+      {works.map((work) => (
+        <Band
+          key={work.slug}
+          id={work.slug}
+          wash={work.theme.wash}
+          mark={work.theme.accent}
+          mood={work.theme.mood}
+          name={work.name}
+          role={work.role}
+        >
+          <Reveal>
+            <p className="mt-6 max-w-2xl font-display text-[clamp(1.4rem,2.8vw,2.1rem)] font-light leading-[1.25] text-parchment/92">
+              {work.claim}
+            </p>
+            <p className="prose-editorial mt-5 max-w-2xl">{work.blurb}</p>
+
+            {/* Con conversacion, lo que se ve es la conversacion y esto va de
+                apoyo. Sin ella —INELEC todavia no tiene su direccion publica—
+                la lista ES la pieza, asi que se dibuja como el indice de una
+                lamina: numerada y encuadrada. Cada renglon lleva su propio
+                recuadro y no es una celda de una grilla con fondo: con siete
+                items, tres columnas dejan dos huecos pintados al final y
+                parece una tabla sin terminar. */}
+            {work.chat ? (
+              <ul className="mt-7 flex flex-wrap gap-2">
+                {work.highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-[var(--radius-chip)] border px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-parchment/85"
+                    style={{
+                      borderColor:
+                        "color-mix(in oklab, var(--mark) 45%, transparent)",
+                    }}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <ol className="mt-9 grid max-w-3xl gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                {work.highlights.map((item, i) => (
+                  <li
+                    key={item}
+                    className="flex items-baseline gap-3 rounded-[var(--radius-inner)] border bg-ink/45 px-4 py-3.5"
+                    style={{
+                      borderColor:
+                        "color-mix(in oklab, var(--mark) 26%, transparent)",
+                    }}
+                  >
+                    <span
+                      className="font-mono text-[0.62rem] tabular-nums"
+                      style={{ color: "var(--mark)" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-sm leading-snug text-parchment/88">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </Reveal>
+
+          {work.chat && (
+            <Reveal className="mt-10">
+              <div className="max-w-sm">
+                <ChatPreview work={work} typingLabel={t("web.typing")} />
+              </div>
+            </Reveal>
+          )}
+
+          {work.note && (
+            <p className="mt-6 max-w-xl text-xs leading-relaxed text-sand/45">
+              {work.note}
+            </p>
+          )}
+        </Band>
+      ))}
     </div>
   );
 }

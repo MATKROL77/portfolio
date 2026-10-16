@@ -569,6 +569,44 @@ export const contentPt: ContentBundle = {
     },
   },
 
+  webWorks: {
+    inelec: {
+      role: "Design e desenvolvimento",
+      claim: "Uma oficina industrial, com a cara que o trabalho dela merece.",
+      blurb:
+        "Reparo integral de transformadores rurais e de distribuição, em Mercedes, província de Buenos Aires. Um site sóbrio e técnico, em que cada seção responde a uma pergunta que o cliente industrial faz antes de ligar.",
+      highlights: [
+        "Serviços",
+        "Processo",
+        "A equipe",
+        "Ensaios",
+        "Orçamento",
+        "Contato",
+        "Espanhol e inglês",
+      ],
+      mood: "Industrial, preciso",
+    },
+    "farmacia-gualtieri": {
+      role: "Automação com IA",
+      claim: "WhatsApp com IA que responde por você.",
+      blurb:
+        "Uma farmácia recebe a mesma pergunta cem vezes por dia: se tem um medicamento. A linha de WhatsApp responde sozinha, a qualquer hora, e só passa para uma pessoa quando é preciso.",
+      highlights: [
+        "Responde sem horário",
+        "Consultas de disponibilidade",
+        "Encaminha para uma pessoa",
+      ],
+      mood: "Atende a toda hora",
+      chat: [
+        {
+          from: "client" as const,
+          text: "Olá, queria saber se vocês têm disponível o seguinte medicamento:",
+        },
+      ],
+      note: "A conversa é a do anúncio: a mensagem com que um cliente abre o chat, e a linha respondendo.",
+    },
+  },
+
   cv: {
     profile: {
       headline: "Projeto em CAD, fabrico e trato com o cliente de ponta a ponta.",

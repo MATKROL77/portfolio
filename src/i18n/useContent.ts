@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 
 import { education, experience, processSteps, profile, skills } from "@/data/cv";
+import { webWorks, type WebWork } from "@/data/web-works";
 import {
   projects,
   webProducts,
@@ -89,6 +90,29 @@ export function useWebProducts(): WebProduct[] {
         ...product,
         role: pick(o.role, product.role),
         blurb: pick(o.blurb, product.blurb),
+      };
+    });
+  }, [locale]);
+}
+
+/** Los trabajos web que no son un sitio embebible, en el idioma activo. */
+export function useWebWorks(): WebWork[] {
+  const { locale } = useLocale();
+  return useMemo(() => {
+    const bundle = bundles[locale];
+    return webWorks.map((work) => {
+      const o = bundle?.webWorks?.[work.slug];
+      if (!o) return work;
+      return {
+        ...work,
+        name: pick(o.name, work.name),
+        role: pick(o.role, work.role),
+        claim: pick(o.claim, work.claim),
+        blurb: pick(o.blurb, work.blurb),
+        highlights: pick(o.highlights, work.highlights),
+        chat: pick(o.chat, work.chat),
+        note: pick(o.note, work.note),
+        theme: { ...work.theme, mood: pick(o.mood, work.theme.mood) },
       };
     });
   }, [locale]);

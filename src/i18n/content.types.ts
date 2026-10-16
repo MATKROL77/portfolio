@@ -28,6 +28,17 @@ export type ProjectOverride = {
   gallery?: Record<string, { alt?: string; caption?: string }>;
 };
 
+export type WebWorkOverride = {
+  name?: string;
+  role?: string;
+  claim?: string;
+  blurb?: string;
+  highlights?: string[];
+  mood?: string;
+  chat?: { from: "client" | "bot"; text: string }[];
+  note?: string;
+};
+
 export type WebProductOverride = {
   role?: string;
   blurb?: string;
@@ -63,6 +74,7 @@ export type CvOverride = {
 export type ContentBundle = {
   projects?: Record<string, ProjectOverride>;
   webProducts?: Record<string, WebProductOverride>;
+  webWorks?: Record<string, WebWorkOverride>;
   cv?: CvOverride;
 };
 

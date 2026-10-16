@@ -58,6 +58,7 @@ const es = {
   "web.publicSite": "Public site",
   "web.backoffice": "Backoffice",
   "web.backstage": "Explore backstage",
+  "web.typing": "Escribiendo…",
   "web.live": "En vivo",
   "web.capture": "Captura",
   "web.readOnly": "Read-only demo",
@@ -180,6 +181,7 @@ const en: Partial<Record<UiKey, string>> = {
   "web.openReal": "Open the real site",
   "web.expand": "Expand",
   "web.live": "Live",
+  "web.typing": "Typing…",
   "web.capture": "Screenshot",
   "web.readOnlyShort": "Read only",
   "web.blockedNotice":
@@ -291,6 +293,7 @@ const pt: Partial<Record<UiKey, string>> = {
   "web.openReal": "Abrir o site real",
   "web.expand": "Ampliar",
   "web.live": "Ao vivo",
+  "web.typing": "Digitando…",
   "web.capture": "Captura",
   "web.readOnlyShort": "Somente leitura",
   "web.blockedNotice":
