@@ -25,62 +25,72 @@ export function ChatPreview({
   if (!work.chat?.length) return null;
 
   return (
+    // El marco es el de un telefono y no el de una tarjeta: lo que se muestra
+    // es una conversacion en un telefono, y un borde grueso con la muesca
+    // arriba lo dice sin tener que escribirlo.
     <div
-      className="mx-auto w-full max-w-sm overflow-hidden rounded-[2rem] border border-line-soft bg-ink/85 shadow-[0_30px_60px_rgba(0,0,0,0.45)]"
+      className="w-full max-w-[20rem] rounded-[2.6rem] border-[6px] border-[#1b1714] bg-ink shadow-[0_40px_80px_-28px_rgba(0,0,0,0.85)]"
       style={{ "--mark": work.theme.accent } as CSSProperties}
     >
-      {/* cabecera del chat */}
-      <div className="flex items-center gap-3 border-b border-line-faint px-5 py-4">
-        <span
-          className="flex size-9 shrink-0 items-center justify-center rounded-full text-[0.7rem] font-semibold text-ink"
-          style={{ background: "var(--mark)" }}
-          aria-hidden="true"
-        >
-          {work.name.slice(0, 2).toUpperCase()}
-        </span>
-        <div className="min-w-0">
-          <p className="truncate text-sm text-parchment">{work.name}</p>
-          <p
-            className="text-[0.6rem] uppercase tracking-[0.16em]"
-            style={{ color: "var(--mark)" }}
+      <div className="overflow-hidden rounded-[2.1rem] bg-ink/95">
+        {/* la muesca */}
+        <div className="flex justify-center pt-2.5" aria-hidden="true">
+          <span className="h-1.5 w-20 rounded-full bg-[#2a2420]" />
+        </div>
+
+        {/* cabecera del chat */}
+        <div className="flex items-center gap-3 border-b border-line-faint px-5 py-4">
+          <span
+            className="flex size-9 shrink-0 items-center justify-center rounded-full text-[0.7rem] font-semibold text-ink"
+            style={{ background: "var(--mark)" }}
+            aria-hidden="true"
           >
-            {work.theme.mood}
+            {work.name.slice(0, 2).toUpperCase()}
+          </span>
+          <div className="min-w-0">
+            <p className="truncate text-sm text-parchment">{work.name}</p>
+            <p
+              className="text-[0.6rem] uppercase tracking-[0.16em]"
+              style={{ color: "var(--mark)" }}
+            >
+              {work.theme.mood}
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-3 px-5 py-6">
+          {work.chat.map((line) => (
+            <p
+              key={line.text}
+              className={
+                line.from === "client"
+                  ? "max-w-[85%] rounded-2xl rounded-tl-sm bg-espresso/70 px-4 py-3 text-sm leading-relaxed text-parchment/90"
+                  : "ml-auto max-w-[85%] rounded-2xl rounded-tr-sm px-4 py-3 text-sm leading-relaxed text-ink"
+              }
+              style={
+                line.from === "bot" ? { background: "var(--mark)" } : undefined
+              }
+            >
+              {line.text}
+            </p>
+          ))}
+
+          {/* la linea escribiendo: es donde termina el anuncio */}
+          <p
+            className="ml-auto flex w-fit items-center gap-1.5 rounded-2xl rounded-tr-sm px-4 py-3.5"
+            style={{ background: "var(--mark)" }}
+          >
+            <span className="sr-only">{typingLabel}</span>
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                aria-hidden="true"
+                className="size-1.5 animate-pulse rounded-full bg-ink/70"
+                style={{ animationDelay: `${i * 0.18}s` }}
+              />
+            ))}
           </p>
         </div>
-      </div>
-
-      <div className="space-y-3 px-5 py-6">
-        {work.chat.map((line) => (
-          <p
-            key={line.text}
-            className={
-              line.from === "client"
-                ? "max-w-[85%] rounded-2xl rounded-tl-sm bg-espresso/70 px-4 py-3 text-sm leading-relaxed text-parchment/90"
-                : "ml-auto max-w-[85%] rounded-2xl rounded-tr-sm px-4 py-3 text-sm leading-relaxed text-ink"
-            }
-            style={
-              line.from === "bot" ? { background: "var(--mark)" } : undefined
-            }
-          >
-            {line.text}
-          </p>
-        ))}
-
-        {/* la linea escribiendo: es donde termina el anuncio */}
-        <p
-          className="ml-auto flex w-fit items-center gap-1.5 rounded-2xl rounded-tr-sm px-4 py-3.5"
-          style={{ background: "var(--mark)" }}
-        >
-          <span className="sr-only">{typingLabel}</span>
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              aria-hidden="true"
-              className="size-1.5 animate-pulse rounded-full bg-ink/70"
-              style={{ animationDelay: `${i * 0.18}s` }}
-            />
-          ))}
-        </p>
       </div>
     </div>
   );

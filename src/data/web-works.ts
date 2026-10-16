@@ -31,6 +31,16 @@ export type WebWork = {
   /** lo que el trabajo incluye */
   highlights: string[];
   theme: { wash: string; accent: string; mood: string };
+  /**
+   * La pantalla del trabajo, siempre a la vista.
+   *
+   * INELEC manda `X-Frame-Options: DENY` y `frame-ancestors 'none'`, asi que
+   * no se puede embeber en vivo: va la captura real del sitio dentro del marco
+   * de navegador, con su direccion de verdad y el boton para abrirlo. La
+   * imagen vive en `public/sites/` y no en `public/assets/`, que es territorio
+   * del pipeline: `npm run assets` borra de ahi todo lo que no este en su mapa.
+   */
+  screen?: { src: string; alt: string; url: string };
   /** la conversacion, para los trabajos que son una automatizacion */
   chat?: { from: "client" | "bot"; text: string }[];
   /** pie de la seccion: una aclaracion honesta sobre lo que se esta viendo */
@@ -57,6 +67,12 @@ export const webWorks: WebWork[] = [
     // Un gris frio contra el marron de la pagina: el tramo cambia de clima sin
     // meter un color que la marca no tiene.
     theme: { wash: "#121820", accent: "#c87f4a", mood: "Industrial, preciso" },
+    screen: {
+      src: "/sites/inelec.webp",
+      alt: "Portada del sitio de INELEC, con el titular sobre la reparación de transformadores y el esquema técnico de un transformador de distribución",
+      // declarada en el propio repositorio del sitio, en src/data/empresa.ts
+      url: "https://inelec.matiascolimodio.workers.dev",
+    },
   },
   {
     slug: "farmacia-gualtieri",
