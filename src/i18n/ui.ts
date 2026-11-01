@@ -50,9 +50,22 @@ const es = {
     "Cada ficha abre un caso con el problema, el proceso y el resultado. Lo conceptual está marcado como tal.",
 
   "web.eyebrow": "Web products",
-  "web.title": "Dos productos que llevé de la idea a producción",
+  "web.title": "Diseño y desarrollo de webs que venden",
   "web.intro":
+    "Tiendas en línea, sitios institucionales y automatizaciones. Abajo está cada trabajo con su pantalla; los sitios se abren en una pestaña para recorrerlos enteros.",
+  "web.demoNote":
     "Los sitios se muestran en vivo cuando el propio sitio lo permite, y el backoffice con una réplica de demostración incluida en este portfolio: sin usuario, sin contraseña y sin ninguna conexión con los sistemas en producción.",
+  "web.stackEyebrow": "Integraciones",
+  "web.stackTitle": "Cobrás y facturás desde tu sitio",
+  "web.mpBody":
+    "Cobros en línea, suscripciones y conciliación de caja contra lo que entra por el sitio.",
+  "web.arcaBody":
+    "Factura electrónica, con entorno de homologación para probar y de producción para emitir de verdad.",
+  "web.stackNote":
+    "Las dos están funcionando hoy en la tienda de BROTE, no son una promesa.",
+  "web.offerTitle": "¿Necesitás algo así para tu negocio?",
+  "web.offerBody":
+    "Diseño y desarrollo el sitio, el panel para que lo manejes sin depender de nadie, y las integraciones que haga falta.",
   "web.openReal": "Abrir sitio real",
   "web.expand": "Ampliar",
   "web.publicSite": "Public site",
@@ -175,9 +188,22 @@ const en: Partial<Record<UiKey, string>> = {
   "index.intro":
     "Each card opens a case with the problem, the process and the result. Anything conceptual is labelled as such.",
 
-  "web.title": "Two products I took from idea to production",
+  "web.title": "Design and development — websites that sell",
   "web.intro":
+    "Online shops, company sites and automations. Below is each piece of work with its screen; the sites open in a tab so you can walk through them.",
+  "web.demoNote":
     "Each site is embedded live when the site itself allows it, and the backoffice is a demo replica built into this portfolio: no user, no password and no connection to the production systems.",
+  "web.stackEyebrow": "Integrations",
+  "web.stackTitle": "Charge and invoice from your own site",
+  "web.mpBody":
+    "Online payments, subscriptions and till reconciliation against what comes in through the site.",
+  "web.arcaBody":
+    "Electronic invoicing, with a sandbox environment to test and a production one to issue for real.",
+  "web.stackNote":
+    "Both are running today in BROTE's shop — they are not a promise.",
+  "web.offerTitle": "Do you need something like this for your business?",
+  "web.offerBody":
+    "I design and build the site, the panel so you can run it without depending on anyone, and whatever integrations it needs.",
   "web.openReal": "Open the real site",
   "web.expand": "Expand",
   "web.live": "Live",
@@ -287,9 +313,22 @@ const pt: Partial<Record<UiKey, string>> = {
   "index.intro":
     "Cada cartão abre um caso com o problema, o processo e o resultado. O que é conceitual está marcado como tal.",
 
-  "web.title": "Dois produtos que levei da ideia à produção",
+  "web.title": "Design e desenvolvimento — sites que vendem",
   "web.intro":
+    "Lojas on-line, sites institucionais e automações. Abaixo está cada trabalho com sua tela; os sites abrem em uma aba para percorrê-los inteiros.",
+  "web.demoNote":
     "Os sites aparecem ao vivo quando o próprio site permite, e o backoffice é uma réplica de demonstração incluída neste portfólio: sem usuário, sem senha e sem nenhuma conexão com os sistemas em produção.",
+  "web.stackEyebrow": "Integrações",
+  "web.stackTitle": "Cobre e fature a partir do seu site",
+  "web.mpBody":
+    "Cobranças on-line, assinaturas e conciliação de caixa com o que entra pelo site.",
+  "web.arcaBody":
+    "Nota fiscal eletrônica, com ambiente de homologação para testar e de produção para emitir de verdade.",
+  "web.stackNote":
+    "As duas estão funcionando hoje na loja da BROTE — não são uma promessa.",
+  "web.offerTitle": "Precisa de algo assim para o seu negócio?",
+  "web.offerBody":
+    "Projeto e desenvolvo o site, o painel para você tocá-lo sem depender de ninguém, e as integrações que forem necessárias.",
   "web.openReal": "Abrir o site real",
   "web.expand": "Ampliar",
   "web.live": "Ao vivo",

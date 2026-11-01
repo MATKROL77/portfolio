@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useT } from "@/i18n/LocaleProvider";
+import { WebOffer } from "./WebOffer";
 import { WebShowcase } from "./WebShowcase";
 
 /**
@@ -47,6 +48,7 @@ export function WebView() {
       </header>
 
       <WebShowcase />
+      <WebOffer />
     </div>
   );
 }

@@ -121,7 +121,7 @@ export function WebShowcase() {
       ))}
 
       <p className="shell text-xs leading-relaxed text-sand/45">
-        {t("web.replicaNote")}
+        {t("web.demoNote")}
       </p>
 
       {works.map((work) => (
